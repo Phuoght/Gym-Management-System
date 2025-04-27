@@ -6,5 +6,6 @@ namespace Gym_Management_System
         {
             InitializeComponent();
         }
+
     }
 }
