@@ -36,7 +36,6 @@
             txtUser = new TextBox();
             txtPwd = new TextBox();
             btnLogin = new Button();
-            linkAdmin = new LinkLabel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -127,24 +126,11 @@
             btnLogin.Text = "Đăng nhập";
             btnLogin.UseVisualStyleBackColor = false;
             // 
-            // linkAdmin
-            // 
-            linkAdmin.AutoSize = true;
-            linkAdmin.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            linkAdmin.LinkColor = Color.Teal;
-            linkAdmin.Location = new Point(476, 469);
-            linkAdmin.Name = "linkAdmin";
-            linkAdmin.Size = new Size(102, 32);
-            linkAdmin.TabIndex = 8;
-            linkAdmin.TabStop = true;
-            linkAdmin.Text = "Admin?";
-            // 
             // frm_login
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(872, 521);
-            Controls.Add(linkAdmin);
             Controls.Add(btnLogin);
             Controls.Add(txtPwd);
             Controls.Add(txtUser);
@@ -174,6 +160,5 @@
         private TextBox txtUser;
         private TextBox txtPwd;
         private Button btnLogin;
-        private LinkLabel linkAdmin;
     }
 }
