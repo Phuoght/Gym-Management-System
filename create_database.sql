@@ -7,6 +7,7 @@ GO
 CREATE TABLE PTs (
 	PT_ID INT PRIMARY KEY IDENTITY NOT NULL,
 	PT_Name nvarchar(50) NOT NULL,
+	PT_Gen nvarchar(10) NOT NULL,
 	PT_DayOfBirth date NOT NULL,
 	PT_Phone nvarchar(10) NOT NULL,
 	PT_Experience int NOT NULL,
