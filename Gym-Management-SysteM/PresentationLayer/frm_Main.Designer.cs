@@ -42,7 +42,7 @@
             btnMemberShip = new Button();
             btnReceptionist = new Button();
             btnBill = new Button();
-            panel1 = new Panel();
+            pnMain = new Panel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -140,6 +140,7 @@
             // 
             btnPT.BackColor = Color.Lavender;
             btnPT.Cursor = Cursors.Hand;
+            btnPT.FlatStyle = FlatStyle.Popup;
             btnPT.Font = new Font("Segoe UI", 14F);
             btnPT.Location = new Point(162, 220);
             btnPT.Name = "btnPT";
@@ -152,6 +153,7 @@
             // 
             btnMember.BackColor = Color.Lavender;
             btnMember.Cursor = Cursors.Hand;
+            btnMember.FlatStyle = FlatStyle.Popup;
             btnMember.Font = new Font("Segoe UI", 14F);
             btnMember.Location = new Point(162, 328);
             btnMember.Name = "btnMember";
@@ -164,6 +166,7 @@
             // 
             btnMemberShip.BackColor = Color.Lavender;
             btnMemberShip.Cursor = Cursors.Hand;
+            btnMemberShip.FlatStyle = FlatStyle.Popup;
             btnMemberShip.Font = new Font("Segoe UI", 14F);
             btnMemberShip.Location = new Point(162, 435);
             btnMemberShip.Name = "btnMemberShip";
@@ -176,6 +179,7 @@
             // 
             btnReceptionist.BackColor = Color.Lavender;
             btnReceptionist.Cursor = Cursors.Hand;
+            btnReceptionist.FlatStyle = FlatStyle.Popup;
             btnReceptionist.Font = new Font("Segoe UI", 14F);
             btnReceptionist.Location = new Point(162, 543);
             btnReceptionist.Name = "btnReceptionist";
@@ -188,6 +192,7 @@
             // 
             btnBill.BackColor = Color.Lavender;
             btnBill.Cursor = Cursors.Hand;
+            btnBill.FlatStyle = FlatStyle.Popup;
             btnBill.Font = new Font("Segoe UI", 14F);
             btnBill.Location = new Point(162, 645);
             btnBill.Name = "btnBill";
@@ -196,12 +201,12 @@
             btnBill.Text = "Hóa Đơn";
             btnBill.UseVisualStyleBackColor = false;
             // 
-            // panel1
+            // pnMain
             // 
-            panel1.Location = new Point(388, 50);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1592, 850);
-            panel1.TabIndex = 19;
+            pnMain.Location = new Point(388, 50);
+            pnMain.Name = "pnMain";
+            pnMain.Size = new Size(1592, 850);
+            pnMain.TabIndex = 19;
             // 
             // frm_Main
             // 
@@ -209,7 +214,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(241, 241, 250);
             ClientSize = new Size(1924, 1050);
-            Controls.Add(panel1);
+            Controls.Add(pnMain);
             Controls.Add(btnBill);
             Controls.Add(btnReceptionist);
             Controls.Add(btnMemberShip);
@@ -253,6 +258,6 @@
         private Button btnMemberShip;
         private Button btnReceptionist;
         private Button btnBill;
-        private Panel panel1;
+        private Panel pnMain;
     }
 }

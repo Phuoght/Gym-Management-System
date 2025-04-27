@@ -10,8 +10,7 @@ CREATE TABLE Coachs (
 	Coach_DayOfBirth date NOT NULL,
 	Coach_Phone nvarchar(10) NOT NULL,
 	Coach_Experience int NOT NULL,
-	Coach_Address nvarchar(150) NOT NULL,
-	Coach_Pass nvarchar(50) NOT NULL
+	Coach_Address nvarchar(150) NOT NULL
 )
 GO
 CREATE TABLE MemberShips(
