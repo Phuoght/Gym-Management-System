@@ -38,12 +38,12 @@ CREATE TABLE Members(
 	Member_DayOfBirth date NOT NULL,
 	Member_Date date NOT NULL,
 	Member_Membership int NOT NULL,
-	Member_Coach int NOT NULL,
+	Member_PT int NOT NULL,
 	Member_Phone nvarchar(10) NOT NULL,
 	Member_Timing nvarchar(50) NOT NULL,
 	Member_Status nvarchar(20) NOT NULL,
 	FOREIGN KEY (Member_Membership) REFERENCES dbo.Memberships(MemberShip_ID),
-    FOREIGN KEY (Member_Coach) REFERENCES Coachs(Coach_ID)
+    FOREIGN KEY (Member_PT) REFERENCES PTs(PT_ID)
 )
 GO
 CREATE TABLE Bills(
