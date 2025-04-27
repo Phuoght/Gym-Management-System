@@ -32,16 +32,17 @@
             label2 = new Label();
             label3 = new Label();
             pictureBox1 = new PictureBox();
-            label4 = new Label();
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
-            label5 = new Label();
             pictureBox4 = new PictureBox();
-            label6 = new Label();
             pictureBox5 = new PictureBox();
-            label7 = new Label();
             pictureBox6 = new PictureBox();
-            label8 = new Label();
+            btnPT = new Button();
+            btnMember = new Button();
+            btnMemberShip = new Button();
+            btnReceptionist = new Button();
+            btnBill = new Button();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -85,17 +86,6 @@
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
             // 
-            // label4
-            // 
-            label4.BackColor = Color.Lavender;
-            label4.Font = new Font("Segoe UI", 14F);
-            label4.Location = new Point(152, 218);
-            label4.Name = "label4";
-            label4.Size = new Size(240, 57);
-            label4.TabIndex = 4;
-            label4.Text = "PT";
-            label4.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.coach;
@@ -116,73 +106,102 @@
             pictureBox3.TabIndex = 7;
             pictureBox3.TabStop = false;
             // 
-            // label5
-            // 
-            label5.BackColor = Color.Lavender;
-            label5.Font = new Font("Segoe UI", 14F);
-            label5.Location = new Point(152, 326);
-            label5.Name = "label5";
-            label5.Size = new Size(240, 57);
-            label5.TabIndex = 6;
-            label5.Text = "Thành Viên";
-            label5.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // pictureBox4
             // 
+            pictureBox4.Image = Properties.Resources.membership;
             pictureBox4.Location = new Point(86, 433);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(70, 57);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 9;
             pictureBox4.TabStop = false;
             // 
-            // label6
-            // 
-            label6.BackColor = Color.Lavender;
-            label6.Font = new Font("Segoe UI", 14F);
-            label6.Location = new Point(162, 433);
-            label6.Name = "label6";
-            label6.Size = new Size(230, 57);
-            label6.TabIndex = 8;
-            label6.Text = "Đăng Kí Gói Tập";
-            label6.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // pictureBox5
             // 
+            pictureBox5.Image = Properties.Resources.receptionist_desk;
             pictureBox5.Location = new Point(86, 541);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(70, 57);
+            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox5.TabIndex = 11;
             pictureBox5.TabStop = false;
             // 
-            // label7
-            // 
-            label7.BackColor = Color.Lavender;
-            label7.Font = new Font("Segoe UI", 14F);
-            label7.Location = new Point(152, 541);
-            label7.Name = "label7";
-            label7.Size = new Size(240, 57);
-            label7.TabIndex = 10;
-            label7.Text = "Lễ Tân";
-            label7.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // pictureBox6
             // 
+            pictureBox6.Image = Properties.Resources.bill;
             pictureBox6.Location = new Point(86, 643);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(70, 57);
+            pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox6.TabIndex = 13;
             pictureBox6.TabStop = false;
             // 
-            // label8
+            // btnPT
             // 
-            label8.BackColor = Color.Lavender;
-            label8.Font = new Font("Segoe UI", 14F);
-            label8.Location = new Point(152, 643);
-            label8.Name = "label8";
-            label8.Size = new Size(240, 57);
-            label8.TabIndex = 12;
-            label8.Text = "Hóa Đơn";
-            label8.TextAlign = ContentAlignment.MiddleCenter;
+            btnPT.BackColor = Color.Lavender;
+            btnPT.Cursor = Cursors.Hand;
+            btnPT.Font = new Font("Segoe UI", 14F);
+            btnPT.Location = new Point(162, 220);
+            btnPT.Name = "btnPT";
+            btnPT.Size = new Size(230, 55);
+            btnPT.TabIndex = 14;
+            btnPT.Text = "PT";
+            btnPT.UseVisualStyleBackColor = false;
+            // 
+            // btnMember
+            // 
+            btnMember.BackColor = Color.Lavender;
+            btnMember.Cursor = Cursors.Hand;
+            btnMember.Font = new Font("Segoe UI", 14F);
+            btnMember.Location = new Point(162, 328);
+            btnMember.Name = "btnMember";
+            btnMember.Size = new Size(230, 55);
+            btnMember.TabIndex = 15;
+            btnMember.Text = "Thành Viên";
+            btnMember.UseVisualStyleBackColor = false;
+            // 
+            // btnMemberShip
+            // 
+            btnMemberShip.BackColor = Color.Lavender;
+            btnMemberShip.Cursor = Cursors.Hand;
+            btnMemberShip.Font = new Font("Segoe UI", 14F);
+            btnMemberShip.Location = new Point(162, 435);
+            btnMemberShip.Name = "btnMemberShip";
+            btnMemberShip.Size = new Size(230, 55);
+            btnMemberShip.TabIndex = 16;
+            btnMemberShip.Text = "Đăng Kí Gói Tập";
+            btnMemberShip.UseVisualStyleBackColor = false;
+            // 
+            // btnReceptionist
+            // 
+            btnReceptionist.BackColor = Color.Lavender;
+            btnReceptionist.Cursor = Cursors.Hand;
+            btnReceptionist.Font = new Font("Segoe UI", 14F);
+            btnReceptionist.Location = new Point(162, 543);
+            btnReceptionist.Name = "btnReceptionist";
+            btnReceptionist.Size = new Size(230, 55);
+            btnReceptionist.TabIndex = 17;
+            btnReceptionist.Text = "Lễ Tân";
+            btnReceptionist.UseVisualStyleBackColor = false;
+            // 
+            // btnBill
+            // 
+            btnBill.BackColor = Color.Lavender;
+            btnBill.Cursor = Cursors.Hand;
+            btnBill.Font = new Font("Segoe UI", 14F);
+            btnBill.Location = new Point(162, 645);
+            btnBill.Name = "btnBill";
+            btnBill.Size = new Size(230, 55);
+            btnBill.TabIndex = 18;
+            btnBill.Text = "Hóa Đơn";
+            btnBill.UseVisualStyleBackColor = false;
+            // 
+            // panel1
+            // 
+            panel1.Location = new Point(388, 50);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1592, 850);
+            panel1.TabIndex = 19;
             // 
             // frm_Main
             // 
@@ -190,16 +209,17 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(241, 241, 250);
             ClientSize = new Size(1924, 1050);
+            Controls.Add(panel1);
+            Controls.Add(btnBill);
+            Controls.Add(btnReceptionist);
+            Controls.Add(btnMemberShip);
+            Controls.Add(btnMember);
+            Controls.Add(btnPT);
             Controls.Add(pictureBox6);
-            Controls.Add(label8);
             Controls.Add(pictureBox5);
-            Controls.Add(label7);
             Controls.Add(pictureBox4);
-            Controls.Add(label6);
             Controls.Add(pictureBox3);
-            Controls.Add(label5);
             Controls.Add(pictureBox2);
-            Controls.Add(label4);
             Controls.Add(pictureBox1);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -207,7 +227,7 @@
             MaximizeBox = false;
             Name = "frm_Main";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Gym Management System";
+            Text = "Hệ thống quản lí phòng gym";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
@@ -223,15 +243,16 @@
         private Label label2;
         private Label label3;
         private PictureBox pictureBox1;
-        private Label label4;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
-        private Label label5;
         private PictureBox pictureBox4;
-        private Label label6;
         private PictureBox pictureBox5;
-        private Label label7;
         private PictureBox pictureBox6;
-        private Label label8;
+        private Button btnPT;
+        private Button btnMember;
+        private Button btnMemberShip;
+        private Button btnReceptionist;
+        private Button btnBill;
+        private Panel panel1;
     }
 }
