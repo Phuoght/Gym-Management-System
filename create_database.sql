@@ -4,13 +4,13 @@ CREATE DATABASE Gym_db
 GO
 USE Gym_db
 GO
-CREATE TABLE Coachs (
-	Coach_ID INT PRIMARY KEY IDENTITY NOT NULL,
-	Coach_Name nvarchar(50) NOT NULL,
-	Coach_DayOfBirth date NOT NULL,
-	Coach_Phone nvarchar(10) NOT NULL,
-	Coach_Experience int NOT NULL,
-	Coach_Address nvarchar(150) NOT NULL
+CREATE TABLE PTs (
+	PT_ID INT PRIMARY KEY IDENTITY NOT NULL,
+	PT_Name nvarchar(50) NOT NULL,
+	PT_DayOfBirth date NOT NULL,
+	PT_Phone nvarchar(10) NOT NULL,
+	PT_Experience int NOT NULL,
+	PT_Address nvarchar(150) NOT NULL
 )
 GO
 CREATE TABLE MemberShips(

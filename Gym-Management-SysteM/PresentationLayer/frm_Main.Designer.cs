@@ -62,9 +62,9 @@
             // label2
             // 
             label2.BackColor = Color.Lavender;
-            label2.Location = new Point(67, 100);
+            label2.Location = new Point(67, 50);
             label2.Name = "label2";
-            label2.Size = new Size(325, 800);
+            label2.Size = new Size(325, 850);
             label2.TabIndex = 1;
             // 
             // label3
@@ -99,7 +99,7 @@
             // pictureBox3
             // 
             pictureBox3.Image = Properties.Resources.sportman;
-            pictureBox3.Location = new Point(86, 326);
+            pictureBox3.Location = new Point(86, 300);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(70, 57);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
@@ -109,7 +109,7 @@
             // pictureBox4
             // 
             pictureBox4.Image = Properties.Resources.membership;
-            pictureBox4.Location = new Point(86, 433);
+            pictureBox4.Location = new Point(86, 382);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(70, 57);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
@@ -119,7 +119,7 @@
             // pictureBox5
             // 
             pictureBox5.Image = Properties.Resources.receptionist_desk;
-            pictureBox5.Location = new Point(86, 541);
+            pictureBox5.Location = new Point(86, 458);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(70, 57);
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
@@ -129,7 +129,7 @@
             // pictureBox6
             // 
             pictureBox6.Image = Properties.Resources.bill;
-            pictureBox6.Location = new Point(86, 643);
+            pictureBox6.Location = new Point(86, 537);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(70, 57);
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
@@ -155,7 +155,7 @@
             btnMember.Cursor = Cursors.Hand;
             btnMember.FlatStyle = FlatStyle.Popup;
             btnMember.Font = new Font("Segoe UI", 14F);
-            btnMember.Location = new Point(162, 328);
+            btnMember.Location = new Point(162, 302);
             btnMember.Name = "btnMember";
             btnMember.Size = new Size(230, 55);
             btnMember.TabIndex = 15;
@@ -168,7 +168,7 @@
             btnMemberShip.Cursor = Cursors.Hand;
             btnMemberShip.FlatStyle = FlatStyle.Popup;
             btnMemberShip.Font = new Font("Segoe UI", 14F);
-            btnMemberShip.Location = new Point(162, 435);
+            btnMemberShip.Location = new Point(162, 384);
             btnMemberShip.Name = "btnMemberShip";
             btnMemberShip.Size = new Size(230, 55);
             btnMemberShip.TabIndex = 16;
@@ -181,7 +181,7 @@
             btnReceptionist.Cursor = Cursors.Hand;
             btnReceptionist.FlatStyle = FlatStyle.Popup;
             btnReceptionist.Font = new Font("Segoe UI", 14F);
-            btnReceptionist.Location = new Point(162, 543);
+            btnReceptionist.Location = new Point(162, 460);
             btnReceptionist.Name = "btnReceptionist";
             btnReceptionist.Size = new Size(230, 55);
             btnReceptionist.TabIndex = 17;
@@ -194,7 +194,7 @@
             btnBill.Cursor = Cursors.Hand;
             btnBill.FlatStyle = FlatStyle.Popup;
             btnBill.Font = new Font("Segoe UI", 14F);
-            btnBill.Location = new Point(162, 645);
+            btnBill.Location = new Point(162, 539);
             btnBill.Name = "btnBill";
             btnBill.Size = new Size(230, 55);
             btnBill.TabIndex = 18;
@@ -203,9 +203,9 @@
             // 
             // pnMain
             // 
-            pnMain.Location = new Point(388, 50);
+            pnMain.Location = new Point(390, -33);
             pnMain.Name = "pnMain";
-            pnMain.Size = new Size(1592, 850);
+            pnMain.Size = new Size(1590, 933);
             pnMain.TabIndex = 19;
             // 
             // frm_Main
