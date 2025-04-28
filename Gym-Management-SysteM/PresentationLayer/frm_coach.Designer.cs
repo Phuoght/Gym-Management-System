@@ -279,7 +279,6 @@
         private Label label3;
         private TextBox txtPhone;
         private Label label4;
-        private TextBox txtEx;
         private Label label5;
         private TextBox txtAddress;
         private Label label7;
