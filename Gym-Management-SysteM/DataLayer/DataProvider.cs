@@ -36,7 +36,7 @@ namespace DataLayer
             }
         }
 
-        public object MyExecuteScaler(string sql, CommandType type)
+        public object MyExcuteScalar(string sql, CommandType type)
         {
             try
             {

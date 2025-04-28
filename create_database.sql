@@ -29,7 +29,8 @@ CREATE TABLE Receptionists(
 	Receptionist_DayOfBirth date NOT NULL,
 	Receptionist_Address nvarchar(150) NOT NULL,
 	Receptionist_Phone nvarchar(10) NOT NULL,
-	Receptionist_Pass nvarchar(50) NOT NULL
+	Receptionist_Pass nvarchar(50) NOT NULL,
+	Role nvarchar(30) NOT NULL
 )
 GO
 CREATE TABLE Members(

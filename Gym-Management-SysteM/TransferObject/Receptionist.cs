@@ -8,7 +8,7 @@ using System.Xml.Linq;
 
 namespace TransferObject
 {
-    class Receptionist
+    public class Receptionist
     {
         public string Name { get; set; }
         public string Dob { get; set; }
@@ -17,6 +17,7 @@ namespace TransferObject
         public string PhoneNumber { get; set; }
         public string Gender { get; set; }
         public string Password { get; set; }
+        public string Role { get; set; }
         public Receptionist(string name, string dob, string phoneNumber, string experience, string address, string gender, string password)
         {
             this.Name = name;
@@ -26,6 +27,7 @@ namespace TransferObject
             this.Address = address;
             this.Gender = gender;
             this.Password = password;
+            this.Role = "Receptionist";
         }
     }
 }
