@@ -9,7 +9,7 @@ using TransferObject;
 
 namespace DataLayer
 {
-    class LoginDL:DataProvider
+    public class LoginDL:DataProvider
     {
         public bool checkLogin(Receptionist receptionist)
         {

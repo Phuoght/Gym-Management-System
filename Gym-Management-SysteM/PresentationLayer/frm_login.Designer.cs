@@ -33,7 +33,7 @@
             pictureBox1 = new PictureBox();
             label3 = new Label();
             label4 = new Label();
-            txtUser = new TextBox();
+            txtUserName = new TextBox();
             txtPwd = new TextBox();
             btnLogin = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -93,14 +93,14 @@
             label4.TabIndex = 4;
             label4.Text = "Mật khẩu";
             // 
-            // txtUser
+            // txtUserName
             // 
-            txtUser.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtUser.Location = new Point(324, 264);
-            txtUser.Name = "txtUser";
-            txtUser.PlaceholderText = "Tên tài khoản";
-            txtUser.Size = new Size(336, 39);
-            txtUser.TabIndex = 5;
+            txtUserName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtUserName.Location = new Point(324, 264);
+            txtUserName.Name = "txtUserName";
+            txtUserName.PlaceholderText = "Tên tài khoản";
+            txtUserName.Size = new Size(336, 39);
+            txtUserName.TabIndex = 5;
             // 
             // txtPwd
             // 
@@ -125,6 +125,7 @@
             btnLogin.TabIndex = 7;
             btnLogin.Text = "Đăng nhập";
             btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += btnLogin_Click;
             // 
             // frm_login
             // 
@@ -133,7 +134,7 @@
             ClientSize = new Size(872, 521);
             Controls.Add(btnLogin);
             Controls.Add(txtPwd);
-            Controls.Add(txtUser);
+            Controls.Add(txtUserName);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(pictureBox1);
@@ -145,6 +146,8 @@
             Name = "frm_login";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Đăng nhập";
+            Shown += frm_login_Shown;
+            KeyDown += frm_login_KeyDown;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -157,7 +160,7 @@
         private PictureBox pictureBox1;
         private Label label3;
         private Label label4;
-        private TextBox txtUser;
+        private TextBox txtUserName;
         private TextBox txtPwd;
         private Button btnLogin;
     }

@@ -138,23 +138,24 @@
             // 
             // btnPT
             // 
-            btnPT.BackColor = Color.Lavender;
+            btnPT.BackColor = Color.Red;
             btnPT.Cursor = Cursors.Hand;
-            btnPT.FlatStyle = FlatStyle.Popup;
             btnPT.Font = new Font("Segoe UI", 14F);
+            btnPT.ForeColor = Color.Yellow;
             btnPT.Location = new Point(162, 220);
             btnPT.Name = "btnPT";
             btnPT.Size = new Size(230, 55);
             btnPT.TabIndex = 14;
             btnPT.Text = "PT";
             btnPT.UseVisualStyleBackColor = false;
+            btnPT.Click += btnPT_Click;
             // 
             // btnMember
             // 
-            btnMember.BackColor = Color.Lavender;
+            btnMember.BackColor = Color.Red;
             btnMember.Cursor = Cursors.Hand;
-            btnMember.FlatStyle = FlatStyle.Popup;
             btnMember.Font = new Font("Segoe UI", 14F);
+            btnMember.ForeColor = Color.Yellow;
             btnMember.Location = new Point(162, 302);
             btnMember.Name = "btnMember";
             btnMember.Size = new Size(230, 55);
@@ -164,10 +165,10 @@
             // 
             // btnMemberShip
             // 
-            btnMemberShip.BackColor = Color.Lavender;
+            btnMemberShip.BackColor = Color.Red;
             btnMemberShip.Cursor = Cursors.Hand;
-            btnMemberShip.FlatStyle = FlatStyle.Popup;
             btnMemberShip.Font = new Font("Segoe UI", 14F);
+            btnMemberShip.ForeColor = Color.Yellow;
             btnMemberShip.Location = new Point(162, 384);
             btnMemberShip.Name = "btnMemberShip";
             btnMemberShip.Size = new Size(230, 55);
@@ -177,10 +178,10 @@
             // 
             // btnReceptionist
             // 
-            btnReceptionist.BackColor = Color.Lavender;
+            btnReceptionist.BackColor = Color.Red;
             btnReceptionist.Cursor = Cursors.Hand;
-            btnReceptionist.FlatStyle = FlatStyle.Popup;
             btnReceptionist.Font = new Font("Segoe UI", 14F);
+            btnReceptionist.ForeColor = Color.Yellow;
             btnReceptionist.Location = new Point(162, 460);
             btnReceptionist.Name = "btnReceptionist";
             btnReceptionist.Size = new Size(230, 55);
@@ -190,10 +191,10 @@
             // 
             // btnBill
             // 
-            btnBill.BackColor = Color.Lavender;
+            btnBill.BackColor = Color.Red;
             btnBill.Cursor = Cursors.Hand;
-            btnBill.FlatStyle = FlatStyle.Popup;
             btnBill.Font = new Font("Segoe UI", 14F);
+            btnBill.ForeColor = Color.Yellow;
             btnBill.Location = new Point(162, 539);
             btnBill.Name = "btnBill";
             btnBill.Size = new Size(230, 55);
@@ -233,6 +234,7 @@
             Name = "frm_Main";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Hệ thống quản lí phòng gym";
+            Load += frm_Main_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
