@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             label1 = new Label();
             txtName = new TextBox();
             dtpDateOfBirth = new DateTimePicker();
@@ -45,13 +48,13 @@
             btnDel = new Button();
             label8 = new Label();
             dgvPT = new DataGridView();
-            cbExperience = new ComboBox();
             namePT = new DataGridViewTextBoxColumn();
             Gen = new DataGridViewTextBoxColumn();
             DOB = new DataGridViewTextBoxColumn();
             Phone = new DataGridViewTextBoxColumn();
             Experience = new DataGridViewTextBoxColumn();
             Address = new DataGridViewTextBoxColumn();
+            cbExperience = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvPT).BeginInit();
             SuspendLayout();
             // 
@@ -96,6 +99,7 @@
             btnSave.TabIndex = 3;
             btnSave.Text = "Lưu";
             btnSave.UseVisualStyleBackColor = false;
+            btnSave.Click += btnSave_Click;
             // 
             // label2
             // 
@@ -225,24 +229,30 @@
             // dgvPT
             // 
             dgvPT.BackgroundColor = Color.IndianRed;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.Red;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.Yellow;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvPT.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvPT.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPT.Columns.AddRange(new DataGridViewColumn[] { namePT, Gen, DOB, Phone, Experience, Address });
             dgvPT.Cursor = Cursors.Hand;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.LightGray;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgvPT.DefaultCellStyle = dataGridViewCellStyle3;
             dgvPT.Location = new Point(30, 446);
             dgvPT.Name = "dgvPT";
             dgvPT.RowHeadersWidth = 62;
-            dgvPT.Size = new Size(1548, 321);
+            dgvPT.Size = new Size(1489, 321);
             dgvPT.TabIndex = 20;
-            // 
-            // cbExperience
-            // 
-            cbExperience.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbExperience.FormattingEnabled = true;
-            cbExperience.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" });
-            cbExperience.Location = new Point(228, 269);
-            cbExperience.Name = "cbExperience";
-            cbExperience.Size = new Size(181, 40);
-            cbExperience.TabIndex = 21;
             // 
             // namePT
             // 
@@ -250,7 +260,7 @@
             namePT.HeaderText = "Họ Tên";
             namePT.MinimumWidth = 8;
             namePT.Name = "namePT";
-            namePT.Width = 300;
+            namePT.Width = 250;
             // 
             // Gen
             // 
@@ -258,15 +268,18 @@
             Gen.HeaderText = "Giới Tính";
             Gen.MinimumWidth = 8;
             Gen.Name = "Gen";
-            Gen.Width = 150;
+            Gen.Width = 140;
             // 
             // DOB
             // 
             DOB.DataPropertyName = "Dob";
+            dataGridViewCellStyle2.Format = "dd/MM/yyyy";
+            dataGridViewCellStyle2.NullValue = null;
+            DOB.DefaultCellStyle = dataGridViewCellStyle2;
             DOB.HeaderText = "Ngày Sinh";
             DOB.MinimumWidth = 8;
             DOB.Name = "DOB";
-            DOB.Width = 200;
+            DOB.Width = 180;
             // 
             // Phone
             // 
@@ -282,7 +295,7 @@
             Experience.HeaderText = "Kinh Nghiệm";
             Experience.MinimumWidth = 8;
             Experience.Name = "Experience";
-            Experience.Width = 150;
+            Experience.Width = 190;
             // 
             // Address
             // 
@@ -290,7 +303,17 @@
             Address.HeaderText = "Địa Chỉ";
             Address.MinimumWidth = 8;
             Address.Name = "Address";
-            Address.Width = 484;
+            Address.Width = 464;
+            // 
+            // cbExperience
+            // 
+            cbExperience.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbExperience.FormattingEnabled = true;
+            cbExperience.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" });
+            cbExperience.Location = new Point(228, 269);
+            cbExperience.Name = "cbExperience";
+            cbExperience.Size = new Size(181, 40);
+            cbExperience.TabIndex = 21;
             // 
             // frm_coach
             // 

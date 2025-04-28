@@ -67,5 +67,31 @@ namespace DataLayer
                 throw new Exception("Lỗi thực thi câu lệnh SQL: " + ex.Message);
             }
         }
+
+        public int MyExcuteNonQuerry(string sql, CommandType type, List<SqlParameter> parameters = null)
+        {
+            cmd = new SqlCommand(sql, cnn);
+            cmd.CommandType = type;
+            if (parameters != null) //store
+            {
+                foreach (SqlParameter parameter in parameters)
+                {
+                    cmd.Parameters.Add(parameter);
+                }
+            }
+            try
+            {
+                Connection();
+                return cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                Disconnection();
+            }
+        }
     }
 }

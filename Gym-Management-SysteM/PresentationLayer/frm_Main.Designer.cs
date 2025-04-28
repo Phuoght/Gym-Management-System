@@ -43,6 +43,7 @@
             btnReceptionist = new Button();
             btnBill = new Button();
             pnMain = new Panel();
+            btnLogout = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -53,10 +54,10 @@
             // 
             // label1
             // 
-            label1.BackColor = Color.Red;
+            label1.BackColor = Color.Crimson;
             label1.Location = new Point(12, 9);
             label1.Name = "label1";
-            label1.Size = new Size(204, 1032);
+            label1.Size = new Size(231, 1032);
             label1.TabIndex = 0;
             // 
             // label2
@@ -77,7 +78,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.BackColor = Color.Red;
+            pictureBox1.BackColor = Color.Crimson;
             pictureBox1.Image = Properties.Resources.weight;
             pictureBox1.Location = new Point(67, 50);
             pictureBox1.Name = "pictureBox1";
@@ -119,7 +120,7 @@
             // pictureBox5
             // 
             pictureBox5.Image = Properties.Resources.receptionist_desk;
-            pictureBox5.Location = new Point(86, 458);
+            pictureBox5.Location = new Point(86, 548);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(70, 57);
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
@@ -129,7 +130,7 @@
             // pictureBox6
             // 
             pictureBox6.Image = Properties.Resources.bill;
-            pictureBox6.Location = new Point(86, 537);
+            pictureBox6.Location = new Point(86, 463);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(70, 57);
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
@@ -138,7 +139,7 @@
             // 
             // btnPT
             // 
-            btnPT.BackColor = Color.Red;
+            btnPT.BackColor = Color.Crimson;
             btnPT.Cursor = Cursors.Hand;
             btnPT.Font = new Font("Segoe UI", 14F);
             btnPT.ForeColor = Color.Yellow;
@@ -152,7 +153,7 @@
             // 
             // btnMember
             // 
-            btnMember.BackColor = Color.Red;
+            btnMember.BackColor = Color.Crimson;
             btnMember.Cursor = Cursors.Hand;
             btnMember.Font = new Font("Segoe UI", 14F);
             btnMember.ForeColor = Color.Yellow;
@@ -165,7 +166,7 @@
             // 
             // btnMemberShip
             // 
-            btnMemberShip.BackColor = Color.Red;
+            btnMemberShip.BackColor = Color.Crimson;
             btnMemberShip.Cursor = Cursors.Hand;
             btnMemberShip.Font = new Font("Segoe UI", 14F);
             btnMemberShip.ForeColor = Color.Yellow;
@@ -178,11 +179,11 @@
             // 
             // btnReceptionist
             // 
-            btnReceptionist.BackColor = Color.Red;
+            btnReceptionist.BackColor = Color.Crimson;
             btnReceptionist.Cursor = Cursors.Hand;
             btnReceptionist.Font = new Font("Segoe UI", 14F);
             btnReceptionist.ForeColor = Color.Yellow;
-            btnReceptionist.Location = new Point(162, 460);
+            btnReceptionist.Location = new Point(162, 550);
             btnReceptionist.Name = "btnReceptionist";
             btnReceptionist.Size = new Size(230, 55);
             btnReceptionist.TabIndex = 17;
@@ -191,11 +192,11 @@
             // 
             // btnBill
             // 
-            btnBill.BackColor = Color.Red;
+            btnBill.BackColor = Color.Crimson;
             btnBill.Cursor = Cursors.Hand;
             btnBill.Font = new Font("Segoe UI", 14F);
             btnBill.ForeColor = Color.Yellow;
-            btnBill.Location = new Point(162, 539);
+            btnBill.Location = new Point(162, 465);
             btnBill.Name = "btnBill";
             btnBill.Size = new Size(230, 55);
             btnBill.TabIndex = 18;
@@ -209,12 +210,28 @@
             pnMain.Size = new Size(1590, 850);
             pnMain.TabIndex = 19;
             // 
+            // btnLogout
+            // 
+            btnLogout.BackColor = Color.Crimson;
+            btnLogout.Cursor = Cursors.Hand;
+            btnLogout.FlatStyle = FlatStyle.Flat;
+            btnLogout.Font = new Font("Segoe UI Black", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLogout.ForeColor = Color.Yellow;
+            btnLogout.Location = new Point(42, 912);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(176, 55);
+            btnLogout.TabIndex = 20;
+            btnLogout.Text = "Đăng Xuất";
+            btnLogout.UseVisualStyleBackColor = false;
+            btnLogout.Click += btnLogout_Click;
+            // 
             // frm_Main
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(241, 241, 250);
             ClientSize = new Size(1924, 1050);
+            Controls.Add(btnLogout);
             Controls.Add(pnMain);
             Controls.Add(btnBill);
             Controls.Add(btnReceptionist);
@@ -230,6 +247,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            Cursor = Cursors.Hand;
             MaximizeBox = false;
             Name = "frm_Main";
             StartPosition = FormStartPosition.CenterScreen;
@@ -261,5 +279,6 @@
         private Button btnReceptionist;
         private Button btnBill;
         private Panel pnMain;
+        private Button btnLogout;
     }
 }

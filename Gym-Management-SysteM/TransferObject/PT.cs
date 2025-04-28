@@ -14,7 +14,7 @@ namespace TransferObject
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
         public string Gender { get; set; }
-        public PT(string name, string dob, string phoneNumber,string experience, string address, string gender)
+        public PT(string name, string gender, string dob,string phoneNumber, string experience, string address)
         {
             this.Name = name;
             this.Dob = dob;

@@ -27,5 +27,17 @@ namespace BusinessLayer
                 throw new Exception("Lỗi lấy danh sách PTs: " + ex.Message);
             }
         }
+
+        public void AddPT(PT pt)
+        {
+            try
+            {
+                ptDL.Add(pt);
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Lỗi thêm PT: " + ex.Message);
+            }
+        }
     }
 }

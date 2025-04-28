@@ -9,7 +9,7 @@ using TransferObject;
 
 namespace DataLayer
 {
-    public class ptDL:DataProvider
+    public class ptDL : DataProvider
     {
         public List<PT> GetPTs()
         {
@@ -43,6 +43,20 @@ namespace DataLayer
             finally
             {
                 Disconnection();
+            }
+        }
+
+        public int Add(PT pt)
+        {
+            string sql = "INSERT INTO PTs(PT_Name, PT_Gen, PT_DayOfBirth, PT_Phone, PT_Experience, PT_Address) VALUES" +
+                " ( '" + pt.Name + "',  '" + pt.Gender + "','" + pt.Dob + "', '" + pt.PhoneNumber + "', '" + pt.Experience + "', '" + pt.Address + "')";
+            try
+            {
+                return MyExcuteNonQuerry(sql, CommandType.Text);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
             }
         }
     }
