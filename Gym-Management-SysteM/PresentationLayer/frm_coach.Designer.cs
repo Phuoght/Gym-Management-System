@@ -84,7 +84,7 @@
             btnSave.FlatStyle = FlatStyle.Popup;
             btnSave.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSave.ForeColor = SystemColors.ButtonFace;
-            btnSave.Location = new Point(748, 345);
+            btnSave.Location = new Point(760, 331);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(148, 53);
             btnSave.TabIndex = 3;
@@ -184,7 +184,7 @@
             btnEdit.FlatStyle = FlatStyle.Popup;
             btnEdit.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEdit.ForeColor = SystemColors.ButtonFace;
-            btnEdit.Location = new Point(595, 849);
+            btnEdit.Location = new Point(606, 785);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(148, 53);
             btnEdit.TabIndex = 17;
@@ -197,7 +197,7 @@
             btnDel.FlatStyle = FlatStyle.Popup;
             btnDel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDel.ForeColor = SystemColors.ButtonFace;
-            btnDel.Location = new Point(906, 849);
+            btnDel.Location = new Point(901, 785);
             btnDel.Name = "btnDel";
             btnDel.Size = new Size(148, 53);
             btnDel.TabIndex = 18;
@@ -209,7 +209,7 @@
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.Red;
-            label8.Location = new Point(726, 433);
+            label8.Location = new Point(726, 398);
             label8.Name = "label8";
             label8.Size = new Size(221, 45);
             label8.TabIndex = 19;
@@ -219,7 +219,7 @@
             // 
             dgvPT.BackgroundColor = SystemColors.Control;
             dgvPT.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPT.Location = new Point(21, 502);
+            dgvPT.Location = new Point(30, 446);
             dgvPT.Name = "dgvPT";
             dgvPT.RowHeadersWidth = 62;
             dgvPT.Size = new Size(1548, 321);
@@ -240,7 +240,7 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            ClientSize = new Size(1590, 933);
+            ClientSize = new Size(1590, 850);
             Controls.Add(cbExperience);
             Controls.Add(dgvPT);
             Controls.Add(label8);

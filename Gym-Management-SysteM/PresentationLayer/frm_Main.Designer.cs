@@ -203,9 +203,9 @@
             // 
             // pnMain
             // 
-            pnMain.Location = new Point(390, -33);
+            pnMain.Location = new Point(390, 50);
             pnMain.Name = "pnMain";
-            pnMain.Size = new Size(1590, 933);
+            pnMain.Size = new Size(1590, 850);
             pnMain.TabIndex = 19;
             // 
             // frm_Main

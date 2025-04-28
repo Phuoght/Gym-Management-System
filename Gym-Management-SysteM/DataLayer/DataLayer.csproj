@@ -45,5 +45,11 @@
     <Compile Include="LoginDL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TransferObject\TransferObject.csproj">
+      <Project>{04118244-c48e-45ed-8f5b-02cbab0bfabc}</Project>
+      <Name>TransferObject</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
