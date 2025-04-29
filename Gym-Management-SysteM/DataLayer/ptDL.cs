@@ -14,7 +14,8 @@ namespace DataLayer
         public List<PT> GetPTs()
         {
             string sql = "SELECT PT_Name,PT_Gen,PT_DayOfBirth,PT_Phone,PT_Experience,PT_Address FROM PTs";
-            string name, gender, dob, phone, experience, address;
+            string name, gender, phone, experience, address;
+            DateTime dob;
             List<PT> PTs = new List<PT>();
             try
             {
@@ -25,7 +26,7 @@ namespace DataLayer
                     {
                         name = reader["PT_Name"].ToString();
                         gender = reader["PT_Gen"].ToString();
-                        dob = reader["PT_DayOfBirth"].ToString();
+                        dob = (DateTime)reader["PT_DayOfBirth"];
                         phone = reader["PT_Phone"].ToString();
                         experience = reader["PT_Experience"].ToString();
                         address = reader["PT_Address"].ToString();
@@ -48,11 +49,21 @@ namespace DataLayer
 
         public int Add(PT pt)
         {
-            string sql = "INSERT INTO PTs(PT_Name, PT_Gen, PT_DayOfBirth, PT_Phone, PT_Experience, PT_Address) VALUES" +
-                " ( '" + pt.Name + "',  '" + pt.Gender + "','" + pt.Dob + "', '" + pt.PhoneNumber + "', '" + pt.Experience + "', '" + pt.Address + "')";
+            string sql = "usp_AddPT"; // Tên thủ tục đã tạo ở trên
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@Name", pt.Name),
+                new SqlParameter("@Gender", pt.Gender),
+                new SqlParameter("@Dob", pt.Dob),
+                new SqlParameter("@Phone", pt.PhoneNumber),
+                new SqlParameter("@Experience", pt.Experience),
+                new SqlParameter("@Address", pt.Address)
+            };
+
             try
             {
-                return MyExcuteNonQuerry(sql, CommandType.Text);
+                // Gọi lại hàm MyExcuteNonQuerry bạn đã có
+                return MyExcuteNonQuerry(sql, CommandType.StoredProcedure, parameters);
             }
             catch (SqlException ex)
             {

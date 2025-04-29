@@ -243,12 +243,13 @@
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = Color.LightGray;
             dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlDarkDark;
             dataGridViewCellStyle3.SelectionBackColor = SystemColors.GradientActiveCaption;
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dgvPT.DefaultCellStyle = dataGridViewCellStyle3;
             dgvPT.Location = new Point(30, 446);
+            dgvPT.MultiSelect = false;
             dgvPT.Name = "dgvPT";
             dgvPT.RowHeadersWidth = 62;
             dgvPT.Size = new Size(1489, 321);
@@ -258,7 +259,7 @@
             // 
             namePT.DataPropertyName = "name";
             namePT.HeaderText = "Họ Tên";
-            namePT.MinimumWidth = 8;
+            namePT.MinimumWidth = 200;
             namePT.Name = "namePT";
             namePT.Width = 250;
             // 
@@ -266,18 +267,17 @@
             // 
             Gen.DataPropertyName = "Gender";
             Gen.HeaderText = "Giới Tính";
-            Gen.MinimumWidth = 8;
+            Gen.MinimumWidth = 100;
             Gen.Name = "Gen";
             Gen.Width = 140;
             // 
             // DOB
             // 
             DOB.DataPropertyName = "Dob";
-            dataGridViewCellStyle2.Format = "dd/MM/yyyy";
             dataGridViewCellStyle2.NullValue = null;
             DOB.DefaultCellStyle = dataGridViewCellStyle2;
             DOB.HeaderText = "Ngày Sinh";
-            DOB.MinimumWidth = 8;
+            DOB.MinimumWidth = 130;
             DOB.Name = "DOB";
             DOB.Width = 180;
             // 
@@ -285,7 +285,7 @@
             // 
             Phone.DataPropertyName = "PhoneNumber";
             Phone.HeaderText = "Số Điện Thoại";
-            Phone.MinimumWidth = 8;
+            Phone.MinimumWidth = 100;
             Phone.Name = "Phone";
             Phone.Width = 200;
             // 
@@ -293,7 +293,7 @@
             // 
             Experience.DataPropertyName = "Experience";
             Experience.HeaderText = "Kinh Nghiệm";
-            Experience.MinimumWidth = 8;
+            Experience.MinimumWidth = 100;
             Experience.Name = "Experience";
             Experience.Width = 190;
             // 
@@ -301,7 +301,7 @@
             // 
             Address.DataPropertyName = "Address";
             Address.HeaderText = "Địa Chỉ";
-            Address.MinimumWidth = 8;
+            Address.MinimumWidth = 400;
             Address.Name = "Address";
             Address.Width = 464;
             // 
