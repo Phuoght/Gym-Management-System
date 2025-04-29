@@ -16,7 +16,7 @@ namespace DataLayer
 
         public DataProvider()
         {
-            string connectionString = "Data Source=.;Initial Catalog=Gym_db;Integrated Security=True;Trust Server Certificate=True";
+            string connectionString = "Data Source=.;Initial Catalog=Gym_db;Integrated Security=True";
             cnn = new SqlConnection(connectionString);
         }
 
@@ -32,7 +32,7 @@ namespace DataLayer
         {
             if (cnn != null && cnn.State == ConnectionState.Open)
             {
-                cnn.Open();
+                cnn.Close();
             }
         }
 
@@ -43,7 +43,7 @@ namespace DataLayer
                 Connection();
                 cmd = new SqlCommand(sql, cnn);
                 cmd.CommandType = type;
-                return cmd.ExecuteNonQuery();
+                return cmd.ExecuteScalar();
             }
             catch (SqlException ex)
             {
@@ -58,7 +58,6 @@ namespace DataLayer
         {
             try
             {
-                Connection();
                 cmd = new SqlCommand(sql, cnn);
                 cmd.CommandType = type;
                 return cmd.ExecuteReader();
@@ -66,6 +65,28 @@ namespace DataLayer
             catch (SqlException ex)
             {
                 throw new Exception("Lỗi thực thi câu lệnh SQL: " + ex.Message);
+            }
+        }
+
+        public int MyExcuteNonQuerry(string sql, CommandType type, List<SqlParameter> parameters = null)
+        {
+            cmd = new SqlCommand(sql, cnn);
+            cmd.CommandType = type;
+            if (parameters != null) //store
+            {
+                foreach (SqlParameter parameter in parameters)
+                {
+                    cmd.Parameters.Add(parameter);
+                }
+            }
+            try
+            {
+                Connection();
+                return cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
             }
             finally
             {

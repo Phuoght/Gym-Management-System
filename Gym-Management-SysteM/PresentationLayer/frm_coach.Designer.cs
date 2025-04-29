@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             label1 = new Label();
             txtName = new TextBox();
             dtpDateOfBirth = new DateTimePicker();
@@ -45,6 +48,12 @@
             btnDel = new Button();
             label8 = new Label();
             dgvPT = new DataGridView();
+            namePT = new DataGridViewTextBoxColumn();
+            Gen = new DataGridViewTextBoxColumn();
+            DOB = new DataGridViewTextBoxColumn();
+            Phone = new DataGridViewTextBoxColumn();
+            Experience = new DataGridViewTextBoxColumn();
+            Address = new DataGridViewTextBoxColumn();
             cbExperience = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvPT).BeginInit();
             SuspendLayout();
@@ -81,7 +90,7 @@
             // btnSave
             // 
             btnSave.BackColor = Color.Red;
-            btnSave.FlatStyle = FlatStyle.Popup;
+            btnSave.Cursor = Cursors.Hand;
             btnSave.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSave.ForeColor = SystemColors.ButtonFace;
             btnSave.Location = new Point(760, 331);
@@ -90,6 +99,7 @@
             btnSave.TabIndex = 3;
             btnSave.Text = "Lưu";
             btnSave.UseVisualStyleBackColor = false;
+            btnSave.Click += btnSave_Click;
             // 
             // label2
             // 
@@ -171,17 +181,18 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Font = new Font("Segoe UI Black", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.Red;
             label6.Location = new Point(726, 9);
             label6.Name = "label6";
-            label6.Size = new Size(170, 45);
+            label6.Size = new Size(223, 54);
             label6.TabIndex = 16;
             label6.Text = "Quản lí PT";
             // 
             // btnEdit
             // 
             btnEdit.BackColor = Color.Red;
-            btnEdit.FlatStyle = FlatStyle.Popup;
+            btnEdit.Cursor = Cursors.Hand;
             btnEdit.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEdit.ForeColor = SystemColors.ButtonFace;
             btnEdit.Location = new Point(606, 785);
@@ -194,7 +205,7 @@
             // btnDel
             // 
             btnDel.BackColor = Color.Red;
-            btnDel.FlatStyle = FlatStyle.Popup;
+            btnDel.Cursor = Cursors.Hand;
             btnDel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDel.ForeColor = SystemColors.ButtonFace;
             btnDel.Location = new Point(901, 785);
@@ -217,13 +228,82 @@
             // 
             // dgvPT
             // 
-            dgvPT.BackgroundColor = SystemColors.Control;
+            dgvPT.BackgroundColor = Color.IndianRed;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.Red;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.Yellow;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvPT.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvPT.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvPT.Columns.AddRange(new DataGridViewColumn[] { namePT, Gen, DOB, Phone, Experience, Address });
+            dgvPT.Cursor = Cursors.Hand;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.LightGray;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlDarkDark;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgvPT.DefaultCellStyle = dataGridViewCellStyle3;
             dgvPT.Location = new Point(30, 446);
+            dgvPT.MultiSelect = false;
             dgvPT.Name = "dgvPT";
             dgvPT.RowHeadersWidth = 62;
-            dgvPT.Size = new Size(1548, 321);
+            dgvPT.Size = new Size(1489, 321);
             dgvPT.TabIndex = 20;
+            // 
+            // namePT
+            // 
+            namePT.DataPropertyName = "name";
+            namePT.HeaderText = "Họ Tên";
+            namePT.MinimumWidth = 200;
+            namePT.Name = "namePT";
+            namePT.Width = 250;
+            // 
+            // Gen
+            // 
+            Gen.DataPropertyName = "Gender";
+            Gen.HeaderText = "Giới Tính";
+            Gen.MinimumWidth = 100;
+            Gen.Name = "Gen";
+            Gen.Width = 140;
+            // 
+            // DOB
+            // 
+            DOB.DataPropertyName = "Dob";
+            dataGridViewCellStyle2.NullValue = null;
+            DOB.DefaultCellStyle = dataGridViewCellStyle2;
+            DOB.HeaderText = "Ngày Sinh";
+            DOB.MinimumWidth = 130;
+            DOB.Name = "DOB";
+            DOB.Width = 180;
+            // 
+            // Phone
+            // 
+            Phone.DataPropertyName = "PhoneNumber";
+            Phone.HeaderText = "Số Điện Thoại";
+            Phone.MinimumWidth = 100;
+            Phone.Name = "Phone";
+            Phone.Width = 200;
+            // 
+            // Experience
+            // 
+            Experience.DataPropertyName = "Experience";
+            Experience.HeaderText = "Kinh Nghiệm";
+            Experience.MinimumWidth = 100;
+            Experience.Name = "Experience";
+            Experience.Width = 190;
+            // 
+            // Address
+            // 
+            Address.DataPropertyName = "Address";
+            Address.HeaderText = "Địa Chỉ";
+            Address.MinimumWidth = 400;
+            Address.Name = "Address";
+            Address.Width = 464;
             // 
             // cbExperience
             // 
@@ -263,6 +343,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "frm_coach";
             Text = "frm_coach";
+            Load += frm_coach_Load;
             ((System.ComponentModel.ISupportInitialize)dgvPT).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -288,5 +369,11 @@
         private Label label8;
         private DataGridView dgvPT;
         private ComboBox cbExperience;
+        private DataGridViewTextBoxColumn namePT;
+        private DataGridViewTextBoxColumn Gen;
+        private DataGridViewTextBoxColumn DOB;
+        private DataGridViewTextBoxColumn Phone;
+        private DataGridViewTextBoxColumn Experience;
+        private DataGridViewTextBoxColumn Address;
     }
 }
