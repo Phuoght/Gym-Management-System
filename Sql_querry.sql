@@ -38,3 +38,35 @@ BEGIN
 		PT_Phone = @Phone, PT_Experience = @Experience, PT_Address = @Address
 	WHERE PT_ID = @ID
 END
+GO
+CREATE PROCEDURE usp_AddMembership
+    @Name NVARCHAR(50),
+    @Duration int,
+	@Goal NVARCHAR(50),
+	@Cost int
+AS
+BEGIN
+    INSERT INTO Memberships (MemberShip_Name, MemberShip_Duration, MemberShip_Goal, MemberShip_Cost)
+    VALUES (@Name, @Duration, @Goal, @Cost)
+END
+GO
+CREATE PROCEDURE usp_DeleteMembership(@ID int )
+AS
+BEGIN
+    DELETE FROM MemberShips
+	WHERE MemberShip_ID = @ID
+END
+GO
+CREATE PROCEDURE usp_UpdateMembership(
+	@ID int,
+	@Name NVARCHAR(50),
+    @Duration int,
+	@Goal NVARCHAR(50),
+	@Cost int
+	)
+AS
+BEGIN
+    UPDATE MemberShips
+	SET MemberShip_Name = @Name, MemberShip_Duration = @Duration, MemberShip_Goal = @Goal, MemberShip_Cost = @Cost
+	WHERE MemberShip_ID = @ID
+END

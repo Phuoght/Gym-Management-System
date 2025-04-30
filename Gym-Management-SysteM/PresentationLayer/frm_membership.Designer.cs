@@ -49,6 +49,7 @@
             // 
             lbl_membership_Cost.AutoSize = true;
             lbl_membership_Cost.Font = new Font("Segoe UI",14F,FontStyle.Bold);
+            lbl_membership_Cost.ForeColor = SystemColors.ControlDarkDark;
             lbl_membership_Cost.Location = new Point(1048,71);
             lbl_membership_Cost.Margin = new Padding(2,0,2,0);
             lbl_membership_Cost.Name = "lbl_membership_Cost";
@@ -60,11 +61,11 @@
             // 
             dgvMembership.BackgroundColor = SystemColors.Control;
             dgvMembership.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvMembership.Location = new Point(17,359);
+            dgvMembership.Location = new Point(17,313);
             dgvMembership.Margin = new Padding(2);
             dgvMembership.Name = "dgvMembership";
             dgvMembership.RowHeadersWidth = 62;
-            dgvMembership.Size = new Size(1238,257);
+            dgvMembership.Size = new Size(1238,303);
             dgvMembership.TabIndex = 64;
             // 
             // lbl_membership_Danhsach
@@ -72,7 +73,7 @@
             lbl_membership_Danhsach.AutoSize = true;
             lbl_membership_Danhsach.Font = new Font("Segoe UI",16F,FontStyle.Bold,GraphicsUnit.Point,0);
             lbl_membership_Danhsach.ForeColor = Color.Red;
-            lbl_membership_Danhsach.Location = new Point(514,320);
+            lbl_membership_Danhsach.Location = new Point(537,274);
             lbl_membership_Danhsach.Margin = new Padding(2,0,2,0);
             lbl_membership_Danhsach.Name = "lbl_membership_Danhsach";
             lbl_membership_Danhsach.Size = new Size(256,37);
@@ -110,11 +111,12 @@
             // lbl_membership
             // 
             lbl_membership.AutoSize = true;
-            lbl_membership.Font = new Font("Segoe UI Semibold",16F,FontStyle.Bold,GraphicsUnit.Point,0);
+            lbl_membership.Font = new Font("Segoe UI Black",20F,FontStyle.Bold);
+            lbl_membership.ForeColor = Color.Red;
             lbl_membership.Location = new Point(546,9);
             lbl_membership.Margin = new Padding(2,0,2,0);
             lbl_membership.Name = "lbl_membership";
-            lbl_membership.Size = new Size(208,37);
+            lbl_membership.Size = new Size(277,46);
             lbl_membership.TabIndex = 60;
             lbl_membership.Text = "Quản lí hội viên";
             // 
@@ -122,6 +124,7 @@
             // 
             lbl_membership_Goal.AutoSize = true;
             lbl_membership_Goal.Font = new Font("Segoe UI",14F,FontStyle.Bold);
+            lbl_membership_Goal.ForeColor = SystemColors.ControlDarkDark;
             lbl_membership_Goal.Location = new Point(758,71);
             lbl_membership_Goal.Margin = new Padding(2,0,2,0);
             lbl_membership_Goal.Name = "lbl_membership_Goal";
@@ -133,6 +136,7 @@
             // 
             lbl_membership_Duration.AutoSize = true;
             lbl_membership_Duration.Font = new Font("Segoe UI",14F,FontStyle.Bold);
+            lbl_membership_Duration.ForeColor = SystemColors.ControlDarkDark;
             lbl_membership_Duration.Location = new Point(478,71);
             lbl_membership_Duration.Margin = new Padding(2,0,2,0);
             lbl_membership_Duration.Name = "lbl_membership_Duration";
@@ -146,7 +150,7 @@
             btn_membership_Save.FlatStyle = FlatStyle.Popup;
             btn_membership_Save.Font = new Font("Segoe UI",12F,FontStyle.Bold,GraphicsUnit.Point,0);
             btn_membership_Save.ForeColor = SystemColors.ButtonFace;
-            btn_membership_Save.Location = new Point(601,267);
+            btn_membership_Save.Location = new Point(620,216);
             btn_membership_Save.Margin = new Padding(2);
             btn_membership_Save.Name = "btn_membership_Save";
             btn_membership_Save.Size = new Size(118,42);
@@ -167,6 +171,7 @@
             // 
             lbl_membership_hoten.AutoSize = true;
             lbl_membership_hoten.Font = new Font("Segoe UI",14F,FontStyle.Bold);
+            lbl_membership_hoten.ForeColor = SystemColors.ControlDarkDark;
             lbl_membership_hoten.Location = new Point(172,71);
             lbl_membership_hoten.Margin = new Padding(2,0,2,0);
             lbl_membership_hoten.Name = "lbl_membership_hoten";
@@ -205,6 +210,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F,20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ControlLightLight;
+            BackgroundImageLayout = ImageLayout.None;
             ClientSize = new Size(1272,680);
             Controls.Add(txt_membership_Duration);
             Controls.Add(txt_membership_Goal);
