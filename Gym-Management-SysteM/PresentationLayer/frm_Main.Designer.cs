@@ -35,7 +35,7 @@
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
             pictureBox4 = new PictureBox();
-            pictureBox5 = new PictureBox();
+            ptbReceptionist = new PictureBox();
             pictureBox6 = new PictureBox();
             btnPT = new Button();
             btnMember = new Button();
@@ -48,7 +48,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ptbReceptionist).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             SuspendLayout();
             // 
@@ -117,15 +117,15 @@
             pictureBox4.TabIndex = 9;
             pictureBox4.TabStop = false;
             // 
-            // pictureBox5
+            // ptbReceptionist
             // 
-            pictureBox5.Image = Properties.Resources.receptionist_desk;
-            pictureBox5.Location = new Point(86, 548);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(70, 57);
-            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox5.TabIndex = 11;
-            pictureBox5.TabStop = false;
+            ptbReceptionist.Image = Properties.Resources.receptionist_desk;
+            ptbReceptionist.Location = new Point(86, 548);
+            ptbReceptionist.Name = "ptbReceptionist";
+            ptbReceptionist.Size = new Size(70, 57);
+            ptbReceptionist.SizeMode = PictureBoxSizeMode.Zoom;
+            ptbReceptionist.TabIndex = 11;
+            ptbReceptionist.TabStop = false;
             // 
             // pictureBox6
             // 
@@ -239,7 +239,7 @@
             Controls.Add(btnMember);
             Controls.Add(btnPT);
             Controls.Add(pictureBox6);
-            Controls.Add(pictureBox5);
+            Controls.Add(ptbReceptionist);
             Controls.Add(pictureBox4);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
@@ -257,7 +257,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ptbReceptionist).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ResumeLayout(false);
         }
@@ -271,7 +271,7 @@
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
         private PictureBox pictureBox4;
-        private PictureBox pictureBox5;
+        private PictureBox ptbReceptionist;
         private PictureBox pictureBox6;
         private Button btnPT;
         private Button btnMember;

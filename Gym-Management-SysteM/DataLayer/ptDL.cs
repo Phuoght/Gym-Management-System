@@ -13,7 +13,8 @@ namespace DataLayer
     {
         public List<PT> GetPTs()
         {
-            string sql = "SELECT PT_Name,PT_Gen,PT_DayOfBirth,PT_Phone,PT_Experience,PT_Address FROM PTs";
+            string sql = "SELECT * FROM PTs";
+            int id;
             string name, gender, phone, experience, address;
             DateTime dob;
             List<PT> PTs = new List<PT>();
@@ -24,6 +25,7 @@ namespace DataLayer
                 {
                     while (reader.Read())
                     {
+                        id = (int)reader["PT_ID"];
                         name = reader["PT_Name"].ToString();
                         gender = reader["PT_Gen"].ToString();
                         dob = (DateTime)reader["PT_DayOfBirth"];
@@ -31,7 +33,7 @@ namespace DataLayer
                         experience = reader["PT_Experience"].ToString();
                         address = reader["PT_Address"].ToString();
 
-                        PT pt = new PT(name, gender, dob, phone, experience, address);
+                        PT pt = new PT(id, name, gender, dob, phone, experience, address);
                         PTs.Add(pt);
                     }
                 }
@@ -49,7 +51,7 @@ namespace DataLayer
 
         public int Add(PT pt)
         {
-            string sql = "usp_AddPT"; // Tên thủ tục đã tạo ở trên
+            string sql = "usp_AddPT";
             List<SqlParameter> parameters = new List<SqlParameter>
             {
                 new SqlParameter("@Name", pt.Name),
@@ -62,7 +64,44 @@ namespace DataLayer
 
             try
             {
-                // Gọi lại hàm MyExcuteNonQuerry bạn đã có
+                return MyExcuteNonQuerry(sql, CommandType.StoredProcedure, parameters);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+        public int DeletePT(int id)
+        {
+            string sql = "usp_DelPT"; 
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@ID", id)
+            };
+            try
+            {
+                return MyExcuteNonQuerry(sql, CommandType.StoredProcedure, parameters);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+        public int EditPT(PT pt)
+        {
+            string sql = "usp_UpdatePT";
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@ID", pt.ID),
+                new SqlParameter("@Name", pt.Name),
+                new SqlParameter("@Gender", pt.Gender),
+                new SqlParameter("@Dob", pt.Dob),
+                new SqlParameter("@Phone", pt.PhoneNumber),
+                new SqlParameter("@Experience", pt.Experience),
+                new SqlParameter("@Address", pt.Address)
+            };
+            try
+            {
                 return MyExcuteNonQuerry(sql, CommandType.StoredProcedure, parameters);
             }
             catch (SqlException ex)

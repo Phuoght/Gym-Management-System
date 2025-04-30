@@ -17,11 +17,13 @@ namespace Gym_Management_System
     public partial class frm_login : Form
     {
         private LoginBL loginBL;
+        public string userRole { get; set; }
         public frm_login()
         {
             InitializeComponent();
             loginBL = new LoginBL();
             this.KeyPreview = true;
+            userRole = "";
         }
         private bool checkLogin(Receptionist receptionist)
         {
@@ -41,10 +43,19 @@ namespace Gym_Management_System
             string userName, passWord;
             userName = txtUserName.Text;
             passWord = txtPwd.Text;
+            Receptionist receptionist;
+            if (userName == "admin")
+            {
+                receptionist = new Receptionist(userName, "", "", "", "", "", passWord, "admin");
+            }
+            else
+            {
+                receptionist = new Receptionist(userName, "", "", "", "", "", passWord, "receptionist");
 
-            Receptionist receptionist = new Receptionist(userName, "", "", "", "", "", passWord);
+            }
             if (checkLogin(receptionist))
             {
+                userRole = receptionist.Role;
                 this.Enabled = false;
                 this.DialogResult = DialogResult.OK;
             }

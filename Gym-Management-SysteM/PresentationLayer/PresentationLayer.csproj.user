@@ -7,6 +7,9 @@
     <Compile Update="frm_coach.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="frm_EditPT.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="frm_login.cs">
       <SubType>Form</SubType>
     </Compile>

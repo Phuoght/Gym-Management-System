@@ -18,7 +18,7 @@ namespace TransferObject
         public string Gender { get; set; }
         public string Password { get; set; }
         public string Role { get; set; }
-        public Receptionist(string name, string dob, string phoneNumber, string experience, string address, string gender, string password)
+        public Receptionist(string name, string dob, string phoneNumber, string experience, string address, string gender, string password, string role)
         {
             this.Name = name;
             this.Dob = dob;
@@ -27,7 +27,7 @@ namespace TransferObject
             this.Address = address;
             this.Gender = gender;
             this.Password = password;
-            this.Role = "Receptionist";
+            this.Role = role;
         }
     }
 }

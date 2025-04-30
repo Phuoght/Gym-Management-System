@@ -39,5 +39,27 @@ namespace BusinessLayer
                 throw new Exception("Lỗi thêm PT: " + ex.Message);
             }
         }
+        public void DeletePT(int id)
+        {
+            try
+            {
+                ptDL.DeletePT(id);
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Lỗi thêm PT: " + ex.Message);
+            }
+        }
+        public void EditPT(PT pt)
+        {
+            try
+            {
+                ptDL.EditPT(pt);
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Lỗi thêm PT: " + ex.Message);
+            }
+        }
     }
 }

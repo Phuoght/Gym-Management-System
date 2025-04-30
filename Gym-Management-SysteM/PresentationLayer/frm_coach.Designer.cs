@@ -48,6 +48,7 @@
             btnDel = new Button();
             label8 = new Label();
             dgvPT = new DataGridView();
+            ID = new DataGridViewTextBoxColumn();
             namePT = new DataGridViewTextBoxColumn();
             Gen = new DataGridViewTextBoxColumn();
             DOB = new DataGridViewTextBoxColumn();
@@ -113,6 +114,7 @@
             // 
             // cbGen
             // 
+            cbGen.DropDownStyle = ComboBoxStyle.DropDownList;
             cbGen.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbGen.FormattingEnabled = true;
             cbGen.Items.AddRange(new object[] { "Nam", "Nữ" });
@@ -201,6 +203,7 @@
             btnEdit.TabIndex = 17;
             btnEdit.Text = "Chỉnh Sửa";
             btnEdit.UseVisualStyleBackColor = false;
+            btnEdit.Click += btnEdit_Click;
             // 
             // btnDel
             // 
@@ -214,6 +217,7 @@
             btnDel.TabIndex = 18;
             btnDel.Text = "Xóa";
             btnDel.UseVisualStyleBackColor = false;
+            btnDel.Click += btnDel_Click;
             // 
             // label8
             // 
@@ -238,7 +242,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvPT.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvPT.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPT.Columns.AddRange(new DataGridViewColumn[] { namePT, Gen, DOB, Phone, Experience, Address });
+            dgvPT.Columns.AddRange(new DataGridViewColumn[] { ID, namePT, Gen, DOB, Phone, Experience, Address });
             dgvPT.Cursor = Cursors.Hand;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = Color.LightGray;
@@ -254,6 +258,14 @@
             dgvPT.RowHeadersWidth = 62;
             dgvPT.Size = new Size(1489, 321);
             dgvPT.TabIndex = 20;
+            // 
+            // ID
+            // 
+            ID.DataPropertyName = "ID";
+            ID.HeaderText = "ID";
+            ID.MinimumWidth = 70;
+            ID.Name = "ID";
+            ID.Width = 70;
             // 
             // namePT
             // 
@@ -301,12 +313,13 @@
             // 
             Address.DataPropertyName = "Address";
             Address.HeaderText = "Địa Chỉ";
-            Address.MinimumWidth = 400;
+            Address.MinimumWidth = 350;
             Address.Name = "Address";
-            Address.Width = 464;
+            Address.Width = 395;
             // 
             // cbExperience
             // 
+            cbExperience.DropDownStyle = ComboBoxStyle.DropDownList;
             cbExperience.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbExperience.FormattingEnabled = true;
             cbExperience.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" });
@@ -369,6 +382,7 @@
         private Label label8;
         private DataGridView dgvPT;
         private ComboBox cbExperience;
+        private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn namePT;
         private DataGridViewTextBoxColumn Gen;
         private DataGridViewTextBoxColumn DOB;

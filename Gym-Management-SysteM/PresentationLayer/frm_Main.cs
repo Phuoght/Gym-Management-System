@@ -1,12 +1,28 @@
+using System.Data;
 using System.Windows.Forms;
 
 namespace Gym_Management_System
 {
     public partial class frm_Main : Form
     {
+        private string role;
         public frm_Main()
         {
             InitializeComponent();
+            role = "";
+        }
+        private void UpdateUI()
+        {
+            if (role == "admin")
+            {
+                btnReceptionist.Visible = true;
+                ptbReceptionist.Visible = true;
+            }
+            else
+            {
+                btnReceptionist.Visible = false;
+                ptbReceptionist.Visible = false;
+            }
         }
         private void openFormLogin()
         {
@@ -14,8 +30,10 @@ namespace Gym_Management_System
             DialogResult result = login.ShowDialog();
             if (result == DialogResult.OK)
             {
+                role = login.userRole;
                 this.Show();
                 openFormPT(new frm_coach());
+                UpdateUI();
             }
             else
             {
