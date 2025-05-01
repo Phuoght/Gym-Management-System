@@ -16,5 +16,10 @@ namespace Gym_Management_System
         {
             InitializeComponent();
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
