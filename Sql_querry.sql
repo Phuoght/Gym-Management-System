@@ -70,3 +70,11 @@ BEGIN
 	SET MemberShip_Name = @Name, MemberShip_Duration = @Duration, MemberShip_Goal = @Goal, MemberShip_Cost = @Cost
 	WHERE MemberShip_ID = @ID
 END
+GO
+CREATE PROCEDURE usp_SearchCheckin(
+	@name nvarchar(50) 
+	)
+AS
+BEGIN
+    SELECT * FROM Members WHERE Member_Name LIKE @name
+END

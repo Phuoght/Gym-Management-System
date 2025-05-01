@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Checkin.cs" />
     <Compile Include="Member.cs" />
     <Compile Include="Membership.cs" />
     <Compile Include="PT.cs" />

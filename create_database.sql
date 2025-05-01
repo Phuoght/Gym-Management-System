@@ -65,3 +65,10 @@ CREATE TABLE Bills(
 	FOREIGN KEY (Bill_Agent) REFERENCES dbo.Receptionists(Receptionist_ID),
 	FOREIGN KEY (Bill_Member) REFERENCES dbo.Members(Member_ID)
 )
+GO
+CREATE TABLE CheckIn (
+    CheckIN_ID INT PRIMARY KEY IDENTITY,
+    CheckIN_MemberID INT,
+    CheckIN_Time DATETIME,
+    FOREIGN KEY (CheckIN_MemberID) REFERENCES Members(Member_ID)
+);

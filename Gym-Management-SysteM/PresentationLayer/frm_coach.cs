@@ -22,17 +22,8 @@ namespace Gym_Management_System
         {
             try
             {
+                dgvPT.AutoGenerateColumns = false;
                 dgvPT.DataSource = new ptBL().GetPTs();
-
-                // Sắp xếp thứ tự các cột
-                dgvPT.Columns["ID"].DisplayIndex = 0;
-                dgvPT.Columns["namePT"].DisplayIndex = 1;
-                dgvPT.Columns["Gen"].DisplayIndex = 2;
-                dgvPT.Columns["DOB"].DisplayIndex = 3;
-                dgvPT.Columns["Phone"].DisplayIndex = 4;
-                dgvPT.Columns["Experience"].DisplayIndex = 5;
-                dgvPT.Columns["Address"].DisplayIndex = 6;
-
                 // Đặt màu chữ
                 dgvPT.DefaultCellStyle.ForeColor = Color.Black;
             }

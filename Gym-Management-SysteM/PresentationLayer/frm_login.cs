@@ -90,6 +90,7 @@ namespace Gym_Management_System
             if (e.KeyCode == Keys.Enter)
             {
                 loginClick();
+                e.SuppressKeyPress = true;
             }
         }
     }

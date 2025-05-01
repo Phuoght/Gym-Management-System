@@ -36,36 +36,51 @@ namespace DataLayer
             }
         }
 
-        public object MyExcuteScalar(string sql, CommandType type)
+        public object MyExcuteScalar(string sql, CommandType type, List<SqlParameter> parameters = null)
         {
+            cmd = new SqlCommand(sql, cnn);
+            cmd.CommandType = type;
+            if (parameters != null) //store
+            {
+                foreach (SqlParameter parameter in parameters)
+                {
+                    cmd.Parameters.Add(parameter);
+                }
+            }
             try
             {
                 Connection();
-                cmd = new SqlCommand(sql, cnn);
-                cmd.CommandType = type;
                 return cmd.ExecuteScalar();
             }
             catch (SqlException ex)
             {
-                throw new Exception("Lỗi thực thi câu lệnh SQL: " + ex.Message);
+                throw ex;
             }
             finally
             {
                 Disconnection();
             }
         }
-        public SqlDataReader MyExcuteReader(string sql, CommandType type)
+        public SqlDataReader MyExcuteReader(string sql, CommandType type, List<SqlParameter> parameters = null)
         {
+            cmd = new SqlCommand(sql, cnn);
+            cmd.CommandType = type;
+            if (parameters != null) //store
+            {
+                foreach (SqlParameter parameter in parameters)
+                {
+                    cmd.Parameters.Add(parameter);
+                }
+            }
             try
             {
-                cmd = new SqlCommand(sql, cnn);
-                cmd.CommandType = type;
                 return cmd.ExecuteReader();
             }
             catch (SqlException ex)
             {
-                throw new Exception("Lỗi thực thi câu lệnh SQL: " + ex.Message);
+                throw ex;
             }
+
         }
 
         public int MyExcuteNonQuerry(string sql, CommandType type, List<SqlParameter> parameters = null)

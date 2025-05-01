@@ -48,6 +48,18 @@ namespace TransferObject
             this.PhoneNumber = phone;
             this.Timing = timing;
             this.Status = status;
-        } 
+        }
+        //Constructor để tìm kiếm Member cho checkin
+        public Member(int id, string name, string gender, int membership, int PT,
+                        string phone, string status)
+        {
+            this.ID = id;
+            this.Name = name;
+            this.Gender = gender;
+            this.Membership = membership;
+            this.PT = PT;
+            this.PhoneNumber = phone;
+            this.Status = status;
+        }
     }
 }

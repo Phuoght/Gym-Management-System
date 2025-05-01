@@ -259,7 +259,6 @@
             dgvPT.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvPT.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPT.Columns.AddRange(new DataGridViewColumn[] { ID, namePT, Gen, DOB, Phone, Experience, Address });
-            dgvPT.Columns.AddRange(new DataGridViewColumn[] { ID,namePT,Gen,DOB,Phone,Experience,Address });
             dgvPT.Cursor = Cursors.Hand;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = Color.LightGray;
