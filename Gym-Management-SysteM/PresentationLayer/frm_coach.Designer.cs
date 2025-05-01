@@ -243,7 +243,6 @@
             dgvPT.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvPT.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPT.Columns.AddRange(new DataGridViewColumn[] { ID, namePT, Gen, DOB, Phone, Experience, Address });
-            dgvPT.Cursor = Cursors.Hand;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = Color.LightGray;
             dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold, GraphicsUnit.Point, 0);
