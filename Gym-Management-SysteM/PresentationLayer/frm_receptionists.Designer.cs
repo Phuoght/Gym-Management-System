@@ -374,7 +374,6 @@
 
         #endregion
 
-        private ComboBox cbExperience;
         private DataGridView dgvLetan;
         private Label label8;
         private Button btnDel_letan;

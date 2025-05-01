@@ -36,7 +36,7 @@
             btnDel_letan = new Button();
             btnEdit_letan = new Button();
             label6 = new Label();
-            this.txtAddress_letan = new TextBox();
+            this.txtAddress = new TextBox();
             label7 = new Label();
             label5 = new Label();
             txtPhone_letan = new TextBox();
@@ -143,13 +143,13 @@
             // 
             // txtAddress_letan
             // 
-            this.txtAddress_letan.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            this.txtAddress_letan.Location = new Point(457, 217);
-            this.txtAddress_letan.Margin = new Padding(2);
-            this.txtAddress_letan.Multiline = true;
-            this.txtAddress_letan.Name = "txtAddress_letan";
-            this.txtAddress_letan.Size = new Size(402, 32);
-            this.txtAddress_letan.TabIndex = 33;
+            this.txtAddress.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            this.txtAddress.Location = new Point(457, 217);
+            this.txtAddress.Margin = new Padding(2);
+            this.txtAddress.Multiline = true;
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new Size(402, 32);
+            this.txtAddress.TabIndex = 33;
             // 
             // label7
             // 
@@ -350,7 +350,7 @@
             Controls.Add(btnDel_letan);
             Controls.Add(btnEdit_letan);
             Controls.Add(label6);
-            Controls.Add(this.txtAddress_letan);
+            Controls.Add(txtAddress);
             Controls.Add(label7);
             Controls.Add(label5);
             Controls.Add(txtPhone_letan);
@@ -374,7 +374,6 @@
 
         #endregion
 
-        private ComboBox cbExperience;
         private DataGridView dgvLetan;
         private Label label8;
         private Button btnDel_letan;
