@@ -32,6 +32,13 @@ CREATE TABLE Receptionists(
 	Receptionist_Pass nvarchar(50) NOT NULL,
 	Role nvarchar(30) NOT NULL
 )
+CREATE TABLE Billing(
+	Billing_ID int PRIMARY KEY IDENTITY NOT NULL,
+	Billing_Name nvarchar(50) NOT NULL,
+	Billing_Duration nvarchar(50) NOT NULL,
+	Billling_Goal nvarchar(150) NOT NULL,
+	Billing_Cost int NOT NULL
+)
 GO
 CREATE TABLE Members(
 	Member_ID int PRIMARY KEY IDENTITY NOT NULL,
