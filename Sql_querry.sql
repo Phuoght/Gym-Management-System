@@ -76,5 +76,17 @@ CREATE PROCEDURE usp_SearchCheckin(
 	)
 AS
 BEGIN
-    SELECT * FROM Members WHERE Member_Name LIKE @name
+    SELECT Member_ID, Member_Name, Member_Gen, Member_Membership, Member_PT,
+			Member_Phone, Member_Status 
+	FROM Members WHERE Member_Name LIKE N'%@name%'
+END
+GO
+CREATE PROCEDURE usp_SaveCheckin(
+	@id nvarchar(50),
+	@time DATETIME
+	)
+AS
+BEGIN
+    INSERT INTO CheckIn (CheckIN_MemberID, CheckIN_Time)
+	VALUES (@id, @time)
 END
