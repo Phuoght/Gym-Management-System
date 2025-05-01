@@ -13,7 +13,7 @@ namespace Gym_Management_System
         }
         private void UpdateUI()
         {
-            if (role == "admin")
+            if(role == "admin")
             {
                 btnReceptionist.Visible = true;
                 ptbReceptionist.Visible = true;
@@ -28,11 +28,11 @@ namespace Gym_Management_System
         {
             frm_login login = new frm_login();
             DialogResult result = login.ShowDialog();
-            if (result == DialogResult.OK)
+            if(result == DialogResult.OK)
             {
                 role = login.userRole;
                 this.Show();
-                openFormPT(new frm_coach());
+                openForm(new frm_coach());
                 UpdateUI();
             }
             else
@@ -40,7 +40,7 @@ namespace Gym_Management_System
                 Application.Exit();
             }
         }
-        private void openFormPT(Form form)
+        private void openForm(Form form)
         {
             form.TopLevel = false;
             pnMain.Controls.Clear();
@@ -50,20 +50,26 @@ namespace Gym_Management_System
             form.Show();
         }
 
-        private void frm_Main_Load(object sender, EventArgs e)
+
+        private void frm_Main_Load(object sender,EventArgs e)
         {
             openFormLogin();
         }
 
-        private void btnPT_Click(object sender, EventArgs e)
+        private void btnPT_Click(object sender,EventArgs e)
         {
-            openFormPT(new frm_coach());
+            openForm(new frm_coach());
         }
 
-        private void btnLogout_Click(object sender, EventArgs e)
+        private void btnLogout_Click(object sender,EventArgs e)
         {
             this.Hide();
             openFormLogin();
+        }
+
+        private void btnMemberShip_Click(object sender,EventArgs e)
+        {
+            openForm(new frm_membership());
         }
     }
 }
