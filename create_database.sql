@@ -65,13 +65,13 @@ CREATE TABLE Promotions (
 GO
 CREATE TABLE Bills(
 	Bill_ID int PRIMARY KEY IDENTITY NOT NULL,
-	Bill_Agent int NOT NULL,
+	Bill_Receptionist int NOT NULL,
 	Bill_Member int NOT NULL,
 	Bill_Date date NOT NULL,
-	Bill_Pay float NOT NULL,
+	Bill_Cost float NOT NULL,
 	Bill_PromotionID nvarchar(100) NOT NULL,
 	Bill_Total float NOT NULL,
-	FOREIGN KEY (Bill_Agent) REFERENCES dbo.Receptionists(Receptionist_ID),
+	FOREIGN KEY (Bill_Receptionist) REFERENCES dbo.Receptionists(Receptionist_ID),
 	FOREIGN KEY (Bill_Member) REFERENCES dbo.Members(Member_ID),
 	FOREIGN KEY (Bill_PromotionID) REFERENCES dbo.Promotions(Promotion_ID)
 )

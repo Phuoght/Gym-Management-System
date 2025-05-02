@@ -8,30 +8,26 @@ namespace TransferObject
 {
     public class Billing
     {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public int Duration { get; set; }
-        public string Goal { get; set; }
-        public int Cost { get; set; }
+        public int id { get; set; }
+        public int receptionist { get; set; }
+        public int member { get; set; }
+        public DateTime date { get; set; }
+        public float cost { get; set; }
+        public string promotionID { get; set; }
+        public float total { get; set; }
 
         //Constructor dung để load table Billing trong DataLayer
-        public Billing(int id, string name, int duration, string goal, int cost)
+        public Billing(int id, int receptionist, int member, DateTime date, float cost, string promotionID, float total)
         {
-            this.Name = name;
-            this.ID = id;
-            this.Duration = duration;
-            this.Goal = goal;
-            this.Cost = cost;
+            this.id = id;
+            this.receptionist = receptionist;
+            this.member = member;
+            this.date = date;
+            this.cost = cost;
+            this.promotionID = promotionID;
+            this.total = total;
+        }
 
-        }
-        //Constructor để thêm Billing mới
-        public Billing(string name, int duration, string goal, int cost)
-        {
-            this.Name = name;
-            this.Duration = duration;
-            this.Goal = goal;
-            this.Cost = cost;
-        }
     }
 
 }
