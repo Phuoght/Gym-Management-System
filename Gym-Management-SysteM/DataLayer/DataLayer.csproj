@@ -41,9 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BillingDL.cs" />
     <Compile Include="CheckinDL.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="LoginDL.cs" />
+    <Compile Include="ReceptionistsDL.cs" />
     <None Include="MemberDL.cs" />
     <Compile Include="MembershipDL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

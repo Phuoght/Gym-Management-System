@@ -41,11 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BillingBL.cs" />
     <Compile Include="CheckinBL.cs" />
     <Compile Include="LoginBL.cs" />
     <Compile Include="MembershipBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ptBL.cs" />
+    <Compile Include="ReceptionistsBL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataLayer\DataLayer.csproj">

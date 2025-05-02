@@ -10,6 +10,7 @@ namespace TransferObject
 {
     public class Receptionist
     {
+        public int ID {  get; set; }
         public string Name { get; set; }
         public string Dob { get; set; }
         public string Experience { get; set; }
@@ -18,6 +19,18 @@ namespace TransferObject
         public string Gender { get; set; }
         public string Password { get; set; }
         public string Role { get; set; }
+        public Receptionist(int id,string name, string dob, string phoneNumber, string experience, string address, string gender, string password, string role)
+        {
+            this.ID = id;
+            this.Name = name;
+            this.Dob = dob;
+            this.PhoneNumber = phoneNumber;
+            this.Experience = experience;
+            this.Address = address;
+            this.Gender = gender;
+            this.Password = password;
+            this.Role = role;
+        }
         public Receptionist(string name, string dob, string phoneNumber, string experience, string address, string gender, string password, string role)
         {
             this.Name = name;
