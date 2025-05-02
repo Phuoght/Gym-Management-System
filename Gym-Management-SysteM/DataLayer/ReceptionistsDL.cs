@@ -15,7 +15,7 @@ namespace DataLayer
         {
             string sql = "SELECT * FROM Receptionists";
             int id;
-            string name, gender, address, phoneNumber, password, dob, experience, role;
+            string name, gender, address, phoneNumber, password, dob, role;
             List<Receptionist> Receptionists = new List<Receptionist>();
             try
             {
@@ -31,9 +31,8 @@ namespace DataLayer
                         phoneNumber = reader["Receptionist_PhoneNumber"].ToString();
                         password = reader["Receptionist_Password"].ToString();
                         dob = reader["Receptionist_Dob"].ToString();
-                        experience = reader["Receptionist_Experience"].ToString();
                         role = reader["Receptionist_Role"].ToString();
-                        Receptionist receptionist = new Receptionist(id, name, gender, address, phoneNumber, password, dob, experience, role);
+                        Receptionist receptionist = new Receptionist(id, name, gender, address, phoneNumber, password, dob, role);
                         Receptionists.Add(receptionist);
                     }
                 }
@@ -60,7 +59,6 @@ namespace DataLayer
                 new SqlParameter("@PhoneNumber", receptionist.PhoneNumber),
                 new SqlParameter("@Password", receptionist.Password),
                 new SqlParameter("@Dob", receptionist.Dob),
-                new SqlParameter("@Experience", receptionist.Experience),
                 new SqlParameter("@Role", receptionist.Role)
             };
             try
@@ -101,7 +99,6 @@ namespace DataLayer
                 new SqlParameter("@PhoneNumber", receptionist.PhoneNumber),
                 new SqlParameter("@Password", receptionist.Password),
                 new SqlParameter("@Dob", receptionist.Dob),
-                new SqlParameter("@Experience", receptionist.Experience),
                 new SqlParameter("@Role", receptionist.Role)
 
             };
