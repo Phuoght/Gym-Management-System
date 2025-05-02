@@ -99,5 +99,10 @@ namespace Gym_Management_System
         {
             openForm(new frm_promotion());
         }
+
+        private void btnRevenue_Click(object sender, EventArgs e)
+        {
+            openForm(new frm_revenue());
+        }
     }
 }

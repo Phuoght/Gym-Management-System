@@ -345,6 +345,7 @@
             btnRevenue.TabIndex = 28;
             btnRevenue.Text = "Doanh Thu";
             btnRevenue.UseVisualStyleBackColor = false;
+            btnRevenue.Click += btnRevenue_Click;
             // 
             // ptbRevenue
             // 

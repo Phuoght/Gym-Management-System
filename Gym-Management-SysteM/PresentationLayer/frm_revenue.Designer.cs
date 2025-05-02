@@ -28,25 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             label6 = new Label();
-            cbAmount = new ComboBox();
             label7 = new Label();
-            btnSave = new Button();
-            dgvEquipment = new DataGridView();
+            btnPrint = new Button();
+            dgvReport = new DataGridView();
             ID = new DataGridViewTextBoxColumn();
-            nameEquipment = new DataGridViewTextBoxColumn();
-            type = new DataGridViewTextBoxColumn();
-            amount = new DataGridViewTextBoxColumn();
-            statusEquipment = new DataGridViewTextBoxColumn();
-            lastMaintain = new DataGridViewTextBoxColumn();
-            nextMaintain = new DataGridViewTextBoxColumn();
+            receptionist = new DataGridViewTextBoxColumn();
+            member = new DataGridViewComboBoxColumn();
+            date = new DataGridViewTextBoxColumn();
+            cost = new DataGridViewTextBoxColumn();
+            promotionID = new DataGridViewTextBoxColumn();
+            total = new DataGridViewTextBoxColumn();
             label8 = new Label();
-            label1 = new Label();
             lbTotalRevenue = new Label();
-            ((System.ComponentModel.ISupportInitialize)dgvEquipment).BeginInit();
+            dtpStartDate = new DateTimePicker();
+            dtpEndDate = new DateTimePicker();
+            label2 = new Label();
+            ((System.ComponentModel.ISupportInitialize)dgvReport).BeginInit();
             SuspendLayout();
             // 
             // label6
@@ -61,184 +62,199 @@
             label6.TabIndex = 35;
             label6.Text = "Báo Cáo Doanh Thu";
             // 
-            // cbAmount
-            // 
-            cbAmount.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbAmount.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbAmount.FormattingEnabled = true;
-            cbAmount.Items.AddRange(new object[] { "Ngày", "Tháng", "Quý", "Năm" });
-            cbAmount.Location = new Point(670, 125);
-            cbAmount.Margin = new Padding(2);
-            cbAmount.Name = "cbAmount";
-            cbAmount.Size = new Size(182, 40);
-            cbAmount.TabIndex = 46;
-            // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            label7.Location = new Point(432, 125);
+            label7.Location = new Point(443, 112);
             label7.Margin = new Padding(2, 0, 2, 0);
             label7.Name = "label7";
-            label7.Size = new Size(197, 38);
+            label7.Size = new Size(52, 38);
             label7.TabIndex = 45;
-            label7.Text = "Báo Cáo Theo";
+            label7.Text = "Từ";
             // 
-            // btnSave
+            // btnPrint
             // 
-            btnSave.BackColor = Color.Red;
-            btnSave.Cursor = Cursors.Hand;
-            btnSave.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSave.ForeColor = SystemColors.ButtonFace;
-            btnSave.Location = new Point(913, 120);
-            btnSave.Margin = new Padding(2);
-            btnSave.Name = "btnSave";
-            btnSave.Size = new Size(194, 52);
-            btnSave.TabIndex = 47;
-            btnSave.Text = "Xuất Báo Cáo";
-            btnSave.UseVisualStyleBackColor = false;
+            btnPrint.BackColor = Color.Red;
+            btnPrint.Cursor = Cursors.Hand;
+            btnPrint.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPrint.ForeColor = SystemColors.ButtonFace;
+            btnPrint.Location = new Point(679, 190);
+            btnPrint.Margin = new Padding(2);
+            btnPrint.Name = "btnPrint";
+            btnPrint.Size = new Size(194, 52);
+            btnPrint.TabIndex = 47;
+            btnPrint.Text = "Xuất Báo Cáo";
+            btnPrint.UseVisualStyleBackColor = false;
+            btnPrint.Click += btnPrint_Click;
             // 
-            // dgvEquipment
+            // dgvReport
             // 
-            dgvEquipment.BackgroundColor = Color.IndianRed;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = Color.Red;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = Color.Yellow;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dgvEquipment.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dgvEquipment.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvEquipment.Columns.AddRange(new DataGridViewColumn[] { ID, nameEquipment, type, amount, statusEquipment, lastMaintain, nextMaintain });
-            dgvEquipment.Cursor = Cursors.Hand;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = Color.LightGray;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle6.ForeColor = SystemColors.ControlDarkDark;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            dgvEquipment.DefaultCellStyle = dataGridViewCellStyle6;
-            dgvEquipment.Location = new Point(11, 261);
-            dgvEquipment.Margin = new Padding(2);
-            dgvEquipment.MultiSelect = false;
-            dgvEquipment.Name = "dgvEquipment";
-            dgvEquipment.RowHeadersWidth = 62;
-            dgvEquipment.Size = new Size(1465, 387);
-            dgvEquipment.TabIndex = 49;
+            dgvReport.BackgroundColor = Color.IndianRed;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.Red;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.Yellow;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvReport.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvReport.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvReport.Columns.AddRange(new DataGridViewColumn[] { ID, receptionist, member, date, cost, promotionID, total });
+            dgvReport.Cursor = Cursors.Hand;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.LightGray;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlDarkDark;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgvReport.DefaultCellStyle = dataGridViewCellStyle3;
+            dgvReport.Location = new Point(61, 346);
+            dgvReport.Margin = new Padding(2);
+            dgvReport.MultiSelect = false;
+            dgvReport.Name = "dgvReport";
+            dgvReport.RowHeadersWidth = 62;
+            dgvReport.Size = new Size(1444, 418);
+            dgvReport.TabIndex = 49;
             // 
             // ID
             // 
-            ID.DataPropertyName = "ID";
+            ID.DataPropertyName = "id";
             ID.HeaderText = "ID";
             ID.MinimumWidth = 70;
             ID.Name = "ID";
             ID.Width = 70;
             // 
-            // nameEquipment
+            // receptionist
             // 
-            nameEquipment.DataPropertyName = "name";
-            nameEquipment.HeaderText = "Tên Thiết Bị";
-            nameEquipment.MinimumWidth = 200;
-            nameEquipment.Name = "nameEquipment";
-            nameEquipment.Width = 250;
+            receptionist.DataPropertyName = "receptionist";
+            receptionist.HeaderText = "Mã Nhân Viên";
+            receptionist.MinimumWidth = 200;
+            receptionist.Name = "receptionist";
+            receptionist.Width = 200;
             // 
-            // type
+            // member
             // 
-            type.DataPropertyName = "type";
-            type.HeaderText = "Loại";
-            type.MinimumWidth = 8;
-            type.Name = "type";
-            type.Width = 150;
+            member.DataPropertyName = "member";
+            member.HeaderText = "Mã Thành Viên";
+            member.MinimumWidth = 8;
+            member.Name = "member";
+            member.Resizable = DataGridViewTriState.True;
+            member.SortMode = DataGridViewColumnSortMode.Automatic;
+            member.Width = 220;
             // 
-            // amount
+            // date
             // 
-            amount.DataPropertyName = "amount";
-            amount.HeaderText = "Số Lượng";
-            amount.MinimumWidth = 8;
-            amount.Name = "amount";
-            amount.Width = 150;
+            date.DataPropertyName = "date";
+            date.HeaderText = "Ngày Lập";
+            date.MinimumWidth = 8;
+            date.Name = "date";
+            date.Width = 210;
             // 
-            // statusEquipment
+            // cost
             // 
-            statusEquipment.DataPropertyName = "status";
-            statusEquipment.HeaderText = "Trạng Thái";
-            statusEquipment.MinimumWidth = 100;
-            statusEquipment.Name = "statusEquipment";
-            statusEquipment.Width = 200;
+            cost.DataPropertyName = "cost";
+            cost.HeaderText = "Giá Tiền";
+            cost.MinimumWidth = 100;
+            cost.Name = "cost";
+            cost.Width = 200;
             // 
-            // lastMaintain
+            // promotionID
             // 
-            lastMaintain.DataPropertyName = "lastmaintain";
-            dataGridViewCellStyle5.NullValue = null;
-            lastMaintain.DefaultCellStyle = dataGridViewCellStyle5;
-            lastMaintain.HeaderText = "Ngày Bảo Trì Cuối Cùng";
-            lastMaintain.MinimumWidth = 130;
-            lastMaintain.Name = "lastMaintain";
-            lastMaintain.Width = 300;
+            promotionID.DataPropertyName = "promotionID";
+            dataGridViewCellStyle2.NullValue = null;
+            promotionID.DefaultCellStyle = dataGridViewCellStyle2;
+            promotionID.HeaderText = "Mã Giảm Giá";
+            promotionID.MinimumWidth = 130;
+            promotionID.Name = "promotionID";
+            promotionID.Width = 200;
             // 
-            // nextMaintain
+            // total
             // 
-            nextMaintain.DataPropertyName = "nextmaintain";
-            nextMaintain.HeaderText = "Ngày Bảo Trì Kế Tiếp";
-            nextMaintain.MinimumWidth = 100;
-            nextMaintain.Name = "nextMaintain";
-            nextMaintain.Width = 280;
+            total.DataPropertyName = "total";
+            total.HeaderText = "Tổng";
+            total.MinimumWidth = 100;
+            total.Name = "total";
+            total.Width = 280;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.Red;
-            label8.Location = new Point(656, 206);
+            label8.Location = new Point(659, 273);
             label8.Margin = new Padding(2, 0, 2, 0);
             label8.Name = "label8";
             label8.Size = new Size(267, 45);
             label8.TabIndex = 48;
             label8.Text = "Báo Cáo Chi Tiết";
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            label1.Location = new Point(473, 706);
-            label1.Margin = new Padding(2, 0, 2, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(245, 38);
-            label1.TabIndex = 50;
-            label1.Text = "Tổng Doanh Thu:";
-            // 
             // lbTotalRevenue
             // 
             lbTotalRevenue.AutoSize = true;
-            lbTotalRevenue.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            lbTotalRevenue.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbTotalRevenue.ForeColor = Color.Red;
-            lbTotalRevenue.Location = new Point(722, 706);
+            lbTotalRevenue.Location = new Point(514, 783);
             lbTotalRevenue.Margin = new Padding(2, 0, 2, 0);
             lbTotalRevenue.Name = "lbTotalRevenue";
-            lbTotalRevenue.Size = new Size(245, 38);
+            lbTotalRevenue.Size = new Size(0, 45);
             lbTotalRevenue.TabIndex = 51;
-            lbTotalRevenue.Text = "Tổng Doanh Thu:";
+            // 
+            // dtpStartDate
+            // 
+            dtpStartDate.CalendarMonthBackground = Color.White;
+            dtpStartDate.Cursor = Cursors.Hand;
+            dtpStartDate.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dtpStartDate.Format = DateTimePickerFormat.Short;
+            dtpStartDate.Location = new Point(530, 112);
+            dtpStartDate.Margin = new Padding(2);
+            dtpStartDate.Name = "dtpStartDate";
+            dtpStartDate.Size = new Size(202, 39);
+            dtpStartDate.TabIndex = 77;
+            // 
+            // dtpEndDate
+            // 
+            dtpEndDate.CalendarMonthBackground = Color.White;
+            dtpEndDate.Cursor = Cursors.Hand;
+            dtpEndDate.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dtpEndDate.Format = DateTimePickerFormat.Short;
+            dtpEndDate.Location = new Point(935, 112);
+            dtpEndDate.Margin = new Padding(2);
+            dtpEndDate.Name = "dtpEndDate";
+            dtpEndDate.Size = new Size(202, 39);
+            dtpEndDate.TabIndex = 79;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            label2.Location = new Point(844, 112);
+            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(70, 38);
+            label2.TabIndex = 78;
+            label2.Text = "Đến";
             // 
             // frm_revenue
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1590, 850);
+            Controls.Add(dtpEndDate);
+            Controls.Add(label2);
+            Controls.Add(dtpStartDate);
             Controls.Add(lbTotalRevenue);
-            Controls.Add(label1);
-            Controls.Add(dgvEquipment);
+            Controls.Add(dgvReport);
             Controls.Add(label8);
-            Controls.Add(btnSave);
-            Controls.Add(cbAmount);
+            Controls.Add(btnPrint);
             Controls.Add(label7);
             Controls.Add(label6);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frm_revenue";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frm_revenue";
-            ((System.ComponentModel.ISupportInitialize)dgvEquipment).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvReport).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -246,19 +262,20 @@
         #endregion
 
         private Label label6;
-        private ComboBox cbAmount;
         private Label label7;
-        private Button btnSave;
-        private DataGridView dgvEquipment;
-        private DataGridViewTextBoxColumn ID;
-        private DataGridViewTextBoxColumn nameEquipment;
-        private DataGridViewTextBoxColumn type;
-        private DataGridViewTextBoxColumn amount;
-        private DataGridViewTextBoxColumn statusEquipment;
-        private DataGridViewTextBoxColumn lastMaintain;
-        private DataGridViewTextBoxColumn nextMaintain;
+        private Button btnPrint;
+        private DataGridView dgvReport;
         private Label label8;
-        private Label label1;
         private Label lbTotalRevenue;
+        private DateTimePicker dtpStartDate;
+        private DateTimePicker dtpEndDate;
+        private Label label2;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn receptionist;
+        private DataGridViewComboBoxColumn member;
+        private DataGridViewTextBoxColumn date;
+        private DataGridViewTextBoxColumn cost;
+        private DataGridViewTextBoxColumn promotionID;
+        private DataGridViewTextBoxColumn total;
     }
 }

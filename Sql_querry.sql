@@ -243,3 +243,15 @@ BEGIN
 	SET Promotion_Discount = @discount, Promotion_Describe = @describe, Promotion_StartDate = @startDate, Promotion_EndDate = @endDate
 	WHERE Promotion_ID = @code
 END
+GO
+CREATE PROCEDURE usp_ReportRevenue(
+	@startDate Date, 
+	@endDate Date
+	)
+AS
+BEGIN
+    SELECT *
+	FROM Bills
+	WHERE Bill_Date >= @startDate
+		AND Bill_Date < DATEADD(DAY, 1, @endDate)
+END

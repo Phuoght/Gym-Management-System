@@ -12,12 +12,11 @@ namespace TransferObject
         public int receptionist { get; set; }
         public int member { get; set; }
         public DateTime date { get; set; }
-        public float cost { get; set; }
+        public double cost { get; set; }
         public string promotionID { get; set; }
-        public float total { get; set; }
+        public double total { get; set; }
 
-        //Constructor dung để load table Billing trong DataLayer
-        public Billing(int id, int receptionist, int member, DateTime date, float cost, string promotionID, float total)
+        public Billing(int id, int receptionist, int member, DateTime date, double cost, string promotionID, double total)
         {
             this.id = id;
             this.receptionist = receptionist;

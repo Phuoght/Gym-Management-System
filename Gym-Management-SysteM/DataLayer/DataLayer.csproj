@@ -48,6 +48,7 @@
     <Compile Include="LoginDL.cs" />
     <Compile Include="PromotionDL.cs" />
     <Compile Include="ReceptionistsDL.cs" />
+    <Compile Include="RevenueDL.cs" />
     <None Include="MemberDL.cs" />
     <Compile Include="MembershipDL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

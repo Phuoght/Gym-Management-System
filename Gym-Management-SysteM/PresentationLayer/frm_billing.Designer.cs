@@ -222,7 +222,6 @@
             txtDuration_billing.Name = "txtDuration_billing";
             txtDuration_billing.Size = new Size(235, 34);
             txtDuration_billing.TabIndex = 39;
-            txtDuration_billing.TextChanged += textBox1_TextChanged;
             // 
             // frm_billing
             // 
