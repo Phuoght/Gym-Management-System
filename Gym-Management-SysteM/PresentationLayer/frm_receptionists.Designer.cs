@@ -28,10 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             dgvLetan = new DataGridView();
+            ID = new DataGridViewTextBoxColumn();
+            name_letan = new DataGridViewTextBoxColumn();
+            Gen = new DataGridViewTextBoxColumn();
+            DOB = new DataGridViewTextBoxColumn();
+            Phone = new DataGridViewTextBoxColumn();
+            Password = new DataGridViewTextBoxColumn();
+            Address = new DataGridViewTextBoxColumn();
             label8 = new Label();
             btnDel_letan = new Button();
             btnEdit_letan = new Button();
@@ -48,46 +55,96 @@
             dtpDateOfBirth_letan = new DateTimePicker();
             txtName_letan = new TextBox();
             label1 = new Label();
-            textBox1 = new TextBox();
-            ID = new DataGridViewTextBoxColumn();
-            name_letan = new DataGridViewTextBoxColumn();
-            Gen = new DataGridViewTextBoxColumn();
-            DOB = new DataGridViewTextBoxColumn();
-            Phone = new DataGridViewTextBoxColumn();
-            Password = new DataGridViewTextBoxColumn();
-            Address = new DataGridViewTextBoxColumn();
+            txtPass_letan = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvLetan).BeginInit();
             SuspendLayout();
             // 
             // dgvLetan
             // 
             dgvLetan.BackgroundColor = Color.IndianRed;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.Red;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.Yellow;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvLetan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = Color.Red;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.Yellow;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvLetan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgvLetan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvLetan.Columns.AddRange(new DataGridViewColumn[] { ID, name_letan, Gen, DOB, Phone, Password, Address });
             dgvLetan.Cursor = Cursors.Hand;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = Color.LightGray;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = SystemColors.ControlDarkDark;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dgvLetan.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = Color.LightGray;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle6.ForeColor = SystemColors.ControlDarkDark;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dgvLetan.DefaultCellStyle = dataGridViewCellStyle6;
             dgvLetan.Location = new Point(-1, 369);
             dgvLetan.Margin = new Padding(2);
             dgvLetan.MultiSelect = false;
             dgvLetan.Name = "dgvLetan";
             dgvLetan.RowHeadersWidth = 62;
-            dgvLetan.Size = new Size(1191, 257);
+            dgvLetan.Size = new Size(1492, 257);
             dgvLetan.TabIndex = 38;
+            // 
+            // ID
+            // 
+            ID.DataPropertyName = "ID";
+            ID.HeaderText = "ID";
+            ID.MinimumWidth = 70;
+            ID.Name = "ID";
+            ID.Width = 70;
+            // 
+            // name_letan
+            // 
+            name_letan.DataPropertyName = "name";
+            name_letan.HeaderText = "Họ Tên";
+            name_letan.MinimumWidth = 200;
+            name_letan.Name = "name_letan";
+            name_letan.Width = 250;
+            // 
+            // Gen
+            // 
+            Gen.DataPropertyName = "Gender";
+            Gen.HeaderText = "Giới Tính";
+            Gen.MinimumWidth = 100;
+            Gen.Name = "Gen";
+            Gen.Width = 140;
+            // 
+            // DOB
+            // 
+            DOB.DataPropertyName = "Dob";
+            dataGridViewCellStyle5.NullValue = null;
+            DOB.DefaultCellStyle = dataGridViewCellStyle5;
+            DOB.HeaderText = "Ngày Sinh";
+            DOB.MinimumWidth = 130;
+            DOB.Name = "DOB";
+            DOB.Width = 180;
+            // 
+            // Phone
+            // 
+            Phone.DataPropertyName = "PhoneNumber";
+            Phone.HeaderText = "Số Điện Thoại";
+            Phone.MinimumWidth = 100;
+            Phone.Name = "Phone";
+            Phone.Width = 200;
+            // 
+            // Password
+            // 
+            Password.HeaderText = "Mật khẩu";
+            Password.MinimumWidth = 6;
+            Password.Name = "Password";
+            Password.Width = 250;
+            // 
+            // Address
+            // 
+            Address.DataPropertyName = "Address";
+            Address.HeaderText = "Địa Chỉ";
+            Address.MinimumWidth = 350;
+            Address.Name = "Address";
+            Address.Width = 395;
             // 
             // label8
             // 
@@ -273,78 +330,21 @@
             label1.TabIndex = 22;
             label1.Text = "Họ Tên";
             // 
-            // textBox1
+            // txtPass_letan
             // 
-            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(156, 217);
-            textBox1.Margin = new Padding(2);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(235, 34);
-            textBox1.TabIndex = 39;
-            // 
-            // ID
-            // 
-            ID.DataPropertyName = "ID";
-            ID.HeaderText = "ID";
-            ID.MinimumWidth = 70;
-            ID.Name = "ID";
-            ID.Width = 70;
-            // 
-            // name_letan
-            // 
-            name_letan.DataPropertyName = "name";
-            name_letan.HeaderText = "Họ Tên";
-            name_letan.MinimumWidth = 200;
-            name_letan.Name = "name_letan";
-            name_letan.Width = 250;
-            // 
-            // Gen
-            // 
-            Gen.DataPropertyName = "Gender";
-            Gen.HeaderText = "Giới Tính";
-            Gen.MinimumWidth = 100;
-            Gen.Name = "Gen";
-            Gen.Width = 140;
-            // 
-            // DOB
-            // 
-            DOB.DataPropertyName = "Dob";
-            dataGridViewCellStyle2.NullValue = null;
-            DOB.DefaultCellStyle = dataGridViewCellStyle2;
-            DOB.HeaderText = "Ngày Sinh";
-            DOB.MinimumWidth = 130;
-            DOB.Name = "DOB";
-            DOB.Width = 180;
-            // 
-            // Phone
-            // 
-            Phone.DataPropertyName = "PhoneNumber";
-            Phone.HeaderText = "Số Điện Thoại";
-            Phone.MinimumWidth = 100;
-            Phone.Name = "Phone";
-            Phone.Width = 200;
-            // 
-            // Password
-            // 
-            Password.HeaderText = "Mật khẩu";
-            Password.MinimumWidth = 6;
-            Password.Name = "Password";
-            Password.Width = 250;
-            // 
-            // Address
-            // 
-            Address.DataPropertyName = "Address";
-            Address.HeaderText = "Địa Chỉ";
-            Address.MinimumWidth = 350;
-            Address.Name = "Address";
-            Address.Width = 395;
+            txtPass_letan.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtPass_letan.Location = new Point(156, 217);
+            txtPass_letan.Margin = new Padding(2);
+            txtPass_letan.Name = "txtPass_letan";
+            txtPass_letan.Size = new Size(235, 34);
+            txtPass_letan.TabIndex = 39;
             // 
             // frm_receptionists
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1690, 670);
-            Controls.Add(textBox1);
+            Controls.Add(txtPass_letan);
             Controls.Add(dgvLetan);
             Controls.Add(label8);
             Controls.Add(btnDel_letan);
@@ -367,6 +367,7 @@
             Margin = new Padding(4);
             Name = "frm_receptionists";
             Text = "Receptionists";
+            Load += frm_receptionists_Load;
             ((System.ComponentModel.ISupportInitialize)dgvLetan).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -391,7 +392,7 @@
         private DateTimePicker dtpDateOfBirth_letan;
         private TextBox txtName_letan;
         private Label label1;
-        private TextBox textBox1;
+        private TextBox txtPass_letan;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn name_letan;
         private DataGridViewTextBoxColumn Gen;
