@@ -68,7 +68,7 @@ CREATE TABLE Bills(
 	Bill_Agent int NOT NULL,
 	Bill_Member int NOT NULL,
 	Bill_Date date NOT NULL,
-	Bill_Pay nvarchar NOT NULL,
+	Bill_Pay float NOT NULL,
 	Bill_PromotionID nvarchar(100) NOT NULL,
 	Bill_Total float NOT NULL,
 	FOREIGN KEY (Bill_Agent) REFERENCES dbo.Receptionists(Receptionist_ID),
