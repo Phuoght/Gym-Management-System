@@ -71,4 +71,14 @@ CREATE TABLE CheckIn (
     CheckIN_MemberID INT,
     CheckIN_Time DATETIME,
     FOREIGN KEY (CheckIN_MemberID) REFERENCES Members(Member_ID)
-);
+)
+GO
+CREATE TABLE Equipments (
+	Equipment_ID INT PRIMARY KEY IDENTITY NOT NULL,
+	Equipment_Name NVARCHAR(100) NOT NULL,
+	Equipment_Type NVARCHAR(100) NOT NULL,
+	Equipment_Amount INT NOT NULL,
+	Equipment_Status NVARCHAR(50) NOT NULL,
+	Equipment_LastMaintain DATE NOT NULL,
+	Equipment_NextMaintain DATE NOT NULL
+)
