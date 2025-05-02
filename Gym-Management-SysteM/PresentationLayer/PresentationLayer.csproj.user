@@ -22,7 +22,7 @@
     <Compile Update="frm_coach.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="frm_EditMembership.cs">
+    <Compile Update="MembershipForms\frm_EditMembership.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="frm_EditPT.cs">
@@ -34,10 +34,10 @@
     <Compile Update="frm_Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="frm_member.cs">
+    <Compile Update="MemberForms\frm_member.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="frm_membership.cs">
+    <Compile Update="MembershipForms\frm_membership.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="frm_promotion.cs">

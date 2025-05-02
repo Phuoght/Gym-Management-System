@@ -10,12 +10,12 @@ namespace TransferObject
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public int Duration { get; set; }
+        public string Duration { get; set; }
         public string Goal { get; set; }
-        public int Cost { get; set; }
+        public string Cost { get; set; }
 
         //Constructor dung để load table Membership trong DataLayer
-        public Membership(int id, string name, int duration, string goal, int cost)
+        public Membership(int id, string name, string duration, string goal, string cost)
         {
             this.Name = name;
             this.ID = id;
@@ -25,7 +25,7 @@ namespace TransferObject
 
         }
         //Constructor để thêm Membership mới
-        public Membership(string name,int duration,string goal,int cost)
+        public Membership(string name,string duration,string goal,string cost)
         {
             this.Name = name;
             this.Duration = duration;
