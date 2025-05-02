@@ -127,7 +127,7 @@
             // 
             // pictureBox4
             // 
-            pictureBox4.Image = Properties.Resources.membership;
+            pictureBox4.Image = Properties.Resources.inventory_management;
             pictureBox4.Location = new Point(87, 359);
             pictureBox4.Margin = new Padding(2);
             pictureBox4.Name = "pictureBox4";
@@ -198,7 +198,7 @@
             btnMemberShip.Name = "btnMemberShip";
             btnMemberShip.Size = new Size(230, 55);
             btnMemberShip.TabIndex = 16;
-            btnMemberShip.Text = "Đăng Kí Gói Tập";
+            btnMemberShip.Text = "Gói Tập";
             btnMemberShip.UseVisualStyleBackColor = false;
             btnMemberShip.Click += btnMemberShip_Click;
             // 
