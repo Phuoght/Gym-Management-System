@@ -207,3 +207,39 @@ BEGIN
 	WHERE Receptionist_ID = @ID
 END
 GO
+CREATE PROCEDURE usp_AddPromotion(
+	@code NVARCHAR(100), 
+	@describe NVARCHAR(200), 
+	@discount NVARCHAR(10), 
+	@startDate Date, 
+	@endDate Date
+	)
+AS
+BEGIN
+    INSERT INTO Promotions (Promotion_ID, Promotion_Discount, Promotion_Describe, Promotion_StartDate, Promotion_EndDate)
+	VALUES (@code, @discount, @describe, @startDate, @endDate)
+
+END
+GO
+CREATE PROCEDURE usp_DelPromotion(
+	@code NVARCHAR(100)
+	)
+AS
+BEGIN
+	DELETE FROM Promotions
+	WHERE Promotion_ID = @code
+END
+GO
+CREATE PROCEDURE usp_EditPromotion(
+	@code NVARCHAR(100), 
+	@describe NVARCHAR(200), 
+	@discount NVARCHAR(10), 
+	@startDate Date, 
+	@endDate Date
+	)
+AS
+BEGIN
+    UPDATE Promotions
+	SET Promotion_Discount = @discount, Promotion_Describe = @describe, Promotion_StartDate = @startDate, Promotion_EndDate = @endDate
+	WHERE Promotion_ID = @code
+END

@@ -46,6 +46,7 @@
     <Compile Include="EquipmentBL.cs" />
     <Compile Include="LoginBL.cs" />
     <Compile Include="MembershipBL.cs" />
+    <Compile Include="PromotionBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ptBL.cs" />
     <Compile Include="ReceptionistsBL.cs" />

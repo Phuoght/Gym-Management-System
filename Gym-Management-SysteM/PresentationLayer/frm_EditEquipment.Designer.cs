@@ -40,8 +40,8 @@
             dtpLastMainTain = new DateTimePicker();
             txtNameEquipment = new TextBox();
             label1 = new Label();
-            label6 = new Label();
             btnSave = new Button();
+            label6 = new Label();
             SuspendLayout();
             // 
             // cbAmount
@@ -179,18 +179,6 @@
             label1.TabIndex = 45;
             label1.Text = "Tên Thiết Bị";
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI Black", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.Red;
-            label6.Location = new Point(495, 22);
-            label6.Margin = new Padding(2, 0, 2, 0);
-            label6.Name = "label6";
-            label6.Size = new Size(382, 54);
-            label6.TabIndex = 57;
-            label6.Text = "Chỉnh Sửa Thiết Bị";
-            // 
             // btnSave
             // 
             btnSave.BackColor = Color.Red;
@@ -205,6 +193,18 @@
             btnSave.Text = "Lưu";
             btnSave.UseVisualStyleBackColor = false;
             btnSave.Click += btnSave_Click;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI Black", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.Red;
+            label6.Location = new Point(495, 22);
+            label6.Margin = new Padding(2, 0, 2, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(382, 54);
+            label6.TabIndex = 57;
+            label6.Text = "Chỉnh Sửa Thiết Bị";
             // 
             // frm_EditEquipment
             // 
@@ -246,7 +246,7 @@
         private DateTimePicker dtpLastMainTain;
         private TextBox txtNameEquipment;
         private Label label1;
-        private Label label6;
         private Button btnSave;
+        private Label label6;
     }
 }

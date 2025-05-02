@@ -1,0 +1,105 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using TransferObject;
+using System.Data;
+
+namespace DataLayer
+{
+    public class PromotionDL : DataProvider
+    {
+        public List<Promotion> GetAllPromotions()
+        {
+            List<Promotion> promotions = new List<Promotion>();
+            string code, describe, discount;
+            DateTime startDate, endDate;
+            string sql = "SELECT * FROM Promotions";
+            try
+            {
+                Connection();
+                using (SqlDataReader reader = MyExcuteReader(sql, CommandType.Text))
+                {
+                    while (reader.Read())
+                    {
+                        code = reader["Promotion_ID"].ToString();
+                        discount = reader["Promotion_Discount"].ToString();
+                        describe = reader["Promotion_Describe"].ToString();
+                        startDate = (DateTime)(reader["Promotion_StartDate"]);
+                        endDate = (DateTime)(reader["Promotion_EndDate"]);
+
+                        Promotion promotion = new Promotion(code, discount, describe, startDate, endDate);
+                        promotions.Add(promotion);
+                    }
+                }
+                return promotions;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                Disconnection();
+            }
+        }
+        public int AddPromotion(Promotion promotion)
+        {
+            string sql = "usp_AddPromotion";
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@code", promotion.code),
+                new SqlParameter("@describe", promotion.describe),
+                new SqlParameter("@discount", promotion.discount),
+                new SqlParameter("@startDate", promotion.startDate),
+                new SqlParameter("@endDate", promotion.endDate)
+            };
+            try
+            {
+                return MyExcuteNonQuerry(sql, CommandType.StoredProcedure, parameters);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public int DeletePromotion(string code)
+        {
+            string sql = "usp_DelPromotion";
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@code", code)
+            };
+            try
+            {
+                return MyExcuteNonQuerry(sql, CommandType.StoredProcedure, parameters);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public int EditPromotion(Promotion promotion)
+        {
+            string sql = "usp_EditPromotion";
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@code", promotion.code),
+                new SqlParameter("@describe", promotion.describe),
+                new SqlParameter("@discount", promotion.discount),
+                new SqlParameter("@startDate", promotion.startDate),
+                new SqlParameter("@endDate", promotion.endDate)
+            };
+            try
+            {
+                return MyExcuteNonQuerry(sql, CommandType.StoredProcedure, parameters);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+    }
+}

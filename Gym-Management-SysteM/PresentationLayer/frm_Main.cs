@@ -19,14 +19,22 @@ namespace Gym_Management_System
                 ptbReceptionist.Visible = true;
                 btnEquipment.Visible = true;
                 ptbEquipment.Visible = true;
+                btnPromotion.Visible = true;
+                ptbPromotion.Visible = true;
+                btnRevenue.Visible = true;
+                ptbRevenue.Visible = true;
             }
             else
             {
-                // ẩn nút lễ tân và thiết bị cho người dùng không phải admin
+                // ẩn cho người dùng không phải admin
                 btnReceptionist.Visible = false;
                 ptbReceptionist.Visible = false;
                 btnEquipment.Visible = false;
                 ptbEquipment.Visible = false;
+                btnPromotion.Visible = false;
+                ptbPromotion.Visible = false;
+                btnRevenue.Visible = false;
+                ptbRevenue.Visible = false;
             }
         }
         private void openFormLogin()
@@ -85,6 +93,11 @@ namespace Gym_Management_System
         private void btnEquipment_Click(object sender, EventArgs e)
         {
             openForm(new frm_equipment());
+        }
+
+        private void btnPromotion_Click(object sender, EventArgs e)
+        {
+            openForm(new frm_promotion());
         }
     }
 }

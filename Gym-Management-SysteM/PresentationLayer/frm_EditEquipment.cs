@@ -59,14 +59,14 @@ namespace Gym_Management_System
             try
             {
                 equipmentBL.EditEquipment(equipment);
-                MessageBox.Show("Sửa thiết bị thành công !");
+                MessageBox.Show("Cập nhật thiết bị thành công !");
                 this.DialogResult = DialogResult.OK;
                 this.Close();
 
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("Lỗi sửa thiết bị: " + ex.Message);
+                MessageBox.Show("Lỗi cập nhật thiết bị: " + ex.Message);
             }
         }
     }

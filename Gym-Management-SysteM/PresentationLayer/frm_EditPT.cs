@@ -63,7 +63,7 @@ namespace Gym_Management_System
             try
             {
                 ptBL.EditPT(pt);
-                MessageBox.Show("Sửa PT thành công !");
+                MessageBox.Show("Cập nhật PT thành công !");
                 this.DialogResult = DialogResult.OK;
                 this.Close();
                 

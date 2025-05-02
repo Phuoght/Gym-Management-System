@@ -7,6 +7,9 @@
     <Compile Update="frm_EditEquipment.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="frm_EditPromotion.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="frm_equipment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -37,7 +40,13 @@
     <Compile Update="frm_membership.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="frm_promotion.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="frm_receptionists.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frm_revenue.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

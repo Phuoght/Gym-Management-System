@@ -48,6 +48,10 @@
             pictureBox5 = new PictureBox();
             btnEquipment = new Button();
             ptbEquipment = new PictureBox();
+            btnPromotion = new Button();
+            ptbPromotion = new PictureBox();
+            btnRevenue = new Button();
+            ptbRevenue = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -56,6 +60,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ptbEquipment).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ptbPromotion).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ptbRevenue).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -100,7 +106,7 @@
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.coach;
-            pictureBox2.Location = new Point(86, 218);
+            pictureBox2.Location = new Point(87, 195);
             pictureBox2.Margin = new Padding(2);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(70, 58);
@@ -111,7 +117,7 @@
             // pictureBox3
             // 
             pictureBox3.Image = Properties.Resources.sportman;
-            pictureBox3.Location = new Point(86, 300);
+            pictureBox3.Location = new Point(87, 277);
             pictureBox3.Margin = new Padding(2);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(70, 58);
@@ -122,7 +128,7 @@
             // pictureBox4
             // 
             pictureBox4.Image = Properties.Resources.membership;
-            pictureBox4.Location = new Point(86, 382);
+            pictureBox4.Location = new Point(87, 359);
             pictureBox4.Margin = new Padding(2);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(70, 58);
@@ -133,7 +139,7 @@
             // ptbReceptionist
             // 
             ptbReceptionist.Image = Properties.Resources.receptionist_desk;
-            ptbReceptionist.Location = new Point(86, 623);
+            ptbReceptionist.Location = new Point(87, 600);
             ptbReceptionist.Margin = new Padding(2);
             ptbReceptionist.Name = "ptbReceptionist";
             ptbReceptionist.Size = new Size(70, 58);
@@ -144,7 +150,7 @@
             // pictureBox6
             // 
             pictureBox6.Image = Properties.Resources.bill;
-            pictureBox6.Location = new Point(86, 462);
+            pictureBox6.Location = new Point(87, 439);
             pictureBox6.Margin = new Padding(2);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(70, 58);
@@ -158,7 +164,7 @@
             btnPT.Cursor = Cursors.Hand;
             btnPT.Font = new Font("Segoe UI", 14F);
             btnPT.ForeColor = Color.Yellow;
-            btnPT.Location = new Point(162, 220);
+            btnPT.Location = new Point(163, 197);
             btnPT.Margin = new Padding(2);
             btnPT.Name = "btnPT";
             btnPT.Size = new Size(230, 55);
@@ -173,7 +179,7 @@
             btnMember.Cursor = Cursors.Hand;
             btnMember.Font = new Font("Segoe UI", 14F);
             btnMember.ForeColor = Color.Yellow;
-            btnMember.Location = new Point(162, 302);
+            btnMember.Location = new Point(163, 279);
             btnMember.Margin = new Padding(2);
             btnMember.Name = "btnMember";
             btnMember.Size = new Size(230, 55);
@@ -187,7 +193,7 @@
             btnMemberShip.Cursor = Cursors.Hand;
             btnMemberShip.Font = new Font("Segoe UI", 14F);
             btnMemberShip.ForeColor = Color.Yellow;
-            btnMemberShip.Location = new Point(162, 384);
+            btnMemberShip.Location = new Point(163, 361);
             btnMemberShip.Margin = new Padding(2);
             btnMemberShip.Name = "btnMemberShip";
             btnMemberShip.Size = new Size(230, 55);
@@ -202,7 +208,7 @@
             btnReceptionist.Cursor = Cursors.Hand;
             btnReceptionist.Font = new Font("Segoe UI", 14F);
             btnReceptionist.ForeColor = Color.Yellow;
-            btnReceptionist.Location = new Point(162, 625);
+            btnReceptionist.Location = new Point(163, 602);
             btnReceptionist.Margin = new Padding(2);
             btnReceptionist.Name = "btnReceptionist";
             btnReceptionist.Size = new Size(230, 55);
@@ -216,7 +222,7 @@
             btnBill.Cursor = Cursors.Hand;
             btnBill.Font = new Font("Segoe UI", 14F);
             btnBill.ForeColor = Color.Yellow;
-            btnBill.Location = new Point(162, 465);
+            btnBill.Location = new Point(163, 442);
             btnBill.Margin = new Padding(2);
             btnBill.Name = "btnBill";
             btnBill.Size = new Size(230, 55);
@@ -254,7 +260,7 @@
             btnCheckin.Cursor = Cursors.Hand;
             btnCheckin.Font = new Font("Segoe UI", 14F);
             btnCheckin.ForeColor = Color.Yellow;
-            btnCheckin.Location = new Point(162, 544);
+            btnCheckin.Location = new Point(163, 521);
             btnCheckin.Margin = new Padding(2);
             btnCheckin.Name = "btnCheckin";
             btnCheckin.Size = new Size(230, 55);
@@ -266,7 +272,7 @@
             // pictureBox5
             // 
             pictureBox5.Image = Properties.Resources.calendar;
-            pictureBox5.Location = new Point(86, 542);
+            pictureBox5.Location = new Point(87, 519);
             pictureBox5.Margin = new Padding(2);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(70, 58);
@@ -280,7 +286,7 @@
             btnEquipment.Cursor = Cursors.Hand;
             btnEquipment.Font = new Font("Segoe UI", 14F);
             btnEquipment.ForeColor = Color.Yellow;
-            btnEquipment.Location = new Point(162, 710);
+            btnEquipment.Location = new Point(163, 687);
             btnEquipment.Margin = new Padding(2);
             btnEquipment.Name = "btnEquipment";
             btnEquipment.Size = new Size(230, 55);
@@ -292,7 +298,7 @@
             // ptbEquipment
             // 
             ptbEquipment.Image = Properties.Resources.kettlebell;
-            ptbEquipment.Location = new Point(86, 708);
+            ptbEquipment.Location = new Point(87, 685);
             ptbEquipment.Margin = new Padding(2);
             ptbEquipment.Name = "ptbEquipment";
             ptbEquipment.Size = new Size(70, 58);
@@ -300,12 +306,67 @@
             ptbEquipment.TabIndex = 23;
             ptbEquipment.TabStop = false;
             // 
+            // btnPromotion
+            // 
+            btnPromotion.BackColor = Color.Crimson;
+            btnPromotion.Cursor = Cursors.Hand;
+            btnPromotion.Font = new Font("Segoe UI", 14F);
+            btnPromotion.ForeColor = Color.Yellow;
+            btnPromotion.Location = new Point(163, 757);
+            btnPromotion.Margin = new Padding(2);
+            btnPromotion.Name = "btnPromotion";
+            btnPromotion.Size = new Size(230, 55);
+            btnPromotion.TabIndex = 26;
+            btnPromotion.Text = "Khuyến Mãi";
+            btnPromotion.UseVisualStyleBackColor = false;
+            btnPromotion.Click += btnPromotion_Click;
+            // 
+            // ptbPromotion
+            // 
+            ptbPromotion.Image = Properties.Resources.promo_code;
+            ptbPromotion.Location = new Point(89, 757);
+            ptbPromotion.Margin = new Padding(2);
+            ptbPromotion.Name = "ptbPromotion";
+            ptbPromotion.Size = new Size(70, 58);
+            ptbPromotion.SizeMode = PictureBoxSizeMode.Zoom;
+            ptbPromotion.TabIndex = 25;
+            ptbPromotion.TabStop = false;
+            // 
+            // btnRevenue
+            // 
+            btnRevenue.BackColor = Color.Crimson;
+            btnRevenue.Cursor = Cursors.Hand;
+            btnRevenue.Font = new Font("Segoe UI", 14F);
+            btnRevenue.ForeColor = Color.Yellow;
+            btnRevenue.Location = new Point(163, 831);
+            btnRevenue.Margin = new Padding(2);
+            btnRevenue.Name = "btnRevenue";
+            btnRevenue.Size = new Size(230, 55);
+            btnRevenue.TabIndex = 28;
+            btnRevenue.Text = "Doanh Thu";
+            btnRevenue.UseVisualStyleBackColor = false;
+            // 
+            // ptbRevenue
+            // 
+            ptbRevenue.Image = Properties.Resources.money;
+            ptbRevenue.Location = new Point(89, 831);
+            ptbRevenue.Margin = new Padding(2);
+            ptbRevenue.Name = "ptbRevenue";
+            ptbRevenue.Size = new Size(70, 58);
+            ptbRevenue.SizeMode = PictureBoxSizeMode.Zoom;
+            ptbRevenue.TabIndex = 27;
+            ptbRevenue.TabStop = false;
+            // 
             // frm_Main
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(241, 241, 250);
             ClientSize = new Size(1924, 1050);
+            Controls.Add(btnRevenue);
+            Controls.Add(ptbRevenue);
+            Controls.Add(btnPromotion);
+            Controls.Add(ptbPromotion);
             Controls.Add(btnEquipment);
             Controls.Add(ptbEquipment);
             Controls.Add(btnCheckin);
@@ -341,6 +402,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)ptbEquipment).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ptbPromotion).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ptbRevenue).EndInit();
             ResumeLayout(false);
         }
 
@@ -366,5 +429,9 @@
         private PictureBox pictureBox5;
         private Button btnEquipment;
         private PictureBox ptbEquipment;
+        private Button btnPromotion;
+        private PictureBox ptbPromotion;
+        private Button btnRevenue;
+        private PictureBox ptbRevenue;
     }
 }

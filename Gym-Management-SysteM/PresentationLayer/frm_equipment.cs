@@ -39,7 +39,6 @@ namespace Gym_Management_System
         {
             dtpLastMainTain.MaxDate = DateTime.Now;
             load_equipment();
-
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -111,22 +110,29 @@ namespace Gym_Management_System
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (dgvEquipment.CurrentRow != null && !dgvEquipment.CurrentRow.IsNewRow)
+            try
             {
-                int id = (int)dgvEquipment.CurrentRow.Cells["ID"].Value;
-                string name = (string)dgvEquipment.CurrentRow.Cells["nameEquipment"].Value;
-                string type = (string)dgvEquipment.CurrentRow.Cells["type"].Value;
-                int amount = (int)(dgvEquipment.CurrentRow.Cells["amount"].Value);
-                string status = (string)dgvEquipment.CurrentRow.Cells["statusEquipment"].Value;
-                DateTime lastMainTain = (DateTime)dgvEquipment.CurrentRow.Cells["lastMaintain"].Value;
-                DateTime nextMainTain = (DateTime)dgvEquipment.CurrentRow.Cells["nextMaintain"].Value;
-
-                frm_EditEquipment frm_editEquipment = new frm_EditEquipment(id, name, type, amount, status, lastMainTain, nextMainTain);
-                frm_editEquipment.ShowDialog();
-                if (frm_editEquipment.DialogResult == DialogResult.OK)
+                if (dgvEquipment.CurrentRow != null && !dgvEquipment.CurrentRow.IsNewRow)
                 {
-                    load_equipment();
+                    int id = (int)dgvEquipment.CurrentRow.Cells["ID"].Value;
+                    string name = (string)dgvEquipment.CurrentRow.Cells["nameEquipment"].Value;
+                    string type = (string)dgvEquipment.CurrentRow.Cells["type"].Value;
+                    int amount = (int)(dgvEquipment.CurrentRow.Cells["amount"].Value);
+                    string status = (string)dgvEquipment.CurrentRow.Cells["statusEquipment"].Value;
+                    DateTime lastMainTain = (DateTime)dgvEquipment.CurrentRow.Cells["lastMaintain"].Value;
+                    DateTime nextMainTain = (DateTime)dgvEquipment.CurrentRow.Cells["nextMaintain"].Value;
+
+                    frm_EditEquipment frm_editEquipment = new frm_EditEquipment(id, name, type, amount, status, lastMainTain, nextMainTain);
+                    frm_editEquipment.ShowDialog();
+                    if (frm_editEquipment.DialogResult == DialogResult.OK)
+                    {
+                        load_equipment();
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi sửa: " + ex.Message);
             }
         }
     }

@@ -59,11 +59,13 @@ CREATE TABLE Bills(
 	Bill_ID int PRIMARY KEY IDENTITY NOT NULL,
 	Bill_Agent int NOT NULL,
 	Bill_Member int NOT NULL,
-	Bill_Period nvarchar(50) NOT NULL,
 	Bill_Date date NOT NULL,
-	Bill_Amount float NOT NULL,
+	Bill_PromotionID int NOT NULL,
+	Bill_Pay nvarchar NOT NULL,
+	Bill_Total AS (Bill_Pay - Bill_Pay * Bill_Promotion),
 	FOREIGN KEY (Bill_Agent) REFERENCES dbo.Receptionists(Receptionist_ID),
 	FOREIGN KEY (Bill_Member) REFERENCES dbo.Members(Member_ID)
+	FOREIGN KEY (Bill_PromotionID) REFERENCES dbo.Promotions(Promotion_ID)
 )
 GO
 CREATE TABLE CheckIn (
@@ -81,4 +83,12 @@ CREATE TABLE Equipments (
 	Equipment_Status NVARCHAR(50) NOT NULL,
 	Equipment_LastMaintain DATE NOT NULL,
 	Equipment_NextMaintain DATE NOT NULL
+)
+GO
+CREATE TABLE Promotions (
+	Promotion_ID nvarchar(100) PRIMARY KEY NOT NULL,
+	Promotion_Discount nvarchar(10) NOT NULL,
+	Promotion_Describe NVARCHAR(200) NOT NULL,
+	Promotion_StartDate DATE NOT NULL,
+	Promotion_EndDate DATE NOT NULL
 )

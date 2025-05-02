@@ -112,24 +112,30 @@ namespace Gym_Management_System
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (dgvPT.CurrentRow != null && !dgvPT.CurrentRow.IsNewRow)
+            try
             {
-                int id = (int)dgvPT.CurrentRow.Cells["ID"].Value;
-                string name = (string)dgvPT.CurrentRow.Cells["namePT"].Value;
-                string gender = (string)dgvPT.CurrentRow.Cells["Gen"].Value;
-                DateTime dob = Convert.ToDateTime(dgvPT.CurrentRow.Cells["DOB"].Value);
-                string phoneNumber = (string)dgvPT.CurrentRow.Cells["Phone"].Value;
-                string experience = (string)dgvPT.CurrentRow.Cells["Experience"].Value;
-                string address = (string)dgvPT.CurrentRow.Cells["Address"].Value;
-                
-                frm_EditPT frm_editPT = new frm_EditPT(id, name, gender, dob, phoneNumber, experience, address);
-                frm_editPT.ShowDialog();
-                if (frm_editPT.DialogResult == DialogResult.OK)
+                if (dgvPT.CurrentRow != null && !dgvPT.CurrentRow.IsNewRow)
                 {
-                    load_pt();
+                    int id = (int)dgvPT.CurrentRow.Cells["ID"].Value;
+                    string name = (string)dgvPT.CurrentRow.Cells["namePT"].Value;
+                    string gender = (string)dgvPT.CurrentRow.Cells["Gen"].Value;
+                    DateTime dob = Convert.ToDateTime(dgvPT.CurrentRow.Cells["DOB"].Value);
+                    string phoneNumber = (string)dgvPT.CurrentRow.Cells["Phone"].Value;
+                    string experience = (string)dgvPT.CurrentRow.Cells["Experience"].Value;
+                    string address = (string)dgvPT.CurrentRow.Cells["Address"].Value;
+
+                    frm_EditPT frm_editPT = new frm_EditPT(id, name, gender, dob, phoneNumber, experience, address);
+                    frm_editPT.ShowDialog();
+                    if (frm_editPT.DialogResult == DialogResult.OK)
+                    {
+                        load_pt();
+                    }
                 }
             }
-
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi chỉnh sửa: " + ex.Message);
+            }
         }
     }
 }
