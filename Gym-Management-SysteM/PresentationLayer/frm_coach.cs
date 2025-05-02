@@ -44,22 +44,24 @@ namespace Gym_Management_System
         {
             string name, gender, phone, experience, address;
             DateTime dob;
+
+            if (string.IsNullOrWhiteSpace(txtName.Text) ||
+                string.IsNullOrWhiteSpace(txtPhone.Text) ||
+                string.IsNullOrWhiteSpace(txtAddress.Text) ||
+                cbGen.SelectedIndex == -1 ||
+                cbExperience.SelectedIndex == -1 
+                )
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin !");
+                return;
+            }
+
             name = txtName.Text;
             gender = cbGen.Text;
             dob = dtpDateOfBirth.Value;
             phone = txtPhone.Text;
             experience = cbExperience.Text;
             address = txtAddress.Text;
-            if (string.IsNullOrWhiteSpace(txtName.Text) ||
-                string.IsNullOrWhiteSpace(txtPhone.Text) ||
-                string.IsNullOrWhiteSpace(txtAddress.Text) ||
-                cbGen.SelectedIndex == -1 ||
-                cbExperience.SelectedIndex == -1
-                )
-            {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin !");
-                return;
-            }
             if (!Regex.IsMatch(phone, @"^\d{10}$"))
             {
                 MessageBox.Show("Số điện thoại không hợp lệ !");
@@ -72,6 +74,7 @@ namespace Gym_Management_System
                 ptBL.AddPT(pt);
                 MessageBox.Show("Thêm PT thành công !");
                 load_pt();
+
             }
             catch (SqlException ex)
             {
@@ -80,9 +83,9 @@ namespace Gym_Management_System
             finally
             {
                 txtName.Clear();
-                cbGen.Text = "";
+                cbGen.SelectedIndex = -1;
                 txtPhone.Clear();
-                cbExperience.Text = "";
+                cbExperience.SelectedIndex = -1;
                 txtAddress.Clear();
             }
         }

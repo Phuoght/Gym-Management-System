@@ -72,14 +72,6 @@ namespace Gym_Management_System
             {
                 MessageBox.Show("Lỗi sửa PT: " + ex.Message);
             }
-            finally
-            {
-                txtNameE.Clear();
-                cbGenE.Text = "";
-                txtPhoneE.Clear();
-                cbExperienceE.Text = "";
-                txtAddressE.Clear();
-            }
 
         }
     }

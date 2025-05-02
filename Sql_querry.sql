@@ -90,3 +90,42 @@ BEGIN
     INSERT INTO CheckIn (CheckIN_MemberID, CheckIN_Time)
 	VALUES (@id, @time)
 END
+GO
+CREATE PROCEDURE usp_AddEquipment(
+	@name NVARCHAR(100),
+	@type NVARCHAR(100),
+	@amount INT,
+	@status NVARCHAR(100),
+	@lastMainTain DATETIME,
+	@nextMainTain DATETIME
+	)
+AS
+BEGIN
+    INSERT INTO Equipments (Equipment_Name, Equipment_Type, Equipment_Amount, Equipment_Status, Equipment_LastMaintain, Equipment_NextMaintain)
+	VALUES (@name, @type, @amount, @status, @lastMainTain, @nextMainTain)
+END
+GO
+CREATE PROCEDURE usp_DelEquipment(
+	@id INT
+	)
+AS
+BEGIN
+    DELETE FROM Equipments
+	WHERE Equipment_ID = @id
+END
+GO
+CREATE PROCEDURE usp_EditEquipment(
+	@id INT,
+	@name NVARCHAR(100),
+	@type NVARCHAR(100),
+	@amount INT,
+	@status NVARCHAR(100),
+	@lastMainTain DATETIME,
+	@nextMainTain DATETIME
+	)
+AS
+BEGIN
+    UPDATE Equipments
+	SET Equipment_Name = @name, Equipment_Type = @type, Equipment_Amount = @amount, Equipment_Status = @status, Equipment_LastMaintain = @lastMainTain, Equipment_NextMaintain = @nextMainTain
+	WHERE Equipment_ID = @id
+END

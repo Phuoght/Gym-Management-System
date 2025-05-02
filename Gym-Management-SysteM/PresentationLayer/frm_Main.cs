@@ -1,4 +1,4 @@
-using System.Data;
+﻿using System.Data;
 using System.Windows.Forms;
 
 namespace Gym_Management_System
@@ -17,11 +17,16 @@ namespace Gym_Management_System
             {
                 btnReceptionist.Visible = true;
                 ptbReceptionist.Visible = true;
+                btnEquipment.Visible = true;
+                ptbEquipment.Visible = true;
             }
             else
             {
+                // ẩn nút lễ tân và thiết bị cho người dùng không phải admin
                 btnReceptionist.Visible = false;
                 ptbReceptionist.Visible = false;
+                btnEquipment.Visible = false;
+                ptbEquipment.Visible = false;
             }
         }
         private void openFormLogin()
@@ -75,6 +80,11 @@ namespace Gym_Management_System
         private void btnCheckin_Click(object sender, EventArgs e)
         {
             openForm(new frm_checkin());
+        }
+
+        private void btnEquipment_Click(object sender, EventArgs e)
+        {
+            openForm(new frm_equipment());
         }
     }
 }

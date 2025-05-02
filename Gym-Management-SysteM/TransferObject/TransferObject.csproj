@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Billing.cs" />
     <Compile Include="Checkin.cs" />
+    <Compile Include="Equipment.cs" />
     <Compile Include="Member.cs" />
     <Compile Include="Membership.cs" />
     <Compile Include="PT.cs" />

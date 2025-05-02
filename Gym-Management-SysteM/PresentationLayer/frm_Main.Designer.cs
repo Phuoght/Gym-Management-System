@@ -46,6 +46,8 @@
             btnLogout = new Button();
             btnCheckin = new Button();
             pictureBox5 = new PictureBox();
+            btnEquipment = new Button();
+            ptbEquipment = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -53,6 +55,7 @@
             ((System.ComponentModel.ISupportInitialize)ptbReceptionist).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ptbEquipment).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -271,12 +274,40 @@
             pictureBox5.TabIndex = 21;
             pictureBox5.TabStop = false;
             // 
+            // btnEquipment
+            // 
+            btnEquipment.BackColor = Color.Crimson;
+            btnEquipment.Cursor = Cursors.Hand;
+            btnEquipment.Font = new Font("Segoe UI", 14F);
+            btnEquipment.ForeColor = Color.Yellow;
+            btnEquipment.Location = new Point(162, 710);
+            btnEquipment.Margin = new Padding(2);
+            btnEquipment.Name = "btnEquipment";
+            btnEquipment.Size = new Size(230, 55);
+            btnEquipment.TabIndex = 24;
+            btnEquipment.Text = "Thiết Bị";
+            btnEquipment.UseVisualStyleBackColor = false;
+            btnEquipment.Click += btnEquipment_Click;
+            // 
+            // ptbEquipment
+            // 
+            ptbEquipment.Image = Properties.Resources.kettlebell;
+            ptbEquipment.Location = new Point(86, 708);
+            ptbEquipment.Margin = new Padding(2);
+            ptbEquipment.Name = "ptbEquipment";
+            ptbEquipment.Size = new Size(70, 58);
+            ptbEquipment.SizeMode = PictureBoxSizeMode.Zoom;
+            ptbEquipment.TabIndex = 23;
+            ptbEquipment.TabStop = false;
+            // 
             // frm_Main
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(241, 241, 250);
             ClientSize = new Size(1924, 1050);
+            Controls.Add(btnEquipment);
+            Controls.Add(ptbEquipment);
             Controls.Add(btnCheckin);
             Controls.Add(pictureBox5);
             Controls.Add(btnLogout);
@@ -309,6 +340,7 @@
             ((System.ComponentModel.ISupportInitialize)ptbReceptionist).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ptbEquipment).EndInit();
             ResumeLayout(false);
         }
 
@@ -332,5 +364,7 @@
         private Button btnLogout;
         private Button btnCheckin;
         private PictureBox pictureBox5;
+        private Button btnEquipment;
+        private PictureBox ptbEquipment;
     }
 }

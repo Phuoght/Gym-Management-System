@@ -44,6 +44,7 @@
     <Compile Include="BillingDL.cs" />
     <Compile Include="CheckinDL.cs" />
     <Compile Include="DataProvider.cs" />
+    <Compile Include="EquipmentDL.cs" />
     <Compile Include="LoginDL.cs" />
     <Compile Include="ReceptionistsDL.cs" />
     <None Include="MemberDL.cs" />
