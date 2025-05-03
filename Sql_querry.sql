@@ -1,5 +1,7 @@
-﻿USE Gym_db
+﻿
+USE Gym_db
 GO
+/* PROC FOR PT */
 CREATE PROCEDURE usp_AddPT
     @Name NVARCHAR(50),
     @Gender NVARCHAR(10),
@@ -12,7 +14,9 @@ BEGIN
     INSERT INTO PTs (PT_Name, PT_Gen, PT_DayOfBirth, PT_Phone, PT_Experience, PT_Address)
     VALUES (@Name, @Gender, @Dob, @Phone, @Experience, @Address)
 END
+
 GO
+
 CREATE PROCEDURE usp_DelPT(
 	@ID int 
 	)
@@ -21,7 +25,9 @@ BEGIN
     DELETE FROM PTs
 	WHERE PT_ID = @ID
 END
+
 GO
+
 CREATE PROCEDURE usp_UpdatePT(
 	@ID int,
 	@Name NVARCHAR(50),
@@ -120,7 +126,7 @@ BEGIN
 END
 GO
 
-
+/* PROC FOR CHECKIN */
 
 CREATE PROCEDURE usp_SearchCheckin(
 	@name nvarchar(50) 
@@ -131,7 +137,9 @@ BEGIN
 			Member_Phone, Member_Status 
 	FROM Members WHERE Member_Name LIKE N'%@name%'
 END
+
 GO
+
 CREATE PROCEDURE usp_SaveCheckin(
 	@id nvarchar(50),
 	@time DATETIME
@@ -141,8 +149,11 @@ BEGIN
     INSERT INTO CheckIn (CheckIN_MemberID, CheckIN_Time)
 	VALUES (@id, @time)
 END
-<<<<<<< HEAD
+
 GO
+
+/* PROC FOR Equipment */
+
 CREATE PROCEDURE usp_AddEquipment(
 	@name NVARCHAR(100),
 	@type NVARCHAR(100),
@@ -156,7 +167,9 @@ BEGIN
     INSERT INTO Equipments (Equipment_Name, Equipment_Type, Equipment_Amount, Equipment_Status, Equipment_LastMaintain, Equipment_NextMaintain)
 	VALUES (@name, @type, @amount, @status, @lastMainTain, @nextMainTain)
 END
+
 GO
+
 CREATE PROCEDURE usp_DelEquipment(
 	@id INT
 	)
@@ -165,7 +178,9 @@ BEGIN
     DELETE FROM Equipments
 	WHERE Equipment_ID = @id
 END
+
 GO
+
 CREATE PROCEDURE usp_EditEquipment(
 	@id INT,
 	@name NVARCHAR(100),
@@ -181,7 +196,11 @@ BEGIN
 	SET Equipment_Name = @name, Equipment_Type = @type, Equipment_Amount = @amount, Equipment_Status = @status, Equipment_LastMaintain = @lastMainTain, Equipment_NextMaintain = @nextMainTain
 	WHERE Equipment_ID = @id
 END
+
 GO
+
+/* PROC FOR Billing */
+
 CREATE PROCEDURE usp_AddBilling
 	@Name NVARCHAR(50),
     @Duration int,
@@ -192,6 +211,7 @@ BEGIN
     INSERT INTO Billings (Billing_Name, Billing_Duration, Billing_Goal, Billing_Cost)
     VALUES (@Name, @Duration, @Goal, @Cost)
 END
+
 GO
 
 CREATE PROCEDURE usp_DeleteBilling(@ID int )
@@ -200,6 +220,7 @@ BEGIN
     DELETE FROM Billings 
 	WHERE Billing_ID = @ID
 END
+
 GO
 
 CREATE PROCEDURE usp_UpdateBilling(
@@ -215,7 +236,25 @@ BEGIN
 	SET Billing_Name = @Name, Billing_Duration = @Duration, Billing_Goal = @Goal, Billing_Cost = @Cost
 	WHERE Billing_ID = @ID
 END
+
 GO
+
+CREATE PROCEDURE usp_SaveBill(
+	@receptionist int, 
+	@member int,
+	@date Date,
+	@cost float,
+	@promotion nvarchar(50),
+	@total float
+	)
+AS
+BEGIN
+    INSERT INTO Bills (Bill_Receptionist, Bill_Member, Bill_Date, Bill_Cost, Bill_PromotionID, Bill_Total)
+	VALUES (@receptionist, @member, @date, @cost, @promotion, @total)
+END
+
+GO
+/* PROC FOR Receptionists */
 
 CREATE PROCEDURE usp_AddReceptionits
     @Name NVARCHAR(50),
@@ -231,6 +270,7 @@ BEGIN
 	Receptionist_Phone,Receptionist_Gen,Receptionist_Pass,Role)
 	VALUES (@Name, @Dob,@Address,@PhoneNumber,@Gender,@Password,@Role )
 END
+
 GO
 
 CREATE PROCEDURE usp_DeleteReceptionists(@ID int )
@@ -239,6 +279,7 @@ BEGIN
     DELETE FROM Receptionists
 	WHERE Receptionist_ID = @ID
 END
+
 GO
 
 CREATE PROCEDURE usp_UpdateReceptionists(
@@ -257,7 +298,11 @@ BEGIN
 	Receptionist_Phone = @PhoneNumber,Receptionist_Gen = @Gender,Receptionist_Pass = @Password
 	WHERE Receptionist_ID = @ID
 END
+
 GO
+
+/* PROC FOR Promotion */
+
 CREATE PROCEDURE usp_AddPromotion(
 	@code NVARCHAR(100), 
 	@describe NVARCHAR(200), 
@@ -271,7 +316,9 @@ BEGIN
 	VALUES (@code, @discount, @describe, @startDate, @endDate)
 
 END
+
 GO
+
 CREATE PROCEDURE usp_DelPromotion(
 	@code NVARCHAR(100)
 	)
@@ -280,7 +327,9 @@ BEGIN
 	DELETE FROM Promotions
 	WHERE Promotion_ID = @code
 END
+
 GO
+
 CREATE PROCEDURE usp_EditPromotion(
 	@code NVARCHAR(100), 
 	@describe NVARCHAR(200), 
@@ -294,7 +343,10 @@ BEGIN
 	SET Promotion_Discount = @discount, Promotion_Describe = @describe, Promotion_StartDate = @startDate, Promotion_EndDate = @endDate
 	WHERE Promotion_ID = @code
 END
+
 GO
+/* PROC FOR Revenue */
+
 CREATE PROCEDURE usp_ReportRevenue(
 	@startDate Date, 
 	@endDate Date
@@ -306,17 +358,5 @@ BEGIN
 	WHERE Bill_Date >= @startDate
 		AND Bill_Date < DATEADD(DAY, 1, @endDate)
 END
+
 GO
-CREATE PROCEDURE usp_SaveBill(
-	@receptionist int, 
-	@member int,
-	@date Date,
-	@cost float,
-	@promotion nvarchar(50),
-	@total float
-	)
-AS
-BEGIN
-    INSERT INTO Bills (Bill_Receptionist, Bill_Member, Bill_Date, Bill_Cost, Bill_PromotionID, Bill_Total)
-	VALUES (@receptionist, @member, @date, @cost, @promotion, @total)
-END
