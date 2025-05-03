@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLayer;
 using TransferObject;
+using Gym_Management_System.MemberForms;
 
 
 namespace Gym_Management_System
@@ -58,13 +59,25 @@ namespace Gym_Management_System
 
         private void Getmemberships()
         {
-            MembershipBL membershipBL = new MembershipBL();
-            List<Membership> listMembership = membershipBL.GetMemberships();
-            cb_member_Membership.DataSource = listMembership;
-            cb_member_Membership.DisplayMember = "Name";// Thuộc tính hiển thị
-            cb_member_Membership.ValueMember = "ID";// Giá trị thực (dùng để lưu hoặc xử lý)
-            cb_member_Membership.SelectedIndex = -1; // Đặt giá trị mặc định là không chọn gì
+            try
+            {
+                MembershipBL membershipBL = new MembershipBL();
+                List<Membership> listMembership = membershipBL.GetMemberships();
+                if(listMembership == null || listMembership.Count == 0)
+                {
+                    MessageBox.Show("Không tìm thấy danh sách Membership!");
+                    return;
+                }
 
+                cb_member_Membership.DataSource = listMembership;
+                cb_member_Membership.DisplayMember = "Name";
+                cb_member_Membership.ValueMember = "ID";
+                cb_member_Membership.SelectedIndex = -1; // Đặt giá trị mặc định là không chọn
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải danh sách Membership: " + ex.Message);
+            }
         }
 
         private void btn_member_Save_Click(object sender,EventArgs e)
@@ -142,32 +155,31 @@ namespace Gym_Management_System
 
         private void btn_member_Edit_Click(object sender,EventArgs e)
         {
-            try
+            if(dgvMember.CurrentRow != null && !dgvMember.CurrentRow.IsNewRow)
             {
-                if (dgvMember.CurrentRow !=null && !dgvMember.CurrentRow.IsNewRow)
+                int id = Convert.ToInt32(dgvMember.CurrentRow.Cells["ID"].Value);
+                string name = (string)dgvMember.CurrentRow.Cells["NameMember"].Value;
+                string gen = (string)dgvMember.CurrentRow.Cells["Gender"].Value;
+                DateTime dob = (DateTime)dgvMember.CurrentRow.Cells["DOB"].Value;
+                DateTime jd = (DateTime)dgvMember.CurrentRow.Cells["JD"].Value;
+                int membershipId = Convert.ToInt32(dgvMember.CurrentRow.Cells["Membership"].Value);
+                int ptId = Convert.ToInt32(dgvMember.CurrentRow.Cells["PT"].Value);
+                string phone = (string)dgvMember.CurrentRow.Cells["Phone"].Value;
+                string timing = (string)dgvMember.CurrentRow.Cells["Timing"].Value;
+                string status = (string)dgvMember.CurrentRow.Cells["Status"].Value;
+
+                frm_EditMember frmEditMember = new frm_EditMember(id,name,gen,dob,jd,membershipId,ptId,phone,timing,status);
+                frmEditMember.ShowDialog();
+
+                if(frmEditMember.DialogResult != DialogResult.OK)
                 {
-                    int id = Convert.ToInt32(dgvMember.CurrentRow.Cells["ID"].Value);
-                    int ptId = Convert.ToInt32(cb_member_PT.SelectedValue);
-                    int membershipId = Convert.ToInt32(cb_member_Membership.SelectedValue);
-                    string name, gen, phone, timing, status;
-                    DateTime dob, jd;
-                    name = txt_member_Name.Text;
-                    gen = cb_member_Gen.Text;
-                    dob = dtp_member_DateOfBirth.Value;
-                    jd = dtp_menber_JoinDay.Value;
-                    phone = txt_member_Phone.Text;
-                    timing = cb_member_Timing.Text;
-                    status = cb_member_Status.Text;
-                    Member member = new Member(id,name,gen,dob,jd,membershipId,ptId,phone,timing,status);
-                    memberBL.EditMember(member);
-                    MessageBox.Show("Sửa hội viên thành công!");
-                    load_Member(); // load lại DataGridView
+                    load_Member();
                 }
             }
-            catch(Exception)
+            else
             {
+                MessageBox.Show("Vui lòng chọn hội viên để chỉnh sửa!");
 
-                throw;
             }
         }
     }

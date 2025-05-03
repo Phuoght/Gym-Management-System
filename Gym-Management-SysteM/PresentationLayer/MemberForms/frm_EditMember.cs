@@ -14,21 +14,23 @@ namespace Gym_Management_System.MemberForms
 {
     public partial class frm_EditMember : Form
     {
-        private int id;
+        private int id,membershipId, ptId;
         private MemberBL memberBL;
 
-        public frm_EditMember(int id,string name,string gender,DateTime dob,DateTime jd,string membership,string pt,string phone,string timing,string status)
+        public frm_EditMember(int id,string name,string gender,DateTime dob,DateTime jd,int membership,int pt,string phone,string timing,string status)
         {
             InitializeComponent();
             memberBL = new MemberBL();
             this.id = id;
+            this.membershipId = membershipId; 
+            this.ptId = ptId; 
             this.txt_member_NameE.Text = name;
             this.cb_member_GenE.Text = gender;
             this.txt_member_PhoneE.Text = phone;
             this.dtp_member_DateOfBirthE.Value = dob;
             this.dtp_menber_JoinDayE.Value = jd;
-            this.cb_member_MembershipE.Text = membership;
-            this.cb_member_PTE.Text = pt;
+            this.cb_member_MembershipE.SelectedValue = membership;
+            this.cb_member_PTE.SelectedValue = pt;
             this.cb_member_TimingE.Text = timing;
             this.cb_member_StatusE.Text = status;
 
@@ -41,7 +43,7 @@ namespace Gym_Management_System.MemberForms
             cb_member_PTE.DataSource = listPT;
             cb_member_PTE.DisplayMember = "Name";
             cb_member_PTE.ValueMember = "ID";
-            cb_member_PTE.SelectedIndex = -1;
+            cb_member_PTE.SelectedIndex = ptId;
         }
         private void GetMemberships()
         {
@@ -50,7 +52,7 @@ namespace Gym_Management_System.MemberForms
             cb_member_MembershipE.DataSource = listMembership;
             cb_member_MembershipE.DisplayMember = "Name";
             cb_member_MembershipE.ValueMember = "ID";
-            cb_member_MembershipE.SelectedIndex = -1;
+            cb_member_MembershipE.SelectedIndex = membershipId;
         }
 
         private void frmEditMember_Load(object sender,EventArgs e)

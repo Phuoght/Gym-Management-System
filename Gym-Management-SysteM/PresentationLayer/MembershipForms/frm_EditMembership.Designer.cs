@@ -45,12 +45,12 @@
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI",18F,FontStyle.Bold,GraphicsUnit.Point,0);
             label7.ForeColor = Color.Red;
-            label7.Location = new Point(206,9);
+            label7.Location = new Point(279,9);
             label7.Margin = new Padding(2,0,2,0);
             label7.Name = "label7";
-            label7.Size = new Size(357,41);
+            label7.Size = new Size(424,41);
             label7.TabIndex = 14;
-            label7.Text = "Chỉnh Sửa Thông Tin PT";
+            label7.Text = "Chỉnh Sửa Thông Tin Gói tập";
             // 
             // txt_membership_NameE
             // 

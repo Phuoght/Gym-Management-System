@@ -253,9 +253,9 @@
             label1.Location = new Point(351,21);
             label1.Margin = new Padding(2,0,2,0);
             label1.Name = "label1";
-            label1.Size = new Size(440,41);
+            label1.Size = new Size(476,41);
             label1.TabIndex = 68;
-            label1.Text = "Chỉnh Sửa Thông Tin Member";
+            label1.Text = "Chỉnh Sửa Thông Tin Thành viên";
             // 
             // btn_member_SaveE
             // 
