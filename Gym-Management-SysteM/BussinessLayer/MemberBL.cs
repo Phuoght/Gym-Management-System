@@ -1,59 +1,62 @@
-﻿using System;
+﻿using DataLayer;
+using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataLayer;
+using System.Data.SqlClient;
 using TransferObject;
 
 namespace BusinessLayer
 {
-    public class MembershipBL
+    public class MemberBL
     {
-        private MembershipDL membershipDL;
-        public MembershipBL()
+        private MemberDL memberDL;
+        public MemberBL()
         {
-            membershipDL = new MembershipDL();
+            memberDL = new MemberDL();
         }
-        public List<Membership> GetMemberships()
+        public List<Member> GetMember()
         {
             try
             {
-                return membershipDL.GetMemberships();
+                return memberDL.GetMembers();
             }
             catch(SqlException ex)
             {
+
                 throw new Exception("Lỗi lấy danh sách hội viên: " + ex.Message);
             }
         }
-        public void AddMembership(Membership membership)
+
+        public void AddMember(Member member)
         {
             try
             {
-                membershipDL.AddMbs(membership);
+                memberDL.AddM(member);
             }
             catch(SqlException ex)
             {
                 throw new Exception("Lỗi thêm hội viên: " + ex.Message);
             }
         }
-        public void DeleteMembership(int id)
+
+        public void DeleteMember(int id)
         {
             try
             {
-                membershipDL.DeleteMbs(id);
+                memberDL.DeleteM(id);
             }
             catch(SqlException ex)
             {
                 throw new Exception("Lỗi xóa hội viên: " + ex.Message);
             }
         }
-        public void EditMembership(Membership membership)
+        public void EditMember(Member member)
         {
             try
             {
-                membershipDL.EditMbs(membership);
+                memberDL.EditM(member);
             }
             catch(SqlException ex)
             {

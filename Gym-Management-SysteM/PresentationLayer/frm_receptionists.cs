@@ -1,4 +1,5 @@
 ﻿using BusinessLayer;
+using DataLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,16 +27,9 @@ namespace Gym_Management_System
         {
             try
             {
-                dgvLetan.DataSource = new ReceptionistsBL().GetReceptionists();
-                // Sắp xếp thứ tự các cột
-                dgvLetan.Columns["ID"].DisplayIndex = 0;
-                dgvLetan.Columns["name_letan"].DisplayIndex = 1;
-                dgvLetan.Columns["Gender"].DisplayIndex = 2;
-                dgvLetan.Columns["DayOfBirth"].DisplayIndex = 3;
-                dgvLetan.Columns["PhoneNumber"].DisplayIndex = 4;
-                dgvLetan.Columns["Password"].DisplayIndex = 5;
-                dgvLetan.Columns["Address"].DisplayIndex = 6;
-                dgvLetan.Columns["Role"].DisplayIndex = 7;
+                dgvLetan.AutoGenerateColumns = false;
+                dgvLetan.DataSource = receptionistsBL.GetReceptionists();
+
                 // Đặt màu chữ
                 dgvLetan.DefaultCellStyle.ForeColor = Color.Black;
             }
@@ -47,8 +41,6 @@ namespace Gym_Management_System
         private void btnSave_letan_Click(object sender, EventArgs e)
         {
             string name, gender, dob, phone, pass, address;
-
-            int id = 0;
             string role = "";
             name = txtName_letan.Text;
             gender = cbGen_letan.Text;
@@ -72,7 +64,7 @@ namespace Gym_Management_System
                 return;
             }
 
-            Receptionist receptionist = new Receptionist(id, name, dob, gender, phone, pass, address, role);
+            Receptionist receptionist = new Receptionist(name, dob, gender, phone, pass, address, role);
             try
             {
                 receptionistsBL.AddReceptionist(receptionist);

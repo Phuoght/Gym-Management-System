@@ -14,7 +14,7 @@ namespace Gym_Management_System
         }
         private void UpdateUI()
         {
-            if (role == "admin")
+            if(role == "admin")
             {
                 btnReceptionist.Visible = true;
                 ptbReceptionist.Visible = true;
@@ -42,7 +42,7 @@ namespace Gym_Management_System
         {
             frm_login login = new frm_login();
             DialogResult result = login.ShowDialog();
-            if (result == DialogResult.OK)
+            if(result == DialogResult.OK)
             {
                 role = login.userRole;
                 nameReceptionist = login.name;
@@ -66,47 +66,48 @@ namespace Gym_Management_System
         }
 
 
-        private void frm_Main_Load(object sender, EventArgs e)
+        private void frm_Main_Load(object sender,EventArgs e)
         {
             openFormLogin();
         }
 
-        private void btnPT_Click(object sender, EventArgs e)
+        private void btnPT_Click(object sender,EventArgs e)
         {
             openForm(new frm_coach());
         }
 
-        private void btnLogout_Click(object sender, EventArgs e)
+        private void btnLogout_Click(object sender,EventArgs e)
         {
             this.Hide();
             openFormLogin();
         }
 
-        private void btnMemberShip_Click(object sender, EventArgs e)
+        private void btnMemberShip_Click(object sender,EventArgs e)
         {
             openForm(new frm_membership());
         }
 
-        private void btnCheckin_Click(object sender, EventArgs e)
+        private void btnCheckin_Click(object sender,EventArgs e)
         {
             openForm(new frm_checkin());
         }
 
-        private void btnEquipment_Click(object sender, EventArgs e)
+        private void btnEquipment_Click(object sender,EventArgs e)
         {
             openForm(new frm_equipment());
         }
 
-        private void btnPromotion_Click(object sender, EventArgs e)
+        private void btnPromotion_Click(object sender,EventArgs e)
         {
             openForm(new frm_promotion());
         }
 
-        private void btnRevenue_Click(object sender, EventArgs e)
+        private void btnRevenue_Click(object sender,EventArgs e)
         {
             openForm(new frm_revenue());
         }
 
+<<<<<<< HEAD
         private void btnReceptionist_Click(object sender, EventArgs e)
         {
             openForm(new frm_receptionists());
@@ -121,5 +122,11 @@ namespace Gym_Management_System
         {
             openForm(new frm_billing());
         }
+=======
+        private void btnMember_Click(object sender,EventArgs e)
+        {
+            openForm(new frm_member());
+        }
+>>>>>>> 69dca41cea3a63ebcde3d31060d41f400e1d8459
     }
 }
