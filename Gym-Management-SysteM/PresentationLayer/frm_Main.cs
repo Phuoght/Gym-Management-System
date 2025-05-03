@@ -107,7 +107,6 @@ namespace Gym_Management_System
             openForm(new frm_revenue());
         }
 
-<<<<<<< HEAD
         private void btnReceptionist_Click(object sender, EventArgs e)
         {
             openForm(new frm_receptionists());
@@ -122,11 +121,5 @@ namespace Gym_Management_System
         {
             openForm(new frm_billing());
         }
-=======
-        private void btnMember_Click(object sender,EventArgs e)
-        {
-            openForm(new frm_member());
-        }
->>>>>>> 69dca41cea3a63ebcde3d31060d41f400e1d8459
     }
 }

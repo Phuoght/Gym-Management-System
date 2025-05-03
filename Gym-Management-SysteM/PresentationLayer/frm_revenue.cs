@@ -20,6 +20,24 @@ namespace Gym_Management_System
             InitializeComponent();
             revenueBL = new RevenueBL();
         }
+        private void GetReceptionists()
+        {
+            ReceptionistsBL receptionistBL = new ReceptionistsBL();
+            List<Receptionist> listReceptionist = receptionistBL.GetReceptionists();
+            receptionist.DataSource = listReceptionist;
+            receptionist.DisplayMember = "Name";// Thuộc tính hiển thị
+            receptionist.ValueMember = "ID";// Giá trị thực (dùng để lưu hoặc xử lý)
+        }
+
+        private void GetMembers()
+        {
+            MemberBL memberBL = new MemberBL();
+            List<Member> listMembers = memberBL.GetMember();
+            member.DataSource = listMembers;
+            member.DisplayMember = "Name";// Thuộc tính hiển thị
+            member.ValueMember = "ID";// Giá trị thực (dùng để lưu hoặc xử lý)
+
+        }
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
@@ -39,8 +57,12 @@ namespace Gym_Management_System
                     MessageBox.Show("Không có dữ liệu trong khoảng thời gian này !");
                     return;
                 }
+                GetMembers();
+                GetReceptionists();
                 dgvReport.DataSource = billings;
                 dgvReport.AutoGenerateColumns = false;
+
+                
 
                 double totalRevenue = 0;
                 foreach (var billing in billings)

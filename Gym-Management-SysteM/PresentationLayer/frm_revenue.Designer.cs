@@ -41,8 +41,8 @@
             dtpEndDate = new DateTimePicker();
             label2 = new Label();
             ID = new DataGridViewTextBoxColumn();
-            receptionist = new DataGridViewTextBoxColumn();
-            member = new DataGridViewTextBoxColumn();
+            receptionist = new DataGridViewComboBoxColumn();
+            member = new DataGridViewComboBoxColumn();
             date = new DataGridViewTextBoxColumn();
             cost = new DataGridViewTextBoxColumn();
             promotionID = new DataGridViewTextBoxColumn();
@@ -190,6 +190,8 @@
             receptionist.HeaderText = "Mã Nhân Viên";
             receptionist.MinimumWidth = 200;
             receptionist.Name = "receptionist";
+            receptionist.Resizable = DataGridViewTriState.True;
+            receptionist.SortMode = DataGridViewColumnSortMode.Automatic;
             receptionist.Width = 200;
             // 
             // member
@@ -199,6 +201,7 @@
             member.MinimumWidth = 8;
             member.Name = "member";
             member.Resizable = DataGridViewTriState.True;
+            member.SortMode = DataGridViewColumnSortMode.Automatic;
             member.Width = 220;
             // 
             // date
@@ -270,8 +273,8 @@
         private DateTimePicker dtpEndDate;
         private Label label2;
         private DataGridViewTextBoxColumn ID;
-        private DataGridViewTextBoxColumn receptionist;
-        private DataGridViewTextBoxColumn member;
+        private DataGridViewComboBoxColumn receptionist;
+        private DataGridViewComboBoxColumn member;
         private DataGridViewTextBoxColumn date;
         private DataGridViewTextBoxColumn cost;
         private DataGridViewTextBoxColumn promotionID;
