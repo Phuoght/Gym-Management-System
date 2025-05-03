@@ -171,7 +171,7 @@ namespace Gym_Management_System
                 frm_EditMember frmEditMember = new frm_EditMember(id,name,gen,dob,jd,membershipId,ptId,phone,timing,status);
                 frmEditMember.ShowDialog();
 
-                if(frmEditMember.DialogResult != DialogResult.OK)
+                if(frmEditMember.DialogResult == DialogResult.OK)
                 {
                     load_Member();
                 }

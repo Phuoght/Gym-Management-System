@@ -103,26 +103,22 @@ namespace DataLayer
     {
         new SqlParameter("@ID", member.ID),
         new SqlParameter("@Name", member.Name),
-        new SqlParameter("@Gender", member.Gender),
-        new SqlParameter("@DOB", member.Dob),
-        new SqlParameter("@JoinDay", member.JoinDate),
-        new SqlParameter("@Membership", member.Membership),
-        new SqlParameter("@PT", member.PT),
-        new SqlParameter("@Phone", member.PhoneNumber),
-        new SqlParameter("@Timing", member.Timing),
-        new SqlParameter("@Status", member.Status)
+        new SqlParameter("@Gen", member.Gender),
+        new SqlParameter("@dob", member.Dob),
+        new SqlParameter("@jd", member.JoinDate),
+        new SqlParameter("@mbship", member.Membership),
+        new SqlParameter("@pt", member.PT),
+        new SqlParameter("@phone", member.PhoneNumber),
+        new SqlParameter("@timing", member.Timing),
+        new SqlParameter("@status", member.Status)
     };
 
             try
             {
-                // Ghi log vào console
-                Console.WriteLine($"Updating Member: ID={member.ID}, Membership={member.Membership}, PT={member.PT}, Name={member.Name}");
                 return MyExcuteNonQuerry(sql,CommandType.StoredProcedure,parameters);
             }
             catch(SqlException ex)
             {
-                // Ghi lỗi vào console
-                Console.WriteLine($"SQL Error in EditM: {ex.Message}, Membership={member.Membership}, PT={member.PT}");
                 throw;
             }
         }

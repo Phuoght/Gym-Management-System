@@ -22,15 +22,13 @@ namespace Gym_Management_System.MemberForms
             InitializeComponent();
             memberBL = new MemberBL();
             this.id = id;
-            this.membershipId = membershipId; 
-            this.ptId = ptId; 
+            this.membershipId = membership; 
+            this.ptId = pt; 
             this.txt_member_NameE.Text = name;
             this.cb_member_GenE.Text = gender;
             this.txt_member_PhoneE.Text = phone;
             this.dtp_member_DateOfBirthE.Value = dob;
             this.dtp_menber_JoinDayE.Value = jd;
-            this.cb_member_MembershipE.SelectedValue = membership;
-            this.cb_member_PTE.SelectedValue = pt;
             this.cb_member_TimingE.Text = timing;
             this.cb_member_StatusE.Text = status;
 
@@ -43,7 +41,7 @@ namespace Gym_Management_System.MemberForms
             cb_member_PTE.DataSource = listPT;
             cb_member_PTE.DisplayMember = "Name";
             cb_member_PTE.ValueMember = "ID";
-            cb_member_PTE.SelectedIndex = ptId;
+            cb_member_PTE.SelectedValue = ptId;
         }
         private void GetMemberships()
         {
@@ -52,7 +50,7 @@ namespace Gym_Management_System.MemberForms
             cb_member_MembershipE.DataSource = listMembership;
             cb_member_MembershipE.DisplayMember = "Name";
             cb_member_MembershipE.ValueMember = "ID";
-            cb_member_MembershipE.SelectedIndex = membershipId;
+            cb_member_MembershipE.SelectedValue = membershipId;
         }
 
         private void frmEditMember_Load(object sender,EventArgs e)
@@ -89,13 +87,14 @@ namespace Gym_Management_System.MemberForms
                 return;
             }
 
-            Console.WriteLine($"Membership: {membership}, PT: {pt}");  // Check the selected IDs
-
             Member member = new Member(id,name,gen,dob,jd,membership,pt,phone,timing,status);
             try
             {
                 memberBL.EditMember(member);
                 MessageBox.Show("Sửa hội viên thành công!");
+                this.DialogResult = DialogResult.OK; // Set the dialog result to OK
+                this.Close();
+
             }
             catch(Exception ex)
             {
