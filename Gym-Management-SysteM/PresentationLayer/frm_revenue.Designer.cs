@@ -35,18 +35,18 @@
             label7 = new Label();
             btnPrint = new Button();
             dgvReport = new DataGridView();
-            ID = new DataGridViewTextBoxColumn();
-            receptionist = new DataGridViewTextBoxColumn();
-            member = new DataGridViewComboBoxColumn();
-            date = new DataGridViewTextBoxColumn();
-            cost = new DataGridViewTextBoxColumn();
-            promotionID = new DataGridViewTextBoxColumn();
-            total = new DataGridViewTextBoxColumn();
             label8 = new Label();
             lbTotalRevenue = new Label();
             dtpStartDate = new DateTimePicker();
             dtpEndDate = new DateTimePicker();
             label2 = new Label();
+            ID = new DataGridViewTextBoxColumn();
+            receptionist = new DataGridViewTextBoxColumn();
+            member = new DataGridViewTextBoxColumn();
+            date = new DataGridViewTextBoxColumn();
+            cost = new DataGridViewTextBoxColumn();
+            promotionID = new DataGridViewTextBoxColumn();
+            total = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvReport).BeginInit();
             SuspendLayout();
             // 
@@ -118,66 +118,6 @@
             dgvReport.Size = new Size(1444, 418);
             dgvReport.TabIndex = 49;
             // 
-            // ID
-            // 
-            ID.DataPropertyName = "id";
-            ID.HeaderText = "ID";
-            ID.MinimumWidth = 70;
-            ID.Name = "ID";
-            ID.Width = 70;
-            // 
-            // receptionist
-            // 
-            receptionist.DataPropertyName = "receptionist";
-            receptionist.HeaderText = "Mã Nhân Viên";
-            receptionist.MinimumWidth = 200;
-            receptionist.Name = "receptionist";
-            receptionist.Width = 200;
-            // 
-            // member
-            // 
-            member.DataPropertyName = "member";
-            member.HeaderText = "Mã Thành Viên";
-            member.MinimumWidth = 8;
-            member.Name = "member";
-            member.Resizable = DataGridViewTriState.True;
-            member.SortMode = DataGridViewColumnSortMode.Automatic;
-            member.Width = 220;
-            // 
-            // date
-            // 
-            date.DataPropertyName = "date";
-            date.HeaderText = "Ngày Lập";
-            date.MinimumWidth = 8;
-            date.Name = "date";
-            date.Width = 210;
-            // 
-            // cost
-            // 
-            cost.DataPropertyName = "cost";
-            cost.HeaderText = "Giá Tiền";
-            cost.MinimumWidth = 100;
-            cost.Name = "cost";
-            cost.Width = 200;
-            // 
-            // promotionID
-            // 
-            promotionID.DataPropertyName = "promotionID";
-            dataGridViewCellStyle2.NullValue = null;
-            promotionID.DefaultCellStyle = dataGridViewCellStyle2;
-            promotionID.HeaderText = "Mã Giảm Giá";
-            promotionID.MinimumWidth = 130;
-            promotionID.Name = "promotionID";
-            promotionID.Width = 200;
-            // 
-            // total
-            // 
-            total.DataPropertyName = "total";
-            total.HeaderText = "Tổng";
-            total.MinimumWidth = 100;
-            total.Name = "total";
-            total.Width = 280;
-            // 
             // label8
             // 
             label8.AutoSize = true;
@@ -236,6 +176,65 @@
             label2.TabIndex = 78;
             label2.Text = "Đến";
             // 
+            // ID
+            // 
+            ID.DataPropertyName = "id";
+            ID.HeaderText = "ID";
+            ID.MinimumWidth = 70;
+            ID.Name = "ID";
+            ID.Width = 70;
+            // 
+            // receptionist
+            // 
+            receptionist.DataPropertyName = "receptionist";
+            receptionist.HeaderText = "Mã Nhân Viên";
+            receptionist.MinimumWidth = 200;
+            receptionist.Name = "receptionist";
+            receptionist.Width = 200;
+            // 
+            // member
+            // 
+            member.DataPropertyName = "member";
+            member.HeaderText = "Mã Thành Viên";
+            member.MinimumWidth = 8;
+            member.Name = "member";
+            member.Resizable = DataGridViewTriState.True;
+            member.Width = 220;
+            // 
+            // date
+            // 
+            date.DataPropertyName = "date";
+            date.HeaderText = "Ngày Lập";
+            date.MinimumWidth = 8;
+            date.Name = "date";
+            date.Width = 210;
+            // 
+            // cost
+            // 
+            cost.DataPropertyName = "cost";
+            cost.HeaderText = "Giá Tiền";
+            cost.MinimumWidth = 100;
+            cost.Name = "cost";
+            cost.Width = 200;
+            // 
+            // promotionID
+            // 
+            promotionID.DataPropertyName = "promotionID";
+            dataGridViewCellStyle2.NullValue = null;
+            promotionID.DefaultCellStyle = dataGridViewCellStyle2;
+            promotionID.HeaderText = "Mã Giảm Giá";
+            promotionID.MinimumWidth = 130;
+            promotionID.Name = "promotionID";
+            promotionID.Width = 200;
+            // 
+            // total
+            // 
+            total.DataPropertyName = "total";
+            total.HeaderText = "Tổng";
+            total.MinimumWidth = 100;
+            total.Name = "total";
+            total.Width = 280;
+            // 
             // frm_revenue
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -272,7 +271,7 @@
         private Label label2;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn receptionist;
-        private DataGridViewComboBoxColumn member;
+        private DataGridViewTextBoxColumn member;
         private DataGridViewTextBoxColumn date;
         private DataGridViewTextBoxColumn cost;
         private DataGridViewTextBoxColumn promotionID;

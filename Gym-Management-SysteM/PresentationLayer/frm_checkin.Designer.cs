@@ -94,7 +94,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Black", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Red;
-            label3.Location = new Point(725, 175);
+            label3.Location = new Point(695, 181);
             label3.Name = "label3";
             label3.Size = new Size(183, 45);
             label3.TabIndex = 5;
@@ -122,12 +122,12 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvCheckin.DefaultCellStyle = dataGridViewCellStyle2;
-            dgvCheckin.Location = new Point(43, 247);
+            dgvCheckin.Location = new Point(95, 252);
             dgvCheckin.Margin = new Padding(2);
             dgvCheckin.MultiSelect = false;
             dgvCheckin.Name = "dgvCheckin";
             dgvCheckin.RowHeadersWidth = 62;
-            dgvCheckin.Size = new Size(1489, 412);
+            dgvCheckin.Size = new Size(1335, 412);
             dgvCheckin.TabIndex = 21;
             dgvCheckin.CellContentClick += dgvCheckin_CellContentClick;
             // 

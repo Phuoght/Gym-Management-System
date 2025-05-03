@@ -35,6 +35,7 @@ namespace Gym_Management_System
                 dgvLetan.Columns["PhoneNumber"].DisplayIndex = 4;
                 dgvLetan.Columns["Password"].DisplayIndex = 5;
                 dgvLetan.Columns["Address"].DisplayIndex = 6;
+                dgvLetan.Columns["Role"].DisplayIndex = 7;
                 // Đặt màu chữ
                 dgvLetan.DefaultCellStyle.ForeColor = Color.Black;
             }
@@ -45,21 +46,22 @@ namespace Gym_Management_System
         }
         private void btnSave_letan_Click(object sender, EventArgs e)
         {
-            string name, gen, dob, phone, pass, address;
-            string role = "";
+            string name, gender, dob, phone, pass, address;
+
             int id = 0;
+            string role = "";
             name = txtName_letan.Text;
-            gen = cbGen_letan.Text;
+            gender = cbGen_letan.Text;
             dob = dtpDateOfBirth_letan.Text;
             phone = txtPhone_letan.Text;
             pass = txtPass_letan.Text;
             address = txtAddress_letan.Text;
             if (string.IsNullOrWhiteSpace(txtName_letan.Text) ||
-                string.IsNullOrWhiteSpace(cbGen_letan.Text) ||
-                string.IsNullOrWhiteSpace(dtpDateOfBirth_letan.Text) ||
                 string.IsNullOrWhiteSpace(txtPhone_letan.Text) ||
+                string.IsNullOrWhiteSpace(txtAddress_letan.Text) ||
                 string.IsNullOrWhiteSpace(txtPass_letan.Text) ||
-                string.IsNullOrWhiteSpace(txtAddress_letan.Text))
+                cbGen_letan.SelectedIndex == -1
+                )
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin !");
                 return;
@@ -69,14 +71,17 @@ namespace Gym_Management_System
                 MessageBox.Show("Số điện thoại không hợp lệ !");
                 return;
             }
-            Receptionist receptionist = new Receptionist(id, name, dob, gen, phone, pass, address, role);
+
+            Receptionist receptionist = new Receptionist(id, name, dob, gender, phone, pass, address, role);
             try
             {
-
+                receptionistsBL.AddReceptionist(receptionist);
+                MessageBox.Show("Thêm thông tin lễ tân thành công !");
+                load_receptionists();
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("Lỗi thêm lễ tân " + ex.Message);
+                MessageBox.Show("Lỗi thêm thông tin lễ tân " + ex.Message);
                 throw;
             }
             finally
@@ -87,6 +92,7 @@ namespace Gym_Management_System
                 txtAddress_letan.Clear();
             }
         }
+
         private void btnDel_letan_Click(object sender, EventArgs e)
         {
             if (dgvLetan.SelectedRows.Count > 0)
@@ -95,34 +101,41 @@ namespace Gym_Management_System
                 try
                 {
                     receptionistsBL.DeleteReceptionist(id);
-                    MessageBox.Show("Xóa lễ tân thành công !");
+                    MessageBox.Show("Xóa thông tin lễ tân thành công !");
                     load_receptionists();
                 }
                 catch (SqlException ex)
                 {
-                    MessageBox.Show("Lỗi xóa lễ tân: " + ex.Message);
+                    MessageBox.Show("Lỗi xóa thông tin lễ tân: " + ex.Message);
                     throw;
                 }
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn lễ tân để xóa !");
+                MessageBox.Show("Vui lòng chọn thông tin lễ tân cần xóa !");
             }
         }
         private void btnEdit_letan_Click(object sender, EventArgs e)
         {
-            if (dgvLetan.SelectedRows != null && !dgvLetan.CurrentRow.IsNewRow)
+            if (dgvLetan.SelectedRows != null && dgvLetan.CurrentRow != null)
             {
                 int id = (int)dgvLetan.CurrentRow.Cells["ID"].Value;
-                string name = (string)dgvLetan.CurrentRow.Cells["nam_letan"].Value;
-                string gen = (string)dgvLetan.CurrentRow.Cells["Gender"].Value;
+                string name = (string)dgvLetan.CurrentRow.Cells["Name"].Value;
+                string gender = (string)dgvLetan.CurrentRow.Cells["Gender"].Value;
                 string dob = (string)dgvLetan.CurrentRow.Cells["DayOfBirth"].Value;
                 string phone = (string)dgvLetan.CurrentRow.Cells["PhoneNumber"].Value;
                 string pass = (string)dgvLetan.CurrentRow.Cells["Password"].Value;
                 string address = (string)dgvLetan.CurrentRow.Cells["Address"].Value;
+                string role = (string)dgvLetan.CurrentRow.Cells["Role"].Value;
+
+                frm_EditReceptionists frmEditReceptionists = new frm_EditReceptionists(id, name, gender, dob, phone, pass, address, role);
+
+                if (frmEditReceptionists.ShowDialog() == DialogResult.OK)
+                {
+                    load_receptionists();
+                }
             }
         }
-
         private void frm_receptionists_Load(object sender, EventArgs e)
         {
 
