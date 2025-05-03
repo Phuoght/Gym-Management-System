@@ -25,13 +25,9 @@ namespace Gym_Management_System
         {
             try
             {
-                dgvMembership.DataSource = new MembershipBL().GetMemberships();
-                // Sắp xếp thứ tự các cột
-                dgvMembership.Columns["ID"].DisplayIndex = 0;
-                dgvMembership.Columns["NameMembership"].DisplayIndex = 1;
-                dgvMembership.Columns["Duration"].DisplayIndex = 2;
-                dgvMembership.Columns["Goal"].DisplayIndex = 3;
-                dgvMembership.Columns["Cost"].DisplayIndex = 4;
+                dgvMembership.AutoGenerateColumns = false;
+                dgvMembership.DataSource = membershipBL.GetMemberships();
+
                 // Đặt màu chữ
                 dgvMembership.DefaultCellStyle.ForeColor = Color.Black;
             }
@@ -48,12 +44,12 @@ namespace Gym_Management_System
 
         private void btn_membership_Save_Click(object sender,EventArgs e)
         {
-            string name, goal;
-            int duration, cost;
+            string name, duration, goal, cost;
+            
             name = txt_membership_Name.Text;
-            duration = int.Parse(txt_membership_Duration.Text);
+            duration = txt_membership_Duration.Text;
             goal = txt_membership_Goal.Text;
-            cost = int.Parse(txt_membership_Cost.Text);
+            cost = txt_membership_Cost.Text;
             if(string.IsNullOrWhiteSpace(txt_membership_Name.Text) ||
                 string.IsNullOrWhiteSpace(txt_membership_Duration.Text) ||
                 string.IsNullOrWhiteSpace(txt_membership_Goal.Text) ||
@@ -62,12 +58,12 @@ namespace Gym_Management_System
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin !");
                 return;
             }
-            if(!int.TryParse(txt_membership_Duration.Text,out duration) || duration <= 0)
+            if(!int.TryParse(duration,out int result) || result <= 0)
             {
                 MessageBox.Show("Thời gian không hợp lệ !");
                 return;
             }
-            if(!int.TryParse(txt_membership_Cost.Text,out cost) || cost <= 0)
+            if(!int.TryParse(cost,out result) || result <= 0)
             {
                 MessageBox.Show("Giá không hợp lệ !");
                 return;
@@ -75,7 +71,9 @@ namespace Gym_Management_System
             Membership membership = new Membership(name,duration,goal,cost);
             try
             {
-
+                membershipBL.AddMembership(membership);
+                MessageBox.Show("Thêm hội viên thành công!");
+                load_membership(); // load lại DataGridView
             }
             catch(SqlException ex)
             {
@@ -116,17 +114,20 @@ namespace Gym_Management_System
 
         private void btn_membership_Edit_Click(object sender,EventArgs e)
         {
-            if(dgvMembership.SelectedRows != null && !dgvMembership.CurrentRow.IsNewRow)
+            if(dgvMembership.CurrentRow != null && !dgvMembership.CurrentRow.IsNewRow)
             {
                 int id = (int)dgvMembership.CurrentRow.Cells["ID"].Value;
                 string name = (string)dgvMembership.CurrentRow.Cells["NameMembership"].Value;
                 string duration = (string)dgvMembership.CurrentRow.Cells["Duration"].Value;
                 string goal = (string)dgvMembership.CurrentRow.Cells["Goal"].Value;
                 string cost = (string)dgvMembership.CurrentRow.Cells["Cost"].Value;
-
-                
-
-
+                // Mở form chỉnh sửa hội viên
+                frm_EditMembership frm_editMembership = new frm_EditMembership(id,name,duration,goal,cost);
+                frm_editMembership.ShowDialog();
+                if(frm_editMembership.DialogResult == DialogResult.OK)
+                {
+                    load_membership();
+                }
             }
         }
     }

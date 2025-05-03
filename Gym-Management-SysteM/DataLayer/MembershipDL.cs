@@ -13,8 +13,8 @@ namespace DataLayer
         public List<Membership> GetMemberships()
         {
             string sql = "SELECT * FROM Memberships";
-            int id, duration, cost;
-            string name, goal;
+            int id;
+            string name,duration, goal,cost;
             List<Membership> Memberships = new List<Membership>();
             try
             {
@@ -25,9 +25,9 @@ namespace DataLayer
                     {
                         id = (int)reader["Membership_ID"];
                         name = reader["Membership_Name"].ToString();
-                        duration = (int)reader["Membership_Duration"];
+                        duration =reader["Membership_Duration"].ToString();
                         goal = reader["Membership_Goal"].ToString();
-                        cost = (int)reader["Membership_Cost"];
+                        cost = reader["Membership_Cost"].ToString();
                         Membership membership = new Membership(id,name,duration,goal,cost);
                         Memberships.Add(membership);
                     }

@@ -68,9 +68,9 @@
             label1.Location = new Point(18,131);
             label1.Margin = new Padding(2,0,2,0);
             label1.Name = "label1";
-            label1.Size = new Size(98,32);
+            label1.Size = new Size(101,32);
             label1.TabIndex = 15;
-            label1.Text = "Họ Tên";
+            label1.Text = "Tên gói";
             // 
             // txt_membership_GoalE
             // 

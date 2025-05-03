@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             lbl_membership_Cost = new Label();
             dgvMembership = new DataGridView();
             ID = new DataGridViewTextBoxColumn();
@@ -67,24 +67,24 @@
             // dgvMembership
             // 
             dgvMembership.BackgroundColor = Color.IndianRed;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.Red;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI",11F,FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = Color.Yellow;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvMembership.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.Red;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI",11F,FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = Color.Yellow;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dgvMembership.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dgvMembership.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvMembership.Columns.AddRange(new DataGridViewColumn[] { ID,NameMembership,Duration,Goal,Cost });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.LightGray;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI",9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvMembership.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.LightGray;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI",9F);
+            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dgvMembership.DefaultCellStyle = dataGridViewCellStyle6;
             dgvMembership.Location = new Point(2,323);
             dgvMembership.Margin = new Padding(2);
             dgvMembership.Name = "dgvMembership";
@@ -94,6 +94,7 @@
             // 
             // ID
             // 
+            ID.DataPropertyName = "ID";
             ID.HeaderText = "ID";
             ID.MinimumWidth = 6;
             ID.Name = "ID";
@@ -101,6 +102,7 @@
             // 
             // NameMembership
             // 
+            NameMembership.DataPropertyName = "Name";
             NameMembership.HeaderText = "Họ tên";
             NameMembership.MinimumWidth = 6;
             NameMembership.Name = "NameMembership";
@@ -108,6 +110,7 @@
             // 
             // Duration
             // 
+            Duration.DataPropertyName = "Duration";
             Duration.HeaderText = "Thời hạn";
             Duration.MinimumWidth = 6;
             Duration.Name = "Duration";
@@ -115,6 +118,7 @@
             // 
             // Goal
             // 
+            Goal.DataPropertyName = "Goal";
             Goal.HeaderText = "Mục tiêu";
             Goal.MinimumWidth = 6;
             Goal.Name = "Goal";
@@ -122,6 +126,7 @@
             // 
             // Cost
             // 
+            Cost.DataPropertyName = "Cost";
             Cost.HeaderText = "Giá";
             Cost.MinimumWidth = 6;
             Cost.Name = "Cost";
@@ -292,6 +297,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "frm_membership";
             Text = "frm_membership";
+            Load += frm_membership_Load;
             ((System.ComponentModel.ISupportInitialize)dgvMembership).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -311,11 +317,11 @@
         private Label lbl_membership_hoten;
         private TextBox txt_membership_Cost;
         private TextBox txt_membership_Goal;
-        private TextBox txt_membership_Duration;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn NameMembership;
         private DataGridViewTextBoxColumn Duration;
         private DataGridViewTextBoxColumn Goal;
         private DataGridViewTextBoxColumn Cost;
+        private TextBox txt_membership_Duration;
     }
 }

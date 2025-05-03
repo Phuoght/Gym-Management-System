@@ -268,9 +268,9 @@
             lbl_member_membership.Location = new Point(1056,71);
             lbl_member_membership.Margin = new Padding(2,0,2,0);
             lbl_member_membership.Name = "lbl_member_membership";
-            lbl_member_membership.Size = new Size(109,32);
+            lbl_member_membership.Size = new Size(97,32);
             lbl_member_membership.TabIndex = 42;
-            lbl_member_membership.Text = "Hội viên";
+            lbl_member_membership.Text = "Gói tập";
             // 
             // cb_member_PT
             // 

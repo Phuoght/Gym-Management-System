@@ -1,4 +1,5 @@
-﻿using BusinessLayer;
+﻿using Microsoft.Data.SqlClient;
+using BusinessLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,16 +44,27 @@ namespace Gym_Management_System
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin !");
                 return;
             }
-            Membership membership = new Membership(name,int.Parse(duration),goal,int.Parse(cost));
+            if(!int.TryParse(duration,out int result) || result <= 0)
+            {
+                MessageBox.Show("Thời gian không hợp lệ !");
+                return;
+            }
+            if(!int.TryParse(cost,out result) || result <= 0)
+            {
+                MessageBox.Show("Giá không hợp lệ !");
+                return;
+            }
+            Membership membership = new Membership(id,name,duration,goal,cost);
             try
             {
                 membershipBL.EditMembership(membership);
-                MessageBox.Show("Sửa hội viên thành công !");
+                MessageBox.Show("Sửa gói đăng ký thành công !");
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Lỗi sửa hội viên: " + ex.Message);
+                MessageBox.Show("Lỗi sửa gói đăng ký " + ex.Message);
             }
             finally
             {
