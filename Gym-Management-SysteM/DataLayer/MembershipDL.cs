@@ -44,7 +44,7 @@ namespace DataLayer
             }
         }
 
-        public int Add(Membership membership)
+        public int AddMbs(Membership membership)
         {
             string sql = "usp_AddMembership";
             List<SqlParameter> parameters = new List<SqlParameter>
@@ -64,7 +64,7 @@ namespace DataLayer
             }
             
         }
-        public int DeleteMembership(int id) {
+        public int DeleteMbs(int id) {
             string sql = "usp_DeleteMembership";
             List<SqlParameter> parameters = new List<SqlParameter>
             {
@@ -79,7 +79,7 @@ namespace DataLayer
                 throw ex;
             }
         }
-        public int EditMembership(Membership membership)
+        public int EditMbs(Membership membership)
         {
             string sql = "usp_UpdateMembership";
 

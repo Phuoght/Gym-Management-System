@@ -28,7 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dgvMember = new DataGridView();
+            ID = new DataGridViewTextBoxColumn();
+            NameMember = new DataGridViewTextBoxColumn();
+            Gender = new DataGridViewTextBoxColumn();
+            DOB = new DataGridViewTextBoxColumn();
+            JD = new DataGridViewTextBoxColumn();
+            Membership = new DataGridViewTextBoxColumn();
+            PT = new DataGridViewTextBoxColumn();
+            Phone = new DataGridViewTextBoxColumn();
+            Timing = new DataGridViewTextBoxColumn();
+            Status = new DataGridViewTextBoxColumn();
             lbl_member_Danhsach = new Label();
             btn_member_Del = new Button();
             btn_member_Edit = new Button();
@@ -57,14 +69,111 @@
             // 
             // dgvMember
             // 
-            dgvMember.BackgroundColor = SystemColors.Control;
+            dgvMember.BackgroundColor = Color.IndianRed;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.Red;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI",11F,FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = Color.Yellow;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvMember.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvMember.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvMember.Columns.AddRange(new DataGridViewColumn[] { ID,NameMember,Gender,DOB,JD,Membership,PT,Phone,Timing,Status });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.LightGray;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI",9F,FontStyle.Regular,GraphicsUnit.Point,0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvMember.DefaultCellStyle = dataGridViewCellStyle2;
             dgvMember.Location = new Point(17,359);
             dgvMember.Margin = new Padding(2);
             dgvMember.Name = "dgvMember";
             dgvMember.RowHeadersWidth = 62;
             dgvMember.Size = new Size(1238,257);
             dgvMember.TabIndex = 38;
+            // 
+            // ID
+            // 
+            ID.DataPropertyName = "ID";
+            ID.HeaderText = "ID";
+            ID.MinimumWidth = 6;
+            ID.Name = "ID";
+            ID.Width = 80;
+            // 
+            // NameMember
+            // 
+            NameMember.DataPropertyName = "Name";
+            NameMember.HeaderText = "Họ tên";
+            NameMember.MinimumWidth = 6;
+            NameMember.Name = "NameMember";
+            NameMember.Width = 125;
+            // 
+            // Gender
+            // 
+            Gender.DataPropertyName = "Gender";
+            Gender.HeaderText = "Giới tính";
+            Gender.MinimumWidth = 6;
+            Gender.Name = "Gender";
+            Gender.Width = 80;
+            // 
+            // DOB
+            // 
+            DOB.DataPropertyName = "Dob";
+            DOB.HeaderText = "Ngày sinh";
+            DOB.MinimumWidth = 6;
+            DOB.Name = "DOB";
+            DOB.Width = 125;
+            // 
+            // JD
+            // 
+            JD.DataPropertyName = "JoinDate";
+            JD.HeaderText = "Ngày đăng ký";
+            JD.MinimumWidth = 6;
+            JD.Name = "JD";
+            JD.Width = 125;
+            // 
+            // Membership
+            // 
+            Membership.DataPropertyName = "Membership";
+            Membership.HeaderText = "Tên gói";
+            Membership.MinimumWidth = 6;
+            Membership.Name = "Membership";
+            Membership.Width = 125;
+            // 
+            // PT
+            // 
+            PT.DataPropertyName = "PT";
+            PT.HeaderText = "PT";
+            PT.MinimumWidth = 6;
+            PT.Name = "PT";
+            PT.Width = 125;
+            // 
+            // Phone
+            // 
+            Phone.DataPropertyName = "PhoneNumber";
+            Phone.HeaderText = "Số điện thoại";
+            Phone.MinimumWidth = 6;
+            Phone.Name = "Phone";
+            Phone.Width = 125;
+            // 
+            // Timing
+            // 
+            Timing.DataPropertyName = "Timing";
+            Timing.HeaderText = "Thời gian";
+            Timing.MinimumWidth = 6;
+            Timing.Name = "Timing";
+            Timing.Width = 125;
+            // 
+            // Status
+            // 
+            Status.DataPropertyName = "Status";
+            Status.HeaderText = "Trạng thái";
+            Status.MinimumWidth = 6;
+            Status.Name = "Status";
+            Status.Width = 125;
             // 
             // lbl_member_Danhsach
             // 
@@ -91,6 +200,7 @@
             btn_member_Del.TabIndex = 36;
             btn_member_Del.Text = "Xóa";
             btn_member_Del.UseVisualStyleBackColor = false;
+            btn_member_Del.Click += btn_member_Del_Click;
             // 
             // btn_member_Edit
             // 
@@ -105,6 +215,7 @@
             btn_member_Edit.TabIndex = 35;
             btn_member_Edit.Text = "Chỉnh Sửa";
             btn_member_Edit.UseVisualStyleBackColor = false;
+            btn_member_Edit.Click += btn_member_Edit_Click;
             // 
             // label6
             // 
@@ -194,6 +305,7 @@
             btn_member_Save.TabIndex = 25;
             btn_member_Save.Text = "Lưu";
             btn_member_Save.UseVisualStyleBackColor = false;
+            btn_member_Save.Click += btn_member_Save_Click;
             // 
             // dtp_member_DateOfBirth
             // 
@@ -308,7 +420,7 @@
             // 
             cb_member_Timing.Font = new Font("Segoe UI",12F,FontStyle.Regular,GraphicsUnit.Point,0);
             cb_member_Timing.FormattingEnabled = true;
-            cb_member_Timing.Items.AddRange(new object[] { "Nam","Nữ" });
+            cb_member_Timing.Items.AddRange(new object[] { "6AM - 8AM","8AM - 10AM","10AM - 1PM","1PM - 3PM","3PM - 5PM","5PM - 7PM" });
             cb_member_Timing.Location = new Point(409,215);
             cb_member_Timing.Margin = new Padding(2);
             cb_member_Timing.Name = "cb_member_Timing";
@@ -359,6 +471,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "frm_member";
             Text = "frm_member";
+            Load += frm_member_Load;
             ((System.ComponentModel.ISupportInitialize)dgvMember).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -389,5 +502,15 @@
         private Label lbl_member_Status;
         private ComboBox cb_member_Timing;
         private ComboBox cb_member_Status;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn NameMember;
+        private DataGridViewTextBoxColumn Gender;
+        private DataGridViewTextBoxColumn DOB;
+        private DataGridViewTextBoxColumn JD;
+        private DataGridViewTextBoxColumn Membership;
+        private DataGridViewTextBoxColumn PT;
+        private DataGridViewTextBoxColumn Phone;
+        private DataGridViewTextBoxColumn Timing;
+        private DataGridViewTextBoxColumn Status;
     }
 }

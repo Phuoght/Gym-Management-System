@@ -1,15 +1,9 @@
 ﻿using BusinessLayer;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.Data.SqlClient;
+using Microsoft.VisualBasic;
 using System.Windows.Forms;
 using TransferObject;
+using System.Text.RegularExpressions;
 namespace Gym_Management_System
 {
     public partial class frm_membership : Form
@@ -78,7 +72,7 @@ namespace Gym_Management_System
             catch(SqlException ex)
             {
                 MessageBox.Show("Lỗi thêm hội viên: " + ex.Message);
-                throw;
+              
             }
             finally
             {
@@ -103,7 +97,7 @@ namespace Gym_Management_System
                 catch(SqlException ex)
                 {
                     MessageBox.Show("Lỗi xóa hội viên: " + ex.Message);
-                    throw;
+                    
                 }
             }
             else

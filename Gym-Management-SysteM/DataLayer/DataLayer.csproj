@@ -46,10 +46,10 @@
     <Compile Include="DataProvider.cs" />
     <Compile Include="EquipmentDL.cs" />
     <Compile Include="LoginDL.cs" />
+    <Compile Include="MemberDL.cs" />
     <Compile Include="PromotionDL.cs" />
     <Compile Include="ReceptionistsDL.cs" />
     <Compile Include="RevenueDL.cs" />
-    <None Include="MemberDL.cs" />
     <Compile Include="MembershipDL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ptDL.cs" />

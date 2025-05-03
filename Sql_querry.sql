@@ -39,6 +39,9 @@ BEGIN
 	WHERE PT_ID = @ID
 END
 GO
+
+
+/* PROC FOR MEMBERSHIP */
 CREATE PROCEDURE usp_AddMembership
     @Name NVARCHAR(50),
     @Duration int,
@@ -71,6 +74,54 @@ BEGIN
 	WHERE MemberShip_ID = @ID
 END
 GO
+
+
+/* PROC FOR MEMBER */
+CREATE PROCEDURE usp_AddMember(
+    @Name NVARCHAR(50),
+    @Gen nvarchar(10),
+	@dob datetime,
+	@jd datetime,
+	@mbship int,
+	@pt int,
+	@phone nvarchar(10),
+	@timing nvarchar(50),
+	@status nvarchar(20) )
+AS
+BEGIN
+    INSERT INTO Members (Member_Name, Member_Gen, Member_DayOfBirth, Member_Date,Member_Membership, Member_PT, Member_Phone,
+	Member_Timing, Member_Status)
+	VALUES(@Name, @Gen, @dob, @jd,@mbship ,@pt ,@phone,@timing ,@status )
+END
+GO
+CREATE PROCEDURE usp_DeleteMembership(@ID int )
+AS
+BEGIN
+    DELETE FROM Members
+	WHERE Member_ID = @ID
+END
+GO
+CREATE PROCEDURE usp_UpdateMembership(
+	@ID int,
+	@Name NVARCHAR(50),
+    @Gen nvarchar(10),
+	@dob datetime,
+	@jd datetime,
+	@mbship int,
+	@pt int,
+	@phone nvarchar(10),
+	@timing nvarchar(50),
+	@status nvarchar(20) )
+AS
+BEGIN
+	UPDATE Members
+	SET Member_Name = @Name, Member_Gen = @Gen, Member_DayOfBirth = @dob, Member_Date = @jd, Member_Membership = @mbship,
+	Member_PT = @pt, Member_Phone = @phone, Member_Timing = @timing, Member_Status = @status)
+END
+GO
+
+
+
 CREATE PROCEDURE usp_SearchCheckin(
 	@name nvarchar(50) 
 	)

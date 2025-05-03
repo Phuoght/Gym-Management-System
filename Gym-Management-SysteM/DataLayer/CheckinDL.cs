@@ -14,8 +14,8 @@ namespace DataLayer
     {
         public List<Member> SearchCheckin(string name)
         {
-            string memberName, gen, phone, memberShip, Pt, status;
-            int id;
+            string memberName, gen, phone, status;
+            int id, memberShip, Pt;
             string sql = "usp_SearchCheckin";
             List<Member> members = new List<Member>();
             List<SqlParameter> parameters = new List<SqlParameter>
@@ -32,8 +32,8 @@ namespace DataLayer
                         id = (int)reader["Member_ID"];
                         memberName = reader["Member_Name"].ToString();
                         gen = reader["Member_Gen"].ToString();
-                        memberShip = reader["Member_Membership"].ToString();
-                        Pt = reader["Member_PT"].ToString();
+                        memberShip = (int)reader["Member_Membership"];
+                        Pt = (int)reader["Member_PT"];
                         phone = reader["Member_Phone"].ToString();
                         status = reader["Member_Status"].ToString();
 
