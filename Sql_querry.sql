@@ -255,3 +255,17 @@ BEGIN
 	WHERE Bill_Date >= @startDate
 		AND Bill_Date < DATEADD(DAY, 1, @endDate)
 END
+GO
+CREATE PROCEDURE usp_SaveBill(
+	@receptionist int, 
+	@member int,
+	@date Date,
+	@cost float,
+	@promotion nvarchar(50),
+	@total float
+	)
+AS
+BEGIN
+    INSERT INTO Bills (Bill_Receptionist, Bill_Member, Bill_Date, Bill_Cost, Bill_PromotionID, Bill_Total)
+	VALUES (@receptionist, @member, @date, @cost, @promotion, @total)
+END

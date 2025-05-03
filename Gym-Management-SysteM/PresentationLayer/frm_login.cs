@@ -18,6 +18,7 @@ namespace Gym_Management_System
     {
         private LoginBL loginBL;
         public string userRole { get; set; }
+        public string name { get; set; }
         public frm_login()
         {
             InitializeComponent();
@@ -56,6 +57,7 @@ namespace Gym_Management_System
             if (checkLogin(receptionist))
             {
                 userRole = receptionist.Role;
+                name = receptionist.Name;
                 this.Enabled = false;
                 this.DialogResult = DialogResult.OK;
             }

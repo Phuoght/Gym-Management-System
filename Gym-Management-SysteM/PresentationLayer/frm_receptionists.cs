@@ -138,7 +138,7 @@ namespace Gym_Management_System
         }
         private void frm_receptionists_Load(object sender, EventArgs e)
         {
-
+            load_receptionists();
         }
     }
 }

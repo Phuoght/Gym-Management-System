@@ -5,7 +5,8 @@ namespace Gym_Management_System
 {
     public partial class frm_Main : Form
     {
-        private string role;
+        public string role { get; set; }
+        public string nameReceptionist { get; set; }
         public frm_Main()
         {
             InitializeComponent();
@@ -44,6 +45,7 @@ namespace Gym_Management_System
             if (result == DialogResult.OK)
             {
                 role = login.userRole;
+                nameReceptionist = login.name;
                 this.Show();
                 openForm(new frm_coach());
                 UpdateUI();
@@ -103,6 +105,21 @@ namespace Gym_Management_System
         private void btnRevenue_Click(object sender, EventArgs e)
         {
             openForm(new frm_revenue());
+        }
+
+        private void btnReceptionist_Click(object sender, EventArgs e)
+        {
+            openForm(new frm_receptionists());
+        }
+
+        private void btnMember_Click(object sender, EventArgs e)
+        {
+            openForm(new frm_member());
+        }
+
+        private void btnBill_Click(object sender, EventArgs e)
+        {
+            openForm(new frm_billing());
         }
     }
 }

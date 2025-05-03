@@ -26,7 +26,15 @@ namespace TransferObject
             this.promotionID = promotionID;
             this.total = total;
         }
-
+        public Billing(int receptionist, int member, DateTime date, double cost, string promotionID, double total)
+        {
+            this.receptionist = receptionist;
+            this.member = member;
+            this.date = date;
+            this.cost = cost;
+            this.promotionID = promotionID;
+            this.total = total;
+        }
     }
 
 }

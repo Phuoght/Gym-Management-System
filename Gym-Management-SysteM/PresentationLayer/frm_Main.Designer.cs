@@ -186,6 +186,7 @@
             btnMember.TabIndex = 15;
             btnMember.Text = "Thành Viên";
             btnMember.UseVisualStyleBackColor = false;
+            btnMember.Click += btnMember_Click;
             // 
             // btnMemberShip
             // 
@@ -215,6 +216,7 @@
             btnReceptionist.TabIndex = 17;
             btnReceptionist.Text = "Lễ Tân";
             btnReceptionist.UseVisualStyleBackColor = false;
+            btnReceptionist.Click += btnReceptionist_Click;
             // 
             // btnBill
             // 
@@ -229,6 +231,7 @@
             btnBill.TabIndex = 18;
             btnBill.Text = "Hóa Đơn";
             btnBill.UseVisualStyleBackColor = false;
+            btnBill.Click += btnBill_Click;
             // 
             // pnMain
             // 
