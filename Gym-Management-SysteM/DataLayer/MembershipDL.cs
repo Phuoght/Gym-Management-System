@@ -101,6 +101,36 @@ namespace DataLayer
                 throw ex;
             }
         }
-
+        public double FindPriceMemberShip(int id)
+        {
+            string sql = "usp_FindPriceMemberShip";
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@id", id)
+            };
+            try
+            {
+                Connection();
+                using(SqlDataReader reader = MyExcuteReader(sql, CommandType.StoredProcedure, parameters))
+                {
+                    if (reader.Read())
+                    {
+                        return (double)reader["Membership_Cost"];
+                    }
+                    else
+                    {
+                        return -1; // Không tìm thấy
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                Disconnection();
+            }
+        }
     }
 }

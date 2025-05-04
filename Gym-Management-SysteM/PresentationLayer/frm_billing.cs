@@ -47,13 +47,13 @@ namespace Gym_Management_System
                 Billing billing = new Billing(receptionist, member, date, cost, promotionID, total);
                 if (billingBL.AddBilling(billing) > 0)
                 {
-                    MessageBox.Show("Thanh toán thành công !");
+                    MessageBox.Show("Xác nhận thanh toán thành công !");
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Thanh toán thất bại !");
+                    MessageBox.Show("Xác nhận thanh toán thất bại !");
                 }
             }
             catch (SqlException ex)

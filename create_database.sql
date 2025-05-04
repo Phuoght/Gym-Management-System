@@ -30,7 +30,7 @@ CREATE TABLE Receptionists(
 	Receptionist_Address nvarchar(150) NOT NULL,
 	Receptionist_Phone nvarchar(10) NOT NULL,
 	Receptionist_Pass nvarchar(50) NOT NULL,
-	Receptionist_Role nvarchar(30) NOT NULL
+	Role nvarchar(30) NOT NULL
 )
 CREATE TABLE Billing(
 	Billing_ID int PRIMARY KEY IDENTITY NOT NULL,

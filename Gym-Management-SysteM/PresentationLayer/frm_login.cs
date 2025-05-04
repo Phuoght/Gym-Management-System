@@ -48,19 +48,11 @@ namespace Gym_Management_System
             Receptionist receptionist;
             if (userName == "admin")
             {
-<<<<<<< HEAD
                 receptionist = new Receptionist(userName, DateTime.Now, "", "", "", passWord, "admin");
             }
             else
             {
                 receptionist = new Receptionist(userName, DateTime.Now, "", "", "", passWord, "lễ tân");
-=======
-                receptionist = new Receptionist(userName, "", DateTime.MinValue, "", "", passWord, "admin");
-            }
-            else
-            {
-                receptionist = new Receptionist(userName, "", DateTime.MinValue, "", "", passWord, "receptionist");
->>>>>>> 0592495a75859ce27d44a5870e0ae5ca274c7370
 
             }
             if (checkLogin(receptionist))

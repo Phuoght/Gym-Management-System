@@ -20,11 +20,13 @@ namespace Gym_Management_System
     {
         private MemberBL memberBL;
         private ReceptionistBL receptionistBL;
+        private MembershipBL membershipBL;
         public frm_member()
         {
             InitializeComponent();
             memberBL = new MemberBL();
             receptionistBL = new ReceptionistBL();
+            membershipBL = new MembershipBL();
         }
 
         private void frm_member_Load(object sender,EventArgs e)
@@ -115,10 +117,14 @@ namespace Gym_Management_System
                 load_Member(); // load lại DataGridView
 
                 // Xử lý sự kiện khi ấn nút đăng kí hiện bill 
-                string receptionistID, memberID, date, cost, promotionID, total;
+                string receptionistID, memberID, promotionID, total;
+                double cost;
+                DateTime date;
                 frm_Main frm_Main = new frm_Main();
                 receptionistID = receptionistBL.GetReceptionistID(frm_Main.nameReceptionist).ToString();
                 memberID = memberBL.GetMemberId(name, phone).ToString();
+                date = DateTime.Now;
+                cost = membershipBL.FindPriceMembership(membership);
 
             }
             catch(SqlException ex)

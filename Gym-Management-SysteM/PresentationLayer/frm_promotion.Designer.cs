@@ -289,7 +289,7 @@
             cbDiscount.DropDownStyle = ComboBoxStyle.DropDownList;
             cbDiscount.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbDiscount.FormattingEnabled = true;
-            cbDiscount.Items.AddRange(new object[] { "5%", "10%", "15%", "20%", "25%", "30%", "35%", "40%", "45%", "50%", "55%", "60%", "65%", "70%", "75%", "80%", "85%", "90%", "95%", "100%" });
+            cbDiscount.Items.AddRange(new object[] { "5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60", "65", "70", "75", "80", "85", "90", "95", "100" });
             cbDiscount.Location = new Point(616, 151);
             cbDiscount.Name = "cbDiscount";
             cbDiscount.Size = new Size(182, 40);

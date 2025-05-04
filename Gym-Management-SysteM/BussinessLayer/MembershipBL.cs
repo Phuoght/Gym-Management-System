@@ -60,5 +60,16 @@ namespace BusinessLayer
                 throw new Exception("Lỗi sửa hội viên: " + ex.Message);
             }
         }
+        public double FindPriceMembership(int id)
+        {
+            try
+            {
+                return membershipDL.FindPriceMemberShip(id);
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Lỗi tìm giá Membership: " + ex.Message);
+            }
+        }
     }
 }

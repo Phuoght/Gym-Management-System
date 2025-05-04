@@ -18,12 +18,7 @@ namespace Gym_Management_System
     {
         private int id;
         private ReceptionistBL receptionistBL;
-
-<<<<<<< HEAD:Gym-Management-SysteM/PresentationLayer/frm_EditReceptionists.cs
-        public frm_EditReceptionists(int id, string name, string gender, DateTime dob, string phone,
-=======
         public frm_EditReceptionist(int id, string name, string gender, DateTime dob, string phone,
->>>>>>> 0592495a75859ce27d44a5870e0ae5ca274c7370:Gym-Management-SysteM/PresentationLayer/frm_EditReceptionist.cs
             string pass, string address, string role)
         {
             receptionistBL = new ReceptionistBL();
@@ -40,13 +35,7 @@ namespace Gym_Management_System
         private void btnEdit_save_Click_1(object sender, EventArgs e)
         {
             string name, gender, phone, pass, address;
-<<<<<<< HEAD:Gym-Management-SysteM/PresentationLayer/frm_EditReceptionists.cs
             DateTime dob;
-=======
-            int id = 0;
-            DateTime dob;
-            string role = "";
->>>>>>> 0592495a75859ce27d44a5870e0ae5ca274c7370:Gym-Management-SysteM/PresentationLayer/frm_EditReceptionist.cs
             name = txtEdit_name.Text;
             gender = cbEdit_gen.Text;
             dob = dtpEdit_dob.Value;

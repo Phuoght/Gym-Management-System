@@ -81,6 +81,18 @@ BEGIN
 END
 GO
 
+CREATE PROCEDURE usp_FindPriceMemberShip(
+	@id int
+	)
+AS
+BEGIN
+    SELECT MemberShip_Cost
+	FROM MemberShips
+	WHERE MemberShip_ID = @id
+END
+
+GO
+
 
 /* PROC FOR MEMBER */
 CREATE PROCEDURE usp_AddMember(
@@ -100,14 +112,14 @@ BEGIN
 	VALUES(@Name, @Gen, @dob, @jd,@mbship ,@pt ,@phone,@timing ,@status )
 END
 GO
-CREATE PROCEDURE usp_DeleteMembership(@ID int )
+CREATE PROCEDURE usp_DeleteMember(@ID int )
 AS
 BEGIN
     DELETE FROM Members
 	WHERE Member_ID = @ID
 END
 GO
-CREATE PROCEDURE usp_UpdateMembership(
+CREATE PROCEDURE usp_UpdateMember(
 	@ID int,
 	@Name NVARCHAR(50),
     @Gen nvarchar(10),
@@ -270,11 +282,8 @@ END
 GO
 /* PROC FOR Receptionists */
 
-<<<<<<< HEAD
+
 CREATE PROCEDURE usp_AddReceptionist(
-=======
-CREATE PROCEDURE usp_AddReceptionist
->>>>>>> 0592495a75859ce27d44a5870e0ae5ca274c7370
     @Name NVARCHAR(50),
     @Dob DATE,
 	@Address NVARCHAR(150),
@@ -285,25 +294,10 @@ CREATE PROCEDURE usp_AddReceptionist
 	)
 AS
 BEGIN
-<<<<<<< HEAD
     INSERT INTO Receptionists (Receptionist_Name, Receptionist_DayOfBirth,Receptionist_Address, 
 	Receptionist_Phone,Receptionist_Gen,Receptionist_Pass,Role)
 	VALUES (@Name, @Dob,@Address,@PhoneNumber,@Gender,@Password, @Role )
-=======
-    INSERT INTO Receptionists (Receptionist_Name,Receptionist_Gen, Receptionist_DayOfBirth,Receptionist_Address, 
-	Receptionist_Phone, Receptionist_Pass,Receptionist_Role)
-	VALUES (@Name,@Gender, @Dob,@Address,@PhoneNumber,@Password,@Role )
->>>>>>> 0592495a75859ce27d44a5870e0ae5ca274c7370
 END
-
-exec usp_AddReceptionist
-	@Name = 'admin', 
-	@Gender='Nữ',
-	@Dob = '1990-01-01',
-	@Address = 'rff',
-	@PhoneNumber = '1234567891',
-	@Password = '123',
-	@Role ='Manager'
 
 GO
 
@@ -323,14 +317,9 @@ CREATE PROCEDURE usp_UpdateReceptionist(
     @Dob DATE,
 	@Address NVARCHAR(150),
 	@PhoneNumber NVARCHAR(10),
-<<<<<<< HEAD
-	@Gender NVARCHAR(10),
 	@Password NVARCHAR(20)
 	)
-=======
-	@Password NVARCHAR(20),
-	@Role NVARCHAR(50))
->>>>>>> 0592495a75859ce27d44a5870e0ae5ca274c7370
+
 AS
 BEGIN
     UPDATE Receptionists

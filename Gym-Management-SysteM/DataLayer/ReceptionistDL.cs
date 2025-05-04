@@ -15,13 +15,9 @@ namespace DataLayer
         {
             string sql = "SELECT * FROM Receptionists";
             int id;
-<<<<<<< HEAD:Gym-Management-SysteM/DataLayer/ReceptionistsDL.cs
-            string name, gender, address, phoneNumber, password, role;
-            DateTime dob;
-=======
+
             DateTime dob;
             string name, gender, address, phoneNumber, password, role;
->>>>>>> 0592495a75859ce27d44a5870e0ae5ca274c7370:Gym-Management-SysteM/DataLayer/ReceptionistDL.cs
             List<Receptionist> Receptionists = new List<Receptionist>();
             try
             {
@@ -33,21 +29,12 @@ namespace DataLayer
                         id = (int)reader["Receptionist_ID"];
                         name = reader["Receptionist_Name"].ToString();
                         gender = reader["Receptionist_Gen"].ToString();
-<<<<<<< HEAD:Gym-Management-SysteM/DataLayer/ReceptionistsDL.cs
-                        address = reader["Receptionist_Address"].ToString();
-                        phoneNumber = reader["Receptionist_Phone"].ToString();
-                        password = reader["Receptionist_Pass"].ToString();
-                        dob = (DateTime)reader["Receptionist_DayOfBirth"];
-                        role = reader["Role"].ToString();
-                        Receptionist receptionist = new Receptionist(id, name, dob, phoneNumber, address, gender, password, role);
-=======
                         dob = Convert.ToDateTime(reader["Receptionist_DayOfBirth"]);
                         address = reader["Receptionist_Address"].ToString();
                         phoneNumber = reader["Receptionist_Phone"].ToString();
                         password = reader["Receptionist_Pass"].ToString();
-                        role = reader["Receptionist_Role"].ToString();
-                        Receptionist receptionist = new Receptionist(id, name, gender, dob, address, phoneNumber, password,  role);
->>>>>>> 0592495a75859ce27d44a5870e0ae5ca274c7370:Gym-Management-SysteM/DataLayer/ReceptionistDL.cs
+                        role = reader["Role"].ToString();
+                        Receptionist receptionist = new Receptionist(id, name, dob, phoneNumber, address, gender, password,  role);
                         Receptionists.Add(receptionist);
                     }
                 }
@@ -74,12 +61,7 @@ namespace DataLayer
                 new SqlParameter("@Address", receptionist.Address),
                 new SqlParameter("@PhoneNumber", receptionist.PhoneNumber),
                 new SqlParameter("@Password", receptionist.Password),
-<<<<<<< HEAD:Gym-Management-SysteM/DataLayer/ReceptionistsDL.cs
-                new SqlParameter("@Dob", receptionist.Dob),
-                new SqlParameter("@Role", "Lễ Tân"),
-=======
                 new SqlParameter("@Role", receptionist.Role)
->>>>>>> 0592495a75859ce27d44a5870e0ae5ca274c7370:Gym-Management-SysteM/DataLayer/ReceptionistDL.cs
             };
             try
             {
@@ -109,7 +91,7 @@ namespace DataLayer
         }
         public int EditReceptionist(Receptionist receptionist)
         {
-            string sql = "usp_UpdateReceptionists";
+            string sql = "usp_UpdateReceptionist";
 
             List<SqlParameter> parameters = new List<SqlParameter>
             {
@@ -120,12 +102,6 @@ namespace DataLayer
                 new SqlParameter("@Address", receptionist.Address),
                 new SqlParameter("@PhoneNumber", receptionist.PhoneNumber),
                 new SqlParameter("@Password", receptionist.Password),
-<<<<<<< HEAD:Gym-Management-SysteM/DataLayer/ReceptionistsDL.cs
-                new SqlParameter("@Dob", receptionist.Dob),
-=======
-                new SqlParameter("@Role", receptionist.Role)
->>>>>>> 0592495a75859ce27d44a5870e0ae5ca274c7370:Gym-Management-SysteM/DataLayer/ReceptionistDL.cs
-
             };
             try
             {
