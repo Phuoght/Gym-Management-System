@@ -9,18 +9,18 @@ using TransferObject;
 
 namespace BusinessLayer
 {
-    public class ReceptionistsBL
+    public class ReceptionistBL
     {
-        private ReceptionistsDL receptionistsDL;
-        public ReceptionistsBL()
+        private ReceptionistDL receptionistDL;
+        public ReceptionistBL()
         {
-            receptionistsDL = new ReceptionistsDL();
+            receptionistDL = new ReceptionistDL();
         }
         public List<Receptionist> GetReceptionists()
         {
             try
             {
-                return receptionistsDL.GetReceptionists();
+                return receptionistDL.GetReceptionists();
             }
             catch (SqlException ex)
             {
@@ -31,7 +31,7 @@ namespace BusinessLayer
         {
             try
             {
-                receptionistsDL.Add(receptionist);
+                receptionistDL.Add(receptionist);
             }
             catch (SqlException ex)
             {
@@ -42,7 +42,7 @@ namespace BusinessLayer
         {
             try
             {
-                receptionistsDL.DeleteReceptionist(id);
+                receptionistDL.DeleteReceptionist(id);
             }
             catch (SqlException ex)
             {
@@ -53,7 +53,7 @@ namespace BusinessLayer
         {
             try
             {
-                receptionistsDL.EditReceptionist(receptionist);
+                receptionistDL.EditReceptionist(receptionist);
             }
             catch (SqlException ex)
             {
@@ -64,7 +64,7 @@ namespace BusinessLayer
         {
             try
             {
-                return receptionistsDL.GetReceptionistID(name);
+                return receptionistDL.GetReceptionistID(name);
             }
             catch (SqlException ex)
             {

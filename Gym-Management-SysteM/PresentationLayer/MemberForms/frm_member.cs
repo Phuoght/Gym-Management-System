@@ -19,12 +19,12 @@ namespace Gym_Management_System
     public partial class frm_member : Form
     {
         private MemberBL memberBL;
-        private ReceptionistsBL receptionistBL;
+        private ReceptionistBL receptionistBL;
         public frm_member()
         {
             InitializeComponent();
             memberBL = new MemberBL();
-            receptionistBL = new ReceptionistsBL();
+            receptionistBL = new ReceptionistBL();
         }
 
         private void frm_member_Load(object sender,EventArgs e)

@@ -4,7 +4,7 @@
     <_LastSelectedProfileId>D:\nam3_HK2\Gym-Management-System\Gym-Management-SysteM\Gym-Management-System\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Update="frm_EditReceptionists.cs">
+    <Compile Update="frm_EditReceptionist.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="frm_EditEquipment.cs">
@@ -49,7 +49,7 @@
     <Compile Update="frm_promotion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="frm_receptionists.cs">
+    <Compile Update="frm_receptionist.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="frm_revenue.cs">

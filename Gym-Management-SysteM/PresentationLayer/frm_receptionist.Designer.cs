@@ -1,7 +1,10 @@
 ﻿namespace Gym_Management_System
 {
-    partial class frm_receptionists
+
+    partial class frm_receptionist
     {
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name_Letan;
+
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -28,9 +31,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD:Gym-Management-SysteM/PresentationLayer/frm_receptionists.Designer.cs
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+=======
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            dgvLetan = new DataGridView();
+>>>>>>> 0592495a75859ce27d44a5870e0ae5ca274c7370:Gym-Management-SysteM/PresentationLayer/frm_receptionist.Designer.cs
             label8 = new Label();
             btnDel_letan = new Button();
             btnEdit_letan = new Button();
@@ -48,6 +58,7 @@
             txtName_letan = new TextBox();
             label1 = new Label();
             txtPass_letan = new TextBox();
+<<<<<<< HEAD:Gym-Management-SysteM/PresentationLayer/frm_receptionists.Designer.cs
             dgvLetan = new DataGridView();
             ID = new DataGridViewTextBoxColumn();
             Name = new DataGridViewTextBoxColumn();
@@ -60,6 +71,48 @@
             ((System.ComponentModel.ISupportInitialize)dgvLetan).BeginInit();
             SuspendLayout();
             // 
+=======
+            ID = new DataGridViewTextBoxColumn();
+            Name_letan = new DataGridViewTextBoxColumn();
+            Gen = new DataGridViewTextBoxColumn();
+            DOB = new DataGridViewTextBoxColumn();
+            Phone = new DataGridViewTextBoxColumn();
+            Password = new DataGridViewTextBoxColumn();
+            Address = new DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)dgvLetan).BeginInit();
+            SuspendLayout();
+            // 
+            // dgvLetan
+            // 
+            dgvLetan.BackgroundColor = Color.IndianRed;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.Red;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.Yellow;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvLetan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvLetan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvLetan.Columns.AddRange(new DataGridViewColumn[] { ID, Name_letan, Gen, DOB, Phone, Password, Address });
+            dgvLetan.Cursor = Cursors.Hand;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.LightGray;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlDarkDark;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgvLetan.DefaultCellStyle = dataGridViewCellStyle3;
+            dgvLetan.Location = new Point(-1, 369);
+            dgvLetan.Margin = new Padding(2);
+            dgvLetan.MultiSelect = false;
+            dgvLetan.Name = "dgvLetan";
+            dgvLetan.RowHeadersWidth = 62;
+            dgvLetan.Size = new Size(1492, 257);
+            dgvLetan.TabIndex = 38;
+            // 
+>>>>>>> 0592495a75859ce27d44a5870e0ae5ca274c7370:Gym-Management-SysteM/PresentationLayer/frm_receptionist.Designer.cs
             // label8
             // 
             label8.AutoSize = true;
@@ -100,7 +153,11 @@
             btnEdit_letan.TabIndex = 35;
             btnEdit_letan.Text = "Chỉnh Sửa";
             btnEdit_letan.UseVisualStyleBackColor = false;
+<<<<<<< HEAD:Gym-Management-SysteM/PresentationLayer/frm_receptionists.Designer.cs
             btnEdit_letan.Click += btnEdit_letan_Click;
+=======
+            btnEdit_letan.Click += btnEdit_letan_Click_1;
+>>>>>>> 0592495a75859ce27d44a5870e0ae5ca274c7370:Gym-Management-SysteM/PresentationLayer/frm_receptionist.Designer.cs
             // 
             // label6
             // 
@@ -256,6 +313,7 @@
             txtPass_letan.Size = new Size(235, 39);
             txtPass_letan.TabIndex = 39;
             // 
+<<<<<<< HEAD:Gym-Management-SysteM/PresentationLayer/frm_receptionists.Designer.cs
             // dgvLetan
             // 
             dgvLetan.BackgroundColor = Color.IndianRed;
@@ -285,6 +343,8 @@
             dgvLetan.Size = new Size(1496, 386);
             dgvLetan.TabIndex = 40;
             // 
+=======
+>>>>>>> 0592495a75859ce27d44a5870e0ae5ca274c7370:Gym-Management-SysteM/PresentationLayer/frm_receptionist.Designer.cs
             // ID
             // 
             ID.DataPropertyName = "ID";
@@ -295,6 +355,7 @@
             // 
             // Name
             // 
+<<<<<<< HEAD:Gym-Management-SysteM/PresentationLayer/frm_receptionists.Designer.cs
             Name.DataPropertyName = "name";
             Name.HeaderText = "Họ Tên";
             Name.MinimumWidth = 200;
@@ -326,6 +387,12 @@
             Address.MinimumWidth = 200;
             Address.Name = "Address";
             Address.Width = 250;
+=======
+            Name_letan.DataPropertyName = "Name";
+            Name_letan.HeaderText = "Họ Tên";
+            Name_letan.Name = "Name";
+            Name_letan.Width = 250;
+>>>>>>> 0592495a75859ce27d44a5870e0ae5ca274c7370:Gym-Management-SysteM/PresentationLayer/frm_receptionist.Designer.cs
             // 
             // Gen
             // 
@@ -333,6 +400,7 @@
             Gen.HeaderText = "Giới Tính";
             Gen.MinimumWidth = 100;
             Gen.Name = "Gen";
+<<<<<<< HEAD:Gym-Management-SysteM/PresentationLayer/frm_receptionists.Designer.cs
             Gen.Width = 150;
             // 
             // PassWord
@@ -352,6 +420,44 @@
             Role.Width = 160;
             // 
             // frm_receptionists
+=======
+            Gen.Width = 140;
+            // 
+            // DOB
+            // 
+            DOB.DataPropertyName = "Dob";
+            dataGridViewCellStyle2.NullValue = null;
+            DOB.DefaultCellStyle = dataGridViewCellStyle2;
+            DOB.HeaderText = "Ngày Sinh";
+            DOB.MinimumWidth = 130;
+            DOB.Name = "DOB";
+            DOB.Width = 180;
+            // 
+            // Phone
+            // 
+            Phone.DataPropertyName = "PhoneNumber";
+            Phone.HeaderText = "Số Điện Thoại";
+            Phone.MinimumWidth = 100;
+            Phone.Name = "Phone";
+            Phone.Width = 200;
+            // 
+            // Password
+            // 
+            Password.HeaderText = "Mật khẩu";
+            Password.MinimumWidth = 6;
+            Password.Name = "Password";
+            Password.Width = 250;
+            // 
+            // Address
+            // 
+            Address.DataPropertyName = "Address";
+            Address.HeaderText = "Địa Chỉ";
+            Address.MinimumWidth = 350;
+            Address.Name = "Address";
+            Address.Width = 395;
+            // 
+            // frm_receptionist
+>>>>>>> 0592495a75859ce27d44a5870e0ae5ca274c7370:Gym-Management-SysteM/PresentationLayer/frm_receptionist.Designer.cs
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -377,7 +483,7 @@
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4);
-            Name = "frm_receptionists";
+            Name = "frm_receptionist";
             Text = "Receptionists";
             Load += frm_receptionists_Load;
             ((System.ComponentModel.ISupportInitialize)dgvLetan).EndInit();
@@ -405,7 +511,12 @@
         private TextBox txtPass_letan;
         private DataGridView dgvLetan;
         private DataGridViewTextBoxColumn ID;
+<<<<<<< HEAD:Gym-Management-SysteM/PresentationLayer/frm_receptionists.Designer.cs
         private DataGridViewTextBoxColumn Name;
+=======
+        private DataGridViewTextBoxColumn Name_letan;
+        private DataGridViewTextBoxColumn Gen;
+>>>>>>> 0592495a75859ce27d44a5870e0ae5ca274c7370:Gym-Management-SysteM/PresentationLayer/frm_receptionist.Designer.cs
         private DataGridViewTextBoxColumn DOB;
         private DataGridViewTextBoxColumn Phone;
         private DataGridViewTextBoxColumn Address;

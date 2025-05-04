@@ -1,6 +1,6 @@
 ﻿namespace Gym_Management_System
 {
-    partial class frm_EditReceptionists
+    partial class frm_EditReceptionist
     {
         /// <summary>
         /// Required designer variable.

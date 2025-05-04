@@ -30,7 +30,7 @@ CREATE TABLE Receptionists(
 	Receptionist_Address nvarchar(150) NOT NULL,
 	Receptionist_Phone nvarchar(10) NOT NULL,
 	Receptionist_Pass nvarchar(50) NOT NULL,
-	Role nvarchar(30) NOT NULL
+	Receptionist_Role nvarchar(30) NOT NULL
 )
 CREATE TABLE Billing(
 	Billing_ID int PRIMARY KEY IDENTITY NOT NULL,
@@ -68,9 +68,9 @@ CREATE TABLE Bills(
 	Bill_Receptionist int NOT NULL,
 	Bill_Member int NOT NULL,
 	Bill_Date date NOT NULL,
-	Bill_Cost double NOT NULL,
+	Bill_Cost float NOT NULL,
 	Bill_PromotionID nvarchar(100) NOT NULL,
-	Bill_Total double NOT NULL,
+	Bill_Total float NOT NULL,
 	FOREIGN KEY (Bill_Receptionist) REFERENCES dbo.Receptionists(Receptionist_ID),
 	FOREIGN KEY (Bill_Member) REFERENCES dbo.Members(Member_ID),
 	FOREIGN KEY (Bill_PromotionID) REFERENCES dbo.Promotions(Promotion_ID)

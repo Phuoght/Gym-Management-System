@@ -48,7 +48,7 @@
     <Compile Include="LoginDL.cs" />
     <Compile Include="MemberDL.cs" />
     <Compile Include="PromotionDL.cs" />
-    <Compile Include="ReceptionistsDL.cs" />
+    <Compile Include="ReceptionistDL.cs" />
     <Compile Include="RevenueDL.cs" />
     <Compile Include="MembershipDL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
