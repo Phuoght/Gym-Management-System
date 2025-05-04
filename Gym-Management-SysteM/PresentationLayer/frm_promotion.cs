@@ -41,7 +41,8 @@ namespace Gym_Management_System
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string code, discount, describe;
+            string code, describe;
+            int discount;
             DateTime startDate, endDate;
             if (string.IsNullOrWhiteSpace(txtCode.Text) ||
                 string.IsNullOrWhiteSpace(txtDescribe.Text) ||
@@ -52,7 +53,7 @@ namespace Gym_Management_System
                 return;
             }
             code = txtCode.Text;
-            discount = cbDiscount.Text;
+            discount = int.Parse(cbDiscount.Text);
             describe = txtDescribe.Text;
             startDate = dtpStartDate.Value;
             endDate = dtpEndDate.Value;
@@ -109,7 +110,7 @@ namespace Gym_Management_System
                 if (dgvPromotion.CurrentRow != null && !dgvPromotion.CurrentRow.IsNewRow)
                 {
                     string code = dgvPromotion.CurrentRow.Cells["code"].Value.ToString();
-                    string discount = dgvPromotion.CurrentRow.Cells["discount"].Value.ToString();
+                    int discount = Convert.ToInt32(dgvPromotion.CurrentRow.Cells["discount"].Value);
                     string describe = dgvPromotion.CurrentRow.Cells["describe"].Value.ToString();
                     DateTime startDate = (DateTime)dgvPromotion.CurrentRow.Cells["startDate"].Value;
                     DateTime endDate = (DateTime)dgvPromotion.CurrentRow.Cells["endDate"].Value;

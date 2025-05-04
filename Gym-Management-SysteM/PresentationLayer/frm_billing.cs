@@ -17,10 +17,23 @@ namespace Gym_Management_System
     public partial class frm_billing : Form
     {
         private BillingBL billingBL;
-        public frm_billing()
+        private ReceptionistBL receptionistBL;
+        private MemberBL memberBL;
+        private PromotionBL promotionBL;
+        private string phone;
+        public frm_billing(string receptionist, string member, DateTime date, string cost, string total, string phone)
         {
             InitializeComponent();
+            receptionistBL = new ReceptionistBL();
+            memberBL = new MemberBL();
+            promotionBL = new PromotionBL();
             billingBL = new BillingBL();
+            lbReceptionist.Text = receptionist;
+            lbMember.Text = member;
+            lbCost.Text = cost;
+            lbTotal.Text = total;
+            lbDate.Text = date.ToString("dd-MM-yyyy");
+            this.phone = phone;
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
@@ -29,10 +42,12 @@ namespace Gym_Management_System
             int receptionist, member;
             double cost, total;
             DateTime date;
-            receptionist = int.Parse(lbReceptionist.Text);
-            member = int.Parse(lbMember.Text);
+            int discount;
+            receptionist = receptionistBL.GetReceptionistID(lbReceptionist.Text);
+            member = memberBL.GetMemberId(lbMember.Text, this.phone);
             date = Convert.ToDateTime(lbDate.Text);
             cost = double.Parse(lbCost.Text);
+            total = double.Parse(lbTotal.Text);
             if (txtPromotion.Text == "")
             {
                 promotionID = "";
@@ -40,8 +55,18 @@ namespace Gym_Management_System
             else
             {
                 promotionID = txtPromotion.Text;
+                List<string> discountStartEnd = promotionBL.GetDiscountStartEnd(promotionID);
+                discount = int.Parse(discountStartEnd[0]);
+                DateTime startDate = DateTime.Parse(discountStartEnd[1]);
+                DateTime endDate = DateTime.Parse(discountStartEnd[2]);
+                if (promotionBL.GetActivePromotions(DateTime.Now, startDate, endDate) == false)
+                {
+                    MessageBox.Show("Khuyến mãi không còn hiệu lực !");
+                    return;
+                }
+                total = total - (total * discount / 100);
+                lbTotal.Text = total.ToString();
             }
-            total = double.Parse(lbTotal.Text);
             try
             {
                 Billing billing = new Billing(receptionist, member, date, cost, promotionID, total);

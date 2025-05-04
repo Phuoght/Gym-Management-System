@@ -112,20 +112,28 @@ namespace Gym_Management_System
             Member member = new Member(name,gen,dob,jd,membership,pt,phone,timing,status);
             try
             {
-                memberBL.AddMember(member);
-                MessageBox.Show("Thêm hội viên thành công!");
-                load_Member(); // load lại DataGridView
 
                 // Xử lý sự kiện khi ấn nút đăng kí hiện bill 
-                string receptionistID, memberID, promotionID, total;
-                double cost;
+                string receptionistName, memberName, cost, promotionID, total;
                 DateTime date;
                 frm_Main frm_Main = new frm_Main();
-                receptionistID = receptionistBL.GetReceptionistID(frm_Main.nameReceptionist).ToString();
-                memberID = memberBL.GetMemberId(name, phone).ToString();
+                receptionistName = frm_Main.nameReceptionist;
+                memberName = name;
                 date = DateTime.Now;
-                cost = membershipBL.FindPriceMembership(membership);
-
+                cost = membershipBL.FindPriceMembership(membership).ToString();
+                total = cost;
+                frm_billing frm_Billing = new frm_billing(receptionistName, memberName, date, cost, total, phone);
+                frm_Billing.ShowDialog();
+                if (frm_Billing.DialogResult == DialogResult.OK)
+                {
+                    memberBL.AddMember(member);
+                    MessageBox.Show("Đăng ký thành viên thành công!");
+                    load_Member(); // load lại DataGridView
+                }
+                else
+                {
+                    MessageBox.Show("Đăng ký thành viên thất bại!");
+                }
             }
             catch(SqlException ex)
             {

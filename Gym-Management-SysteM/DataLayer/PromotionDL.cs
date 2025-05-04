@@ -11,10 +11,12 @@ namespace DataLayer
 {
     public class PromotionDL : DataProvider
     {
+
         public List<Promotion> GetAllPromotions()
         {
             List<Promotion> promotions = new List<Promotion>();
-            string code, describe, discount;
+            string code, describe;
+            int discount;
             DateTime startDate, endDate;
             string sql = "SELECT * FROM Promotions";
             try
@@ -25,7 +27,7 @@ namespace DataLayer
                     while (reader.Read())
                     {
                         code = reader["Promotion_ID"].ToString();
-                        discount = reader["Promotion_Discount"].ToString();
+                        discount = (int)reader["Promotion_Discount"];
                         describe = reader["Promotion_Describe"].ToString();
                         startDate = (DateTime)(reader["Promotion_StartDate"]);
                         endDate = (DateTime)(reader["Promotion_EndDate"]);
@@ -95,6 +97,50 @@ namespace DataLayer
             try
             {
                 return MyExcuteNonQuerry(sql, CommandType.StoredProcedure, parameters);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public List<string> GetDiscountStartEnd(string promotionID)
+        {
+            string sql = "usp_EditPromotion";
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@code", promotionID),
+            };
+            try
+            {
+                using (SqlDataReader reader = MyExcuteReader(sql, CommandType.StoredProcedure, parameters))
+                {
+                    List<string> discountStartEnd = new List<string>();
+                    while (reader.Read())
+                    {
+                        discountStartEnd.Add(reader["Promotion_Discount"].ToString());
+                        discountStartEnd.Add(reader["Promotion_StartDate"].ToString());
+                        discountStartEnd.Add(reader["Promotion_EndDate"].ToString());
+                    }
+                    return discountStartEnd;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public bool GetActivePromotions(DateTime nowDate, DateTime startDate, DateTime endDate)
+        {
+            string sql = "usp_GetActivePromotions";
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@nowDate", nowDate),
+                new SqlParameter("@startDate", startDate),
+                new SqlParameter("@endDate", endDate)
+            };
+            try
+            {
+                return (bool)MyExcuteScalar(sql, CommandType.StoredProcedure, parameters);
             }
             catch (Exception ex)
             {

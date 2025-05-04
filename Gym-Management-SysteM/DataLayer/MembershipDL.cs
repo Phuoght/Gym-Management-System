@@ -119,7 +119,7 @@ namespace DataLayer
                     }
                     else
                     {
-                        return -1; // Không tìm thấy
+                        return -1;
                     }
                 }
             }

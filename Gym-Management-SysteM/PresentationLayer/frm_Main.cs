@@ -117,10 +117,5 @@ namespace Gym_Management_System
         {
             openForm(new frm_member());
         }
-
-        private void btnBill_Click(object sender, EventArgs e)
-        {
-            openForm(new frm_billing());
-        }
     }
 }

@@ -10,10 +10,10 @@ namespace TransferObject
     {
         public string code { get; set; }
         public string describe { get; set; }
-        public string discount { get; set; }
+        public int discount { get; set; }
         public DateTime startDate { get; set; }
         public DateTime endDate { get; set; }
-        public Promotion(string code, string discount, string describe, DateTime startDate, DateTime endDate)
+        public Promotion(string code, int discount, string describe, DateTime startDate, DateTime endDate)
         {
             this.code = code;
             this.discount = discount;

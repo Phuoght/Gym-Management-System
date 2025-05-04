@@ -60,5 +60,27 @@ namespace BusinessLayer
                 throw new Exception("Lỗi: " + ex.Message);
             }
         }
+        public List<string> GetDiscountStartEnd(string promotionID)
+        {
+            try
+            {
+                return promotionDL.GetDiscountStartEnd(promotionID);
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Lỗi: " + ex.Message);
+            }
+        }
+        public bool GetActivePromotions(DateTime nowDate, DateTime startDate, DateTime endDate)
+        {
+            try
+            {
+                return promotionDL.GetActivePromotions(nowDate, startDate, endDate);
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Lỗi: " + ex.Message);
+            }
+        }
     }
 }

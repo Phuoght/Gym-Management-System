@@ -17,11 +17,11 @@ namespace Gym_Management_System
     {
         private string code;
         private PromotionBL promotionBL;
-        public frm_EditPromotion(string code, string discount, string describe, DateTime startDate, DateTime endDate)
+        public frm_EditPromotion(string code, int discount, string describe, DateTime startDate, DateTime endDate)
         {
             InitializeComponent();
             this.code = code;
-            this.cbDiscount.Text = discount;
+            this.cbDiscount.Text = discount.ToString();
             this.txtDescribe.Text = describe;
             this.dtpStartDate.Value = startDate;
             this.dtpEndDate.Value = endDate;
@@ -30,7 +30,8 @@ namespace Gym_Management_System
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string discount, describe;
+            string  describe;
+            int discount;
             DateTime startDate, endDate;
             if (string.IsNullOrWhiteSpace(txtDescribe.Text) ||
                 cbDiscount.SelectedIndex == -1
@@ -39,7 +40,7 @@ namespace Gym_Management_System
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin !");
                 return;
             }
-            discount = cbDiscount.Text;
+            discount = int.Parse(cbDiscount.Text);
             describe = txtDescribe.Text;
             startDate = dtpStartDate.Value;
             endDate = dtpEndDate.Value;

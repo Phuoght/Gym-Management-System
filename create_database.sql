@@ -57,7 +57,7 @@ CREATE TABLE Members(
 GO
 CREATE TABLE Promotions (
 	Promotion_ID nvarchar(100) PRIMARY KEY NOT NULL,
-	Promotion_Discount nvarchar(10) NOT NULL,
+	Promotion_Discount int NOT NULL,
 	Promotion_Describe NVARCHAR(200) NOT NULL,
 	Promotion_StartDate DATE NOT NULL,
 	Promotion_EndDate DATE NOT NULL

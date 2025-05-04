@@ -386,6 +386,33 @@ BEGIN
 END
 
 GO
+
+CREATE PROCEDURE usp_GetDiscount(
+	@code NVARCHAR(100)
+	)
+AS
+BEGIN
+	SELECT Promotion_Discount, Promotion_StartDate, Promotion_EndDate
+    FROM Promotions
+	WHERE Promotion_ID = @code
+END
+
+GO
+
+CREATE PROCEDURE usp_GetActivePromotions(
+	@nowDate date,
+	@startDate date,
+	@endDate date
+	)
+AS
+BEGIN
+	SELECT *
+    FROM Promotions
+	WHERE @nowDate >= @startDate
+		AND @nowDate <= @endDate
+END
+
+GO
 /* PROC FOR Revenue */
 
 CREATE PROCEDURE usp_ReportRevenue(
