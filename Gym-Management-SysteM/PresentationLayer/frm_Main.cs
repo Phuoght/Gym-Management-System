@@ -109,7 +109,7 @@ namespace Gym_Management_System
 
         private void btnReceptionist_Click(object sender, EventArgs e)
         {
-            openForm(new frm_receptionists());
+            openForm(new frm_receptionist());
         }
 
         private void btnMember_Click(object sender, EventArgs e)

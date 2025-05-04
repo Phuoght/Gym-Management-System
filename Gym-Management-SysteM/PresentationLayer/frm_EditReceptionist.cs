@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,32 +14,33 @@ using TransferObject;
 
 namespace Gym_Management_System
 {
-    public partial class frm_EditReceptionists : Form
+    public partial class frm_EditReceptionist : Form
     {
         private int id;
-        private ReceptionistsBL receptionistsBL;
+        private ReceptionistBL receptionistBL;
 
-        public frm_EditReceptionists(int id, string name, string gender, string dob, string phone,
+        public frm_EditReceptionist(int id, string name, string gender, DateTime dob, string phone,
             string pass, string address, string role)
         {
-            receptionistsBL = new ReceptionistsBL();
+            receptionistBL = new ReceptionistBL();
             InitializeComponent();
             this.id = id;
             this.txtEdit_name.Text = name;
             this.cbEdit_gen.Text = gender;
-            this.dtpEdit_dob.Text = dob;
+            this.dtpEdit_dob.Value = dob;
             this.txtEdit_phone.Text = phone;
             this.txtEdit_pass.Text = pass;
             this.txtEdit_address.Text = address;
         }
         private void btnEdit_save_Click(object sender, EventArgs e)
         {
-            string name, gender, dob, phone, pass, address;
+            string name, gender, phone, pass, address;
             int id = 0;
+            DateTime dob;
             string role = "";
             name = txtEdit_name.Text;
             gender = cbEdit_gen.Text;
-            dob = dtpEdit_dob.Text;
+            dob = dtpEdit_dob.Value;
             phone = txtEdit_phone.Text;
             pass = txtEdit_pass.Text;
             address = txtEdit_address.Text;
@@ -61,7 +62,7 @@ namespace Gym_Management_System
             Receptionist receptionist = new Receptionist(id, name, gender, dob, phone, pass, address, role);
             try
             {
-                receptionistsBL.EditReceptionist(receptionist);
+                receptionistBL.EditReceptionist(receptionist);
                 MessageBox.Show("Sửa lễ tân thành công !");
                 this.DialogResult = DialogResult.OK;
                 this.Close();

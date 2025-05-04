@@ -1,7 +1,10 @@
 ﻿namespace Gym_Management_System
 {
-    partial class frm_receptionists
+
+    partial class frm_receptionist
     {
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name_Letan;
+
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -32,13 +35,6 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dgvLetan = new DataGridView();
-            ID = new DataGridViewTextBoxColumn();
-            name_letan = new DataGridViewTextBoxColumn();
-            Gen = new DataGridViewTextBoxColumn();
-            DOB = new DataGridViewTextBoxColumn();
-            Phone = new DataGridViewTextBoxColumn();
-            Password = new DataGridViewTextBoxColumn();
-            Address = new DataGridViewTextBoxColumn();
             label8 = new Label();
             btnDel_letan = new Button();
             btnEdit_letan = new Button();
@@ -56,6 +52,13 @@
             txtName_letan = new TextBox();
             label1 = new Label();
             txtPass_letan = new TextBox();
+            ID = new DataGridViewTextBoxColumn();
+            Name_letan = new DataGridViewTextBoxColumn();
+            Gen = new DataGridViewTextBoxColumn();
+            DOB = new DataGridViewTextBoxColumn();
+            Phone = new DataGridViewTextBoxColumn();
+            Password = new DataGridViewTextBoxColumn();
+            Address = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvLetan).BeginInit();
             SuspendLayout();
             // 
@@ -71,7 +74,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvLetan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvLetan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvLetan.Columns.AddRange(new DataGridViewColumn[] { ID, name_letan, Gen, DOB, Phone, Password, Address });
+            dgvLetan.Columns.AddRange(new DataGridViewColumn[] { ID, Name_letan, Gen, DOB, Phone, Password, Address });
             dgvLetan.Cursor = Cursors.Hand;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = Color.LightGray;
@@ -81,70 +84,13 @@
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dgvLetan.DefaultCellStyle = dataGridViewCellStyle3;
-            dgvLetan.Location = new Point(2, 369);
+            dgvLetan.Location = new Point(-1, 369);
             dgvLetan.Margin = new Padding(2);
             dgvLetan.MultiSelect = false;
             dgvLetan.Name = "dgvLetan";
             dgvLetan.RowHeadersWidth = 62;
             dgvLetan.Size = new Size(1492, 257);
             dgvLetan.TabIndex = 38;
-            // 
-            // ID
-            // 
-            ID.DataPropertyName = "ID";
-            ID.HeaderText = "ID";
-            ID.MinimumWidth = 70;
-            ID.Name = "ID";
-            ID.Width = 70;
-            // 
-            // name_letan
-            // 
-            name_letan.DataPropertyName = "name";
-            name_letan.HeaderText = "Họ Tên";
-            name_letan.MinimumWidth = 200;
-            name_letan.Name = "name_letan";
-            name_letan.Width = 250;
-            // 
-            // Gen
-            // 
-            Gen.DataPropertyName = "Gender";
-            Gen.HeaderText = "Giới Tính";
-            Gen.MinimumWidth = 100;
-            Gen.Name = "Gen";
-            Gen.Width = 140;
-            // 
-            // DOB
-            // 
-            DOB.DataPropertyName = "Dob";
-            dataGridViewCellStyle2.NullValue = null;
-            DOB.DefaultCellStyle = dataGridViewCellStyle2;
-            DOB.HeaderText = "Ngày Sinh";
-            DOB.MinimumWidth = 130;
-            DOB.Name = "DOB";
-            DOB.Width = 180;
-            // 
-            // Phone
-            // 
-            Phone.DataPropertyName = "PhoneNumber";
-            Phone.HeaderText = "Số Điện Thoại";
-            Phone.MinimumWidth = 100;
-            Phone.Name = "Phone";
-            Phone.Width = 200;
-            // 
-            // Password
-            // 
-            Password.HeaderText = "Mật khẩu";
-            Password.MinimumWidth = 6;
-            Password.Name = "Password";
-            Password.Width = 250;
-            // 
-            // Address
-            // 
-            Address.DataPropertyName = "Address";
-            Address.HeaderText = "Địa Chỉ";
-            Address.MinimumWidth = 350;
-            Address.Name = "Address";
-            Address.Width = 395;
             // 
             // label8
             // 
@@ -185,6 +131,7 @@
             btnEdit_letan.TabIndex = 35;
             btnEdit_letan.Text = "Chỉnh Sửa";
             btnEdit_letan.UseVisualStyleBackColor = false;
+            btnEdit_letan.Click += btnEdit_letan_Click_1;
             // 
             // label6
             // 
@@ -339,7 +286,63 @@
             txtPass_letan.Size = new Size(235, 34);
             txtPass_letan.TabIndex = 39;
             // 
-            // frm_receptionists
+            // ID
+            // 
+            ID.DataPropertyName = "ID";
+            ID.HeaderText = "ID";
+            ID.MinimumWidth = 70;
+            ID.Name = "ID";
+            ID.Width = 70;
+            // 
+            // Name
+            // 
+            Name_letan.DataPropertyName = "Name";
+            Name_letan.HeaderText = "Họ Tên";
+            Name_letan.Name = "Name";
+            Name_letan.Width = 250;
+            // 
+            // Gen
+            // 
+            Gen.DataPropertyName = "Gender";
+            Gen.HeaderText = "Giới Tính";
+            Gen.MinimumWidth = 100;
+            Gen.Name = "Gen";
+            Gen.Width = 140;
+            // 
+            // DOB
+            // 
+            DOB.DataPropertyName = "Dob";
+            dataGridViewCellStyle2.NullValue = null;
+            DOB.DefaultCellStyle = dataGridViewCellStyle2;
+            DOB.HeaderText = "Ngày Sinh";
+            DOB.MinimumWidth = 130;
+            DOB.Name = "DOB";
+            DOB.Width = 180;
+            // 
+            // Phone
+            // 
+            Phone.DataPropertyName = "PhoneNumber";
+            Phone.HeaderText = "Số Điện Thoại";
+            Phone.MinimumWidth = 100;
+            Phone.Name = "Phone";
+            Phone.Width = 200;
+            // 
+            // Password
+            // 
+            Password.HeaderText = "Mật khẩu";
+            Password.MinimumWidth = 6;
+            Password.Name = "Password";
+            Password.Width = 250;
+            // 
+            // Address
+            // 
+            Address.DataPropertyName = "Address";
+            Address.HeaderText = "Địa Chỉ";
+            Address.MinimumWidth = 350;
+            Address.Name = "Address";
+            Address.Width = 395;
+            // 
+            // frm_receptionist
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -365,7 +368,7 @@
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4);
-            Name = "frm_receptionists";
+            Name = "frm_receptionist";
             Text = "Receptionists";
             Load += frm_receptionists_Load;
             ((System.ComponentModel.ISupportInitialize)dgvLetan).EndInit();
@@ -394,7 +397,7 @@
         private Label label1;
         private TextBox txtPass_letan;
         private DataGridViewTextBoxColumn ID;
-        private DataGridViewTextBoxColumn name_letan;
+        private DataGridViewTextBoxColumn Name_letan;
         private DataGridViewTextBoxColumn Gen;
         private DataGridViewTextBoxColumn DOB;
         private DataGridViewTextBoxColumn Phone;

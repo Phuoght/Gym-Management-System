@@ -9,13 +9,14 @@ using TransferObject;
 
 namespace DataLayer
 {
-    public class ReceptionistsDL : DataProvider
+    public class ReceptionistDL : DataProvider
     {
         public List<Receptionist> GetReceptionists()
         {
             string sql = "SELECT * FROM Receptionists";
             int id;
-            string name, gender, address, phoneNumber, password, dob, role;
+            DateTime dob;
+            string name, gender, address, phoneNumber, password, role;
             List<Receptionist> Receptionists = new List<Receptionist>();
             try
             {
@@ -26,13 +27,13 @@ namespace DataLayer
                     {
                         id = (int)reader["Receptionist_ID"];
                         name = reader["Receptionist_Name"].ToString();
-                        gender = reader["Receptionist_Gender"].ToString();
+                        gender = reader["Receptionist_Gen"].ToString();
+                        dob = Convert.ToDateTime(reader["Receptionist_DayOfBirth"]);
                         address = reader["Receptionist_Address"].ToString();
-                        phoneNumber = reader["Receptionist_PhoneNumber"].ToString();
-                        password = reader["Receptionist_Password"].ToString();
-                        dob = reader["Receptionist_Dob"].ToString();
+                        phoneNumber = reader["Receptionist_Phone"].ToString();
+                        password = reader["Receptionist_Pass"].ToString();
                         role = reader["Receptionist_Role"].ToString();
-                        Receptionist receptionist = new Receptionist(id, name, gender, address, phoneNumber, password, dob, role);
+                        Receptionist receptionist = new Receptionist(id, name, gender, dob, address, phoneNumber, password,  role);
                         Receptionists.Add(receptionist);
                     }
                 }
@@ -55,10 +56,10 @@ namespace DataLayer
             {
                 new SqlParameter("@Name", receptionist.Name),
                 new SqlParameter("@Gender", receptionist.Gender),
+                new SqlParameter("@Dob", receptionist.Dob),
                 new SqlParameter("@Address", receptionist.Address),
                 new SqlParameter("@PhoneNumber", receptionist.PhoneNumber),
                 new SqlParameter("@Password", receptionist.Password),
-                new SqlParameter("@Dob", receptionist.Dob),
                 new SqlParameter("@Role", receptionist.Role)
             };
             try
@@ -95,10 +96,10 @@ namespace DataLayer
             {
                 new SqlParameter("@Name", receptionist.Name),
                 new SqlParameter("@Gender", receptionist.Gender),
+                new SqlParameter("@Dob", receptionist.Dob),
                 new SqlParameter("@Address", receptionist.Address),
                 new SqlParameter("@PhoneNumber", receptionist.PhoneNumber),
                 new SqlParameter("@Password", receptionist.Password),
-                new SqlParameter("@Dob", receptionist.Dob),
                 new SqlParameter("@Role", receptionist.Role)
 
             };
