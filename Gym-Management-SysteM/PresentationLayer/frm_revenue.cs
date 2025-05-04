@@ -22,7 +22,7 @@ namespace Gym_Management_System
         }
         private void GetReceptionists()
         {
-            ReceptionistsBL receptionistBL = new ReceptionistsBL();
+            ReceptionistBL receptionistBL = new ReceptionistBL();
             List<Receptionist> listReceptionist = receptionistBL.GetReceptionists();
             receptionist.DataSource = listReceptionist;
             receptionist.DisplayMember = "Name";// Thuộc tính hiển thị
