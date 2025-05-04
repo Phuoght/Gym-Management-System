@@ -11,6 +11,7 @@ namespace Gym_Management_System
         {
             InitializeComponent();
             role = "";
+            nameReceptionist = "";
         }
         private void UpdateUI()
         {

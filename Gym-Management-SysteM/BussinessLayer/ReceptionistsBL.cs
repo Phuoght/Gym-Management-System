@@ -60,6 +60,17 @@ namespace BusinessLayer
                 throw new Exception("Lỗi sửa lễ tân: " + ex.Message);
             }
         }
+        public int GetReceptionistID(string name)
+        {
+            try
+            {
+                return receptionistsDL.GetReceptionistID(name);
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Lỗi lấy ID lễ tân: " + ex.Message);
+            }
+        }
     }
 }
 

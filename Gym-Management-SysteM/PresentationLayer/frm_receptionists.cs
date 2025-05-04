@@ -19,32 +19,36 @@ namespace Gym_Management_System
     {
         private ReceptionistsBL receptionistsBL;
         public frm_receptionists()
-            {
-                InitializeComponent();
-                receptionistsBL = new ReceptionistsBL();
-            }
+        {
+            InitializeComponent();
+            receptionistsBL = new ReceptionistsBL();
+        }
         public void load_receptionists()
         {
             try
             {
-                dgvLetan.AutoGenerateColumns = false;
                 dgvLetan.DataSource = receptionistsBL.GetReceptionists();
-
-                // Đặt màu chữ
-                dgvLetan.DefaultCellStyle.ForeColor = Color.Black;
+                dgvLetan.AutoGenerateColumns = false;
             }
             catch (Exception)
             {
                 throw;
             }
         }
-        private void btnSave_letan_Click(object sender, EventArgs e)
+        private void frm_receptionists_Load(object sender, EventArgs e)
         {
-            string name, gender, dob, phone, pass, address;
+            load_receptionists();
+            dtpDateOfBirth_letan.MaxDate = DateTime.Now;
+        }
+
+        private void btnSave_letan_Click_1(object sender, EventArgs e)
+        {
+            string name, gender, phone, pass, address;
             string role = "";
+            DateTime dob;
             name = txtName_letan.Text;
             gender = cbGen_letan.Text;
-            dob = dtpDateOfBirth_letan.Text;
+            dob = dtpDateOfBirth_letan.Value;
             phone = txtPhone_letan.Text;
             pass = txtPass_letan.Text;
             address = txtAddress_letan.Text;
@@ -64,7 +68,7 @@ namespace Gym_Management_System
                 return;
             }
 
-            Receptionist receptionist = new Receptionist(name, dob, gender, phone, pass, address, role);
+            Receptionist receptionist = new Receptionist(name, dob, phone, address, gender, pass, role);
             try
             {
                 receptionistsBL.AddReceptionist(receptionist);
@@ -82,14 +86,37 @@ namespace Gym_Management_System
                 txtPhone_letan.Clear();
                 txtPass_letan.Clear();
                 txtAddress_letan.Clear();
+                cbGen_letan.SelectedIndex = -1;
             }
         }
 
-        private void btnDel_letan_Click(object sender, EventArgs e)
+        private void btnEdit_letan_Click(object sender, EventArgs e)
         {
-            if (dgvLetan.SelectedRows.Count > 0)
+            if (dgvLetan.SelectedRows != null && dgvLetan.CurrentRow != null)
             {
-                int id = (int)dgvLetan.SelectedRows[0].Cells["ID"].Value;
+                int id = (int)dgvLetan.CurrentRow.Cells["ID"].Value;
+                string name = (string)dgvLetan.CurrentRow.Cells["Name"].Value;
+                string gender = (string)dgvLetan.CurrentRow.Cells["Gen"].Value;
+                DateTime dob = Convert.ToDateTime(dgvLetan.CurrentRow.Cells["DOB"].Value);
+                string phone = (string)dgvLetan.CurrentRow.Cells["Phone"].Value;
+                string pass = (string)dgvLetan.CurrentRow.Cells["PassWord"].Value;
+                string address = (string)dgvLetan.CurrentRow.Cells["Address"].Value;
+                string role = (string)dgvLetan.CurrentRow.Cells["Role"].Value;
+
+                frm_EditReceptionists frmEditReceptionists = new frm_EditReceptionists(id, name, gender, dob, phone, pass, address, role);
+                frmEditReceptionists.ShowDialog();
+                if (frmEditReceptionists.DialogResult == DialogResult.OK)
+                {
+                    load_receptionists();
+                }
+            }
+        }
+
+        private void btnDel_letan_Click_1(object sender, EventArgs e)
+        {
+            if (dgvLetan.CurrentRow != null && !dgvLetan.CurrentRow.IsNewRow)
+            {
+                int id = (int)dgvLetan.CurrentRow.Cells["ID"].Value;
                 try
                 {
                     receptionistsBL.DeleteReceptionist(id);
@@ -106,31 +133,6 @@ namespace Gym_Management_System
             {
                 MessageBox.Show("Vui lòng chọn thông tin lễ tân cần xóa !");
             }
-        }
-        private void btnEdit_letan_Click(object sender, EventArgs e)
-        {
-            if (dgvLetan.SelectedRows != null && dgvLetan.CurrentRow != null)
-            {
-                int id = (int)dgvLetan.CurrentRow.Cells["ID"].Value;
-                string name = (string)dgvLetan.CurrentRow.Cells["Name"].Value;
-                string gender = (string)dgvLetan.CurrentRow.Cells["Gender"].Value;
-                string dob = (string)dgvLetan.CurrentRow.Cells["DayOfBirth"].Value;
-                string phone = (string)dgvLetan.CurrentRow.Cells["PhoneNumber"].Value;
-                string pass = (string)dgvLetan.CurrentRow.Cells["Password"].Value;
-                string address = (string)dgvLetan.CurrentRow.Cells["Address"].Value;
-                string role = (string)dgvLetan.CurrentRow.Cells["Role"].Value;
-
-                frm_EditReceptionists frmEditReceptionists = new frm_EditReceptionists(id, name, gender, dob, phone, pass, address, role);
-
-                if (frmEditReceptionists.ShowDialog() == DialogResult.OK)
-                {
-                    load_receptionists();
-                }
-            }
-        }
-        private void frm_receptionists_Load(object sender, EventArgs e)
-        {
-            load_receptionists();
         }
     }
 }

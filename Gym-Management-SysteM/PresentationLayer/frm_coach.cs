@@ -96,7 +96,6 @@ namespace Gym_Management_System
             {
                 int id = (int)dgvPT.CurrentRow.Cells["ID"].Value;
 
-                // Gọi hàm xử lý từ lớp nghiệp vụ
                 try
                 {
                     ptBL.DeletePT(id);

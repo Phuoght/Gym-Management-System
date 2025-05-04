@@ -19,7 +19,7 @@ namespace Gym_Management_System
         private int id;
         private ReceptionistsBL receptionistsBL;
 
-        public frm_EditReceptionists(int id, string name, string gender, string dob, string phone,
+        public frm_EditReceptionists(int id, string name, string gender, DateTime dob, string phone,
             string pass, string address, string role)
         {
             receptionistsBL = new ReceptionistsBL();
@@ -27,22 +27,23 @@ namespace Gym_Management_System
             this.id = id;
             this.txtEdit_name.Text = name;
             this.cbEdit_gen.Text = gender;
-            this.dtpEdit_dob.Text = dob;
+            this.dtpEdit_dob.Value = dob;
             this.txtEdit_phone.Text = phone;
             this.txtEdit_pass.Text = pass;
             this.txtEdit_address.Text = address;
         }
-        private void btnEdit_save_Click(object sender, EventArgs e)
+
+        private void btnEdit_save_Click_1(object sender, EventArgs e)
         {
-            string name, gender, dob, phone, pass, address;
-            int id = 0;
-            string role = "";
+            string name, gender, phone, pass, address;
+            DateTime dob;
             name = txtEdit_name.Text;
             gender = cbEdit_gen.Text;
-            dob = dtpEdit_dob.Text;
+            dob = dtpEdit_dob.Value;
             phone = txtEdit_phone.Text;
             pass = txtEdit_pass.Text;
             address = txtEdit_address.Text;
+
             if (string.IsNullOrWhiteSpace(txtEdit_name.Text) ||
                 string.IsNullOrWhiteSpace(txtEdit_phone.Text) ||
                 string.IsNullOrWhiteSpace(txtEdit_address.Text) ||
@@ -58,7 +59,7 @@ namespace Gym_Management_System
                 MessageBox.Show("Số điện thoại không hợp lệ !");
                 return;
             }
-            Receptionist receptionist = new Receptionist(id, name, gender, dob, phone, pass, address, role);
+            Receptionist receptionist = new Receptionist(id, name, dob, phone, address, gender, pass, "");
             try
             {
                 receptionistsBL.EditReceptionist(receptionist);
@@ -71,6 +72,5 @@ namespace Gym_Management_System
                 MessageBox.Show("Lỗi sửa lễ tân: " + ex.Message);
             }
         }
-
     }
 }

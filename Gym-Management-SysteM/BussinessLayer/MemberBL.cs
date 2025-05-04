@@ -22,7 +22,7 @@ namespace BusinessLayer
             {
                 return memberDL.GetMembers();
             }
-            catch(SqlException ex)
+            catch (SqlException ex)
             {
 
                 throw new Exception("Lỗi lấy danh sách hội viên: " + ex.Message);
@@ -35,7 +35,7 @@ namespace BusinessLayer
             {
                 memberDL.AddM(member);
             }
-            catch(SqlException ex)
+            catch (SqlException ex)
             {
                 throw new Exception("Lỗi thêm hội viên: " + ex.Message);
             }
@@ -47,7 +47,7 @@ namespace BusinessLayer
             {
                 memberDL.DeleteM(id);
             }
-            catch(SqlException ex)
+            catch (SqlException ex)
             {
                 throw new Exception("Lỗi xóa hội viên: " + ex.Message);
             }
@@ -58,9 +58,20 @@ namespace BusinessLayer
             {
                 memberDL.EditM(member);
             }
-            catch(SqlException ex)
+            catch (SqlException ex)
             {
                 throw new Exception("Lỗi sửa hội viên: " + ex.Message);
+            }
+        }
+        public int GetMemberId(string name, string phone)
+        {
+            try
+            {
+                return memberDL.GetMemberID(name, phone);
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Lỗi lấy thông tin hội viên: " + ex.Message);
             }
         }
     }

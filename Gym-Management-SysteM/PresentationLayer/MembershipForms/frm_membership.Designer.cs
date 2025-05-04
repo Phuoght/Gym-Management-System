@@ -32,11 +32,6 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             lbl_membership_Cost = new Label();
             dgvMembership = new DataGridView();
-            ID = new DataGridViewTextBoxColumn();
-            NameMembership = new DataGridViewTextBoxColumn();
-            Duration = new DataGridViewTextBoxColumn();
-            Goal = new DataGridViewTextBoxColumn();
-            Cost = new DataGridViewTextBoxColumn();
             lbl_membership_Danhsach = new Label();
             btn_membership_Del = new Button();
             btn_membership_Edit = new Button();
@@ -49,6 +44,11 @@
             txt_membership_Cost = new TextBox();
             txt_membership_Goal = new TextBox();
             txt_membership_Duration = new TextBox();
+            ID = new DataGridViewTextBoxColumn();
+            NameMembership = new DataGridViewTextBoxColumn();
+            Duration = new DataGridViewTextBoxColumn();
+            Goal = new DataGridViewTextBoxColumn();
+            Cost = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvMembership).BeginInit();
             SuspendLayout();
             // 
@@ -85,52 +85,12 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvMembership.DefaultCellStyle = dataGridViewCellStyle2;
-            dgvMembership.Location = new Point(154, 409);
+            dgvMembership.Location = new Point(271, 407);
             dgvMembership.Margin = new Padding(2);
             dgvMembership.Name = "dgvMembership";
             dgvMembership.RowHeadersWidth = 62;
-            dgvMembership.Size = new Size(1368, 336);
+            dgvMembership.Size = new Size(1165, 336);
             dgvMembership.TabIndex = 64;
-            // 
-            // ID
-            // 
-            ID.DataPropertyName = "ID";
-            ID.HeaderText = "ID";
-            ID.MinimumWidth = 6;
-            ID.Name = "ID";
-            ID.Width = 200;
-            // 
-            // NameMembership
-            // 
-            NameMembership.DataPropertyName = "Name";
-            NameMembership.HeaderText = "Họ tên";
-            NameMembership.MinimumWidth = 6;
-            NameMembership.Name = "NameMembership";
-            NameMembership.Width = 300;
-            // 
-            // Duration
-            // 
-            Duration.DataPropertyName = "Duration";
-            Duration.HeaderText = "Thời hạn";
-            Duration.MinimumWidth = 6;
-            Duration.Name = "Duration";
-            Duration.Width = 200;
-            // 
-            // Goal
-            // 
-            Goal.DataPropertyName = "Goal";
-            Goal.HeaderText = "Mục tiêu";
-            Goal.MinimumWidth = 6;
-            Goal.Name = "Goal";
-            Goal.Width = 200;
-            // 
-            // Cost
-            // 
-            Cost.DataPropertyName = "Cost";
-            Cost.HeaderText = "Giá";
-            Cost.MinimumWidth = 6;
-            Cost.Name = "Cost";
-            Cost.Width = 200;
             // 
             // lbl_membership_Danhsach
             // 
@@ -274,6 +234,46 @@
             txt_membership_Duration.Size = new Size(212, 39);
             txt_membership_Duration.TabIndex = 70;
             // 
+            // ID
+            // 
+            ID.DataPropertyName = "ID";
+            ID.HeaderText = "ID";
+            ID.MinimumWidth = 6;
+            ID.Name = "ID";
+            ID.Width = 200;
+            // 
+            // NameMembership
+            // 
+            NameMembership.DataPropertyName = "Name";
+            NameMembership.HeaderText = "Tên Gói";
+            NameMembership.MinimumWidth = 6;
+            NameMembership.Name = "NameMembership";
+            NameMembership.Width = 300;
+            // 
+            // Duration
+            // 
+            Duration.DataPropertyName = "Duration";
+            Duration.HeaderText = "Thời Lượng";
+            Duration.MinimumWidth = 6;
+            Duration.Name = "Duration";
+            Duration.Width = 200;
+            // 
+            // Goal
+            // 
+            Goal.DataPropertyName = "Goal";
+            Goal.HeaderText = "Mục tiêu";
+            Goal.MinimumWidth = 6;
+            Goal.Name = "Goal";
+            Goal.Width = 200;
+            // 
+            // Cost
+            // 
+            Cost.DataPropertyName = "Cost";
+            Cost.HeaderText = "Giá";
+            Cost.MinimumWidth = 6;
+            Cost.Name = "Cost";
+            Cost.Width = 200;
+            // 
             // frm_membership
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -296,7 +296,7 @@
             Controls.Add(txt_membership_Name);
             Controls.Add(lbl_membership_hoten);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "frm_membership";
             Text = "frm_membership";
             Load += frm_membership_Load;
@@ -319,11 +319,11 @@
         private Label lbl_membership_hoten;
         private TextBox txt_membership_Cost;
         private TextBox txt_membership_Goal;
+        private TextBox txt_membership_Duration;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn NameMembership;
         private DataGridViewTextBoxColumn Duration;
         private DataGridViewTextBoxColumn Goal;
         private DataGridViewTextBoxColumn Cost;
-        private TextBox txt_membership_Duration;
     }
 }

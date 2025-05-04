@@ -15,7 +15,8 @@ namespace DataLayer
         {
             string sql = "SELECT * FROM Receptionists";
             int id;
-            string name, gender, address, phoneNumber, password, dob, role;
+            string name, gender, address, phoneNumber, password, role;
+            DateTime dob;
             List<Receptionist> Receptionists = new List<Receptionist>();
             try
             {
@@ -26,13 +27,13 @@ namespace DataLayer
                     {
                         id = (int)reader["Receptionist_ID"];
                         name = reader["Receptionist_Name"].ToString();
-                        gender = reader["Receptionist_Gender"].ToString();
+                        gender = reader["Receptionist_Gen"].ToString();
                         address = reader["Receptionist_Address"].ToString();
-                        phoneNumber = reader["Receptionist_PhoneNumber"].ToString();
-                        password = reader["Receptionist_Password"].ToString();
-                        dob = reader["Receptionist_Dob"].ToString();
-                        role = reader["Receptionist_Role"].ToString();
-                        Receptionist receptionist = new Receptionist(id, name, gender, address, phoneNumber, password, dob, role);
+                        phoneNumber = reader["Receptionist_Phone"].ToString();
+                        password = reader["Receptionist_Pass"].ToString();
+                        dob = (DateTime)reader["Receptionist_DayOfBirth"];
+                        role = reader["Role"].ToString();
+                        Receptionist receptionist = new Receptionist(id, name, dob, phoneNumber, address, gender, password, role);
                         Receptionists.Add(receptionist);
                     }
                 }
@@ -59,7 +60,7 @@ namespace DataLayer
                 new SqlParameter("@PhoneNumber", receptionist.PhoneNumber),
                 new SqlParameter("@Password", receptionist.Password),
                 new SqlParameter("@Dob", receptionist.Dob),
-                new SqlParameter("@Role", receptionist.Role)
+                new SqlParameter("@Role", "Lễ Tân"),
             };
             try
             {
@@ -73,7 +74,7 @@ namespace DataLayer
         }
         public int DeleteReceptionist(int id)
         {
-            string sql = "usp_DeleteReceptionist";
+            string sql = "usp_DeleteReceptionists";
             List<SqlParameter> parameters = new List<SqlParameter>
             {
                 new SqlParameter("@ID", id)
@@ -89,22 +90,49 @@ namespace DataLayer
         }
         public int EditReceptionist(Receptionist receptionist)
         {
-            string sql = "usp_UpdateReceptionist";
+            string sql = "usp_UpdateReceptionists";
 
             List<SqlParameter> parameters = new List<SqlParameter>
             {
+                new SqlParameter("@ID", receptionist.ID),
                 new SqlParameter("@Name", receptionist.Name),
                 new SqlParameter("@Gender", receptionist.Gender),
                 new SqlParameter("@Address", receptionist.Address),
                 new SqlParameter("@PhoneNumber", receptionist.PhoneNumber),
                 new SqlParameter("@Password", receptionist.Password),
                 new SqlParameter("@Dob", receptionist.Dob),
-                new SqlParameter("@Role", receptionist.Role)
 
             };
             try
             {
                 return MyExcuteNonQuerry(sql, CommandType.StoredProcedure, parameters);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+        public int GetReceptionistID(string name)
+        {
+            string sql = "usp_FindReceptionistID";
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@receptionistName", name)
+            };
+            try
+            {
+                Connection();
+                using (SqlDataReader reader = MyExcuteReader(sql, CommandType.StoredProcedure, parameters))
+                {
+                    if (reader.Read())
+                    {
+                        return (int)reader["Receptionist_ID"];
+                    }
+                    else
+                    {
+                        return -1; // Không tìm thấy
+                    }
+                }
             }
             catch (SqlException ex)
             {

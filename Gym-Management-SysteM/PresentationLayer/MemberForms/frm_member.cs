@@ -19,10 +19,12 @@ namespace Gym_Management_System
     public partial class frm_member : Form
     {
         private MemberBL memberBL;
+        private ReceptionistsBL receptionistBL;
         public frm_member()
         {
             InitializeComponent();
             memberBL = new MemberBL();
+            receptionistBL = new ReceptionistsBL();
         }
 
         private void frm_member_Load(object sender,EventArgs e)
@@ -111,6 +113,13 @@ namespace Gym_Management_System
                 memberBL.AddMember(member);
                 MessageBox.Show("Thêm hội viên thành công!");
                 load_Member(); // load lại DataGridView
+
+                // Xử lý sự kiện khi ấn nút đăng kí hiện bill 
+                string receptionistID, memberID, date, cost, promotionID, total;
+                frm_Main frm_Main = new frm_Main();
+                receptionistID = receptionistBL.GetReceptionistID(frm_Main.nameReceptionist).ToString();
+                memberID = memberBL.GetMemberId(name, phone).ToString();
+
             }
             catch(SqlException ex)
             {
@@ -128,7 +137,6 @@ namespace Gym_Management_System
                 cb_member_Timing.SelectedIndex = -1;
                 cb_member_Status.SelectedIndex = -1;
             }
-
         }
 
         private void btn_member_Del_Click(object sender,EventArgs e)

@@ -25,6 +25,7 @@ namespace Gym_Management_System
             loginBL = new LoginBL();
             this.KeyPreview = true;
             userRole = "";
+            name = "";
         }
         private bool checkLogin(Receptionist receptionist)
         {
@@ -47,11 +48,11 @@ namespace Gym_Management_System
             Receptionist receptionist;
             if (userName == "admin")
             {
-                receptionist = new Receptionist(userName, "", "", "", "", passWord, "admin");
+                receptionist = new Receptionist(userName, DateTime.Now, "", "", "", passWord, "admin");
             }
             else
             {
-                receptionist = new Receptionist(userName, "", "", "", "", passWord, "receptionist");
+                receptionist = new Receptionist(userName, DateTime.Now, "", "", "", passWord, "lễ tân");
 
             }
             if (checkLogin(receptionist))

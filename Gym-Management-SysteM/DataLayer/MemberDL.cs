@@ -122,6 +122,33 @@ namespace DataLayer
                 throw;
             }
         }
-
+        public int GetMemberID(string name, string phone)
+        {
+            string sql = "usp_FindMemberID";
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@memberName", name),
+                new SqlParameter("@memberPhone", phone)
+            };
+            try
+            {
+                Connection();
+                using (SqlDataReader reader = MyExcuteReader(sql, CommandType.StoredProcedure, parameters))
+                {
+                    if (reader.Read())
+                    {
+                        return (int)reader["Member_ID"];
+                    }
+                    else
+                    {
+                        return -1; // Không tìm thấy
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
