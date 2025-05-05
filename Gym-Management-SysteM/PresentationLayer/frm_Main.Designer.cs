@@ -43,7 +43,7 @@
             pnMain = new Panel();
             btnLogout = new Button();
             btnCheckin = new Button();
-            pictureBox5 = new PictureBox();
+            ptbCheckin = new PictureBox();
             btnEquipment = new Button();
             ptbEquipment = new PictureBox();
             btnPromotion = new Button();
@@ -55,7 +55,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ptbReceptionist).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ptbCheckin).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ptbEquipment).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ptbPromotion).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ptbRevenue).BeginInit();
@@ -125,7 +125,7 @@
             // pictureBox4
             // 
             pictureBox4.Image = Properties.Resources.inventory_management;
-            pictureBox4.Location = new Point(88, 359);
+            pictureBox4.Location = new Point(89, 436);
             pictureBox4.Margin = new Padding(2);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(70, 58);
@@ -180,7 +180,7 @@
             btnMemberShip.Cursor = Cursors.Hand;
             btnMemberShip.Font = new Font("Segoe UI", 14F);
             btnMemberShip.ForeColor = Color.Yellow;
-            btnMemberShip.Location = new Point(162, 361);
+            btnMemberShip.Location = new Point(163, 438);
             btnMemberShip.Margin = new Padding(2);
             btnMemberShip.Name = "btnMemberShip";
             btnMemberShip.Size = new Size(230, 55);
@@ -234,7 +234,7 @@
             btnCheckin.Cursor = Cursors.Hand;
             btnCheckin.Font = new Font("Segoe UI", 14F);
             btnCheckin.ForeColor = Color.Yellow;
-            btnCheckin.Location = new Point(163, 444);
+            btnCheckin.Location = new Point(162, 359);
             btnCheckin.Margin = new Padding(2);
             btnCheckin.Name = "btnCheckin";
             btnCheckin.Size = new Size(230, 55);
@@ -243,16 +243,16 @@
             btnCheckin.UseVisualStyleBackColor = false;
             btnCheckin.Click += btnCheckin_Click;
             // 
-            // pictureBox5
+            // ptbCheckin
             // 
-            pictureBox5.Image = Properties.Resources.calendar;
-            pictureBox5.Location = new Point(89, 442);
-            pictureBox5.Margin = new Padding(2);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(70, 58);
-            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox5.TabIndex = 21;
-            pictureBox5.TabStop = false;
+            ptbCheckin.Image = Properties.Resources.calendar;
+            ptbCheckin.Location = new Point(88, 357);
+            ptbCheckin.Margin = new Padding(2);
+            ptbCheckin.Name = "ptbCheckin";
+            ptbCheckin.Size = new Size(70, 58);
+            ptbCheckin.SizeMode = PictureBoxSizeMode.Zoom;
+            ptbCheckin.TabIndex = 21;
+            ptbCheckin.TabStop = false;
             // 
             // btnEquipment
             // 
@@ -345,7 +345,7 @@
             Controls.Add(btnEquipment);
             Controls.Add(ptbEquipment);
             Controls.Add(btnCheckin);
-            Controls.Add(pictureBox5);
+            Controls.Add(ptbCheckin);
             Controls.Add(btnLogout);
             Controls.Add(pnMain);
             Controls.Add(btnReceptionist);
@@ -372,7 +372,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)ptbReceptionist).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ptbCheckin).EndInit();
             ((System.ComponentModel.ISupportInitialize)ptbEquipment).EndInit();
             ((System.ComponentModel.ISupportInitialize)ptbPromotion).EndInit();
             ((System.ComponentModel.ISupportInitialize)ptbRevenue).EndInit();
@@ -396,7 +396,7 @@
         private Panel pnMain;
         private Button btnLogout;
         private Button btnCheckin;
-        private PictureBox pictureBox5;
+        private PictureBox ptbCheckin;
         private Button btnEquipment;
         private PictureBox ptbEquipment;
         private Button btnPromotion;

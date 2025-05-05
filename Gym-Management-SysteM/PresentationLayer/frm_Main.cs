@@ -25,6 +25,8 @@ namespace Gym_Management_System
                 ptbPromotion.Visible = true;
                 btnRevenue.Visible = true;
                 ptbRevenue.Visible = true;
+                btnCheckin.Visible = true;
+                ptbCheckin.Visible = true;
             }
             else
             {
@@ -37,6 +39,8 @@ namespace Gym_Management_System
                 ptbPromotion.Visible = false;
                 btnRevenue.Visible = false;
                 ptbRevenue.Visible = false;
+                btnCheckin.Visible = false;
+                ptbCheckin.Visible = false;
             }
         }
         private void openFormLogin()
