@@ -31,6 +31,15 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dgvMember = new DataGridView();
+            ID = new DataGridViewTextBoxColumn();
+            NameMember = new DataGridViewTextBoxColumn();
+            Gender = new DataGridViewTextBoxColumn();
+            DOB = new DataGridViewTextBoxColumn();
+            JD = new DataGridViewTextBoxColumn();
+            Membership = new DataGridViewTextBoxColumn();
+            PT = new DataGridViewTextBoxColumn();
+            Phone = new DataGridViewTextBoxColumn();
+            Status = new DataGridViewTextBoxColumn();
             lbl_member_Danhsach = new Label();
             btn_member_Del = new Button();
             btn_member_Edit = new Button();
@@ -52,15 +61,7 @@
             lbl_member_PT = new Label();
             lbl_member_Status = new Label();
             cb_member_Status = new ComboBox();
-            ID = new DataGridViewTextBoxColumn();
-            NameMember = new DataGridViewTextBoxColumn();
-            Gender = new DataGridViewTextBoxColumn();
-            DOB = new DataGridViewTextBoxColumn();
-            JD = new DataGridViewTextBoxColumn();
-            Membership = new DataGridViewTextBoxColumn();
-            PT = new DataGridViewTextBoxColumn();
-            Phone = new DataGridViewTextBoxColumn();
-            Status = new DataGridViewTextBoxColumn();
+            btnEditmembership = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvMember).BeginInit();
             SuspendLayout();
             // 
@@ -92,6 +93,78 @@
             dgvMember.Size = new Size(1154,257);
             dgvMember.TabIndex = 38;
             // 
+            // ID
+            // 
+            ID.DataPropertyName = "ID";
+            ID.HeaderText = "ID";
+            ID.MinimumWidth = 6;
+            ID.Name = "ID";
+            ID.Width = 80;
+            // 
+            // NameMember
+            // 
+            NameMember.DataPropertyName = "Name";
+            NameMember.HeaderText = "Họ tên";
+            NameMember.MinimumWidth = 6;
+            NameMember.Name = "NameMember";
+            NameMember.Width = 125;
+            // 
+            // Gender
+            // 
+            Gender.DataPropertyName = "Gender";
+            Gender.HeaderText = "Giới tính";
+            Gender.MinimumWidth = 6;
+            Gender.Name = "Gender";
+            Gender.Width = 80;
+            // 
+            // DOB
+            // 
+            DOB.DataPropertyName = "Dob";
+            DOB.HeaderText = "Ngày sinh";
+            DOB.MinimumWidth = 6;
+            DOB.Name = "DOB";
+            DOB.Width = 125;
+            // 
+            // JD
+            // 
+            JD.DataPropertyName = "Joinday";
+            JD.HeaderText = "Ngày đăng ký";
+            JD.MinimumWidth = 6;
+            JD.Name = "JD";
+            JD.Width = 125;
+            // 
+            // Membership
+            // 
+            Membership.DataPropertyName = "Membership";
+            Membership.HeaderText = "Tên gói";
+            Membership.MinimumWidth = 6;
+            Membership.Name = "Membership";
+            Membership.Width = 125;
+            // 
+            // PT
+            // 
+            PT.DataPropertyName = "PT";
+            PT.HeaderText = "PT";
+            PT.MinimumWidth = 6;
+            PT.Name = "PT";
+            PT.Width = 125;
+            // 
+            // Phone
+            // 
+            Phone.DataPropertyName = "PhoneNumber";
+            Phone.HeaderText = "Số điện thoại";
+            Phone.MinimumWidth = 6;
+            Phone.Name = "Phone";
+            Phone.Width = 125;
+            // 
+            // Status
+            // 
+            Status.DataPropertyName = "Status";
+            Status.HeaderText = "Trạng thái";
+            Status.MinimumWidth = 6;
+            Status.Name = "Status";
+            Status.Width = 125;
+            // 
             // lbl_member_Danhsach
             // 
             lbl_member_Danhsach.AutoSize = true;
@@ -110,7 +183,7 @@
             btn_member_Del.FlatStyle = FlatStyle.Popup;
             btn_member_Del.Font = new Font("Segoe UI",12F,FontStyle.Bold,GraphicsUnit.Point,0);
             btn_member_Del.ForeColor = SystemColors.ButtonFace;
-            btn_member_Del.Location = new Point(714,630);
+            btn_member_Del.Location = new Point(912,627);
             btn_member_Del.Margin = new Padding(2);
             btn_member_Del.Name = "btn_member_Del";
             btn_member_Del.Size = new Size(118,42);
@@ -125,12 +198,12 @@
             btn_member_Edit.FlatStyle = FlatStyle.Popup;
             btn_member_Edit.Font = new Font("Segoe UI",12F,FontStyle.Bold,GraphicsUnit.Point,0);
             btn_member_Edit.ForeColor = SystemColors.ButtonFace;
-            btn_member_Edit.Location = new Point(478,630);
+            btn_member_Edit.Location = new Point(261,627);
             btn_member_Edit.Margin = new Padding(2);
             btn_member_Edit.Name = "btn_member_Edit";
-            btn_member_Edit.Size = new Size(118,42);
+            btn_member_Edit.Size = new Size(231,42);
             btn_member_Edit.TabIndex = 35;
-            btn_member_Edit.Text = "Chỉnh Sửa";
+            btn_member_Edit.Text = "Chỉnh Sửa Thông Tin";
             btn_member_Edit.UseVisualStyleBackColor = false;
             btn_member_Edit.Click += btn_member_Edit_Click;
             // 
@@ -328,6 +401,7 @@
             // cb_member_Status
             // 
             cb_member_Status.DropDownStyle = ComboBoxStyle.DropDownList;
+            cb_member_Status.Enabled = false;
             cb_member_Status.Font = new Font("Segoe UI",12F,FontStyle.Regular,GraphicsUnit.Point,0);
             cb_member_Status.FormattingEnabled = true;
             cb_member_Status.Items.AddRange(new object[] { "Hoạt Động","Đã hủy" });
@@ -337,83 +411,27 @@
             cb_member_Status.Size = new Size(227,36);
             cb_member_Status.TabIndex = 49;
             // 
-            // ID
+            // btnEditmembership
             // 
-            ID.DataPropertyName = "ID";
-            ID.HeaderText = "ID";
-            ID.MinimumWidth = 6;
-            ID.Name = "ID";
-            ID.Width = 80;
-            // 
-            // NameMember
-            // 
-            NameMember.DataPropertyName = "Name";
-            NameMember.HeaderText = "Họ tên";
-            NameMember.MinimumWidth = 6;
-            NameMember.Name = "NameMember";
-            NameMember.Width = 125;
-            // 
-            // Gender
-            // 
-            Gender.DataPropertyName = "Gender";
-            Gender.HeaderText = "Giới tính";
-            Gender.MinimumWidth = 6;
-            Gender.Name = "Gender";
-            Gender.Width = 80;
-            // 
-            // DOB
-            // 
-            DOB.DataPropertyName = "Dob";
-            DOB.HeaderText = "Ngày sinh";
-            DOB.MinimumWidth = 6;
-            DOB.Name = "DOB";
-            DOB.Width = 125;
-            // 
-            // JD
-            // 
-            JD.DataPropertyName = "JoinDate";
-            JD.HeaderText = "Ngày đăng ký";
-            JD.MinimumWidth = 6;
-            JD.Name = "JD";
-            JD.Width = 125;
-            // 
-            // Membership
-            // 
-            Membership.DataPropertyName = "Membership";
-            Membership.HeaderText = "Tên gói";
-            Membership.MinimumWidth = 6;
-            Membership.Name = "Membership";
-            Membership.Width = 125;
-            // 
-            // PT
-            // 
-            PT.DataPropertyName = "PT";
-            PT.HeaderText = "PT";
-            PT.MinimumWidth = 6;
-            PT.Name = "PT";
-            PT.Width = 125;
-            // 
-            // Phone
-            // 
-            Phone.DataPropertyName = "PhoneNumber";
-            Phone.HeaderText = "Số điện thoại";
-            Phone.MinimumWidth = 6;
-            Phone.Name = "Phone";
-            Phone.Width = 125;
-            // 
-            // Status
-            // 
-            Status.DataPropertyName = "Status";
-            Status.HeaderText = "Trạng thái";
-            Status.MinimumWidth = 6;
-            Status.Name = "Status";
-            Status.Width = 125;
+            btnEditmembership.BackColor = Color.Red;
+            btnEditmembership.FlatStyle = FlatStyle.Popup;
+            btnEditmembership.Font = new Font("Segoe UI",12F,FontStyle.Bold,GraphicsUnit.Point,0);
+            btnEditmembership.ForeColor = SystemColors.ButtonFace;
+            btnEditmembership.Location = new Point(612,627);
+            btnEditmembership.Margin = new Padding(2);
+            btnEditmembership.Name = "btnEditmembership";
+            btnEditmembership.Size = new Size(156,42);
+            btnEditmembership.TabIndex = 50;
+            btnEditmembership.Text = "Sửa gói tập";
+            btnEditmembership.UseVisualStyleBackColor = false;
+            btnEditmembership.Click += btnEditmembership_Click;
             // 
             // frm_member
             // 
             AutoScaleDimensions = new SizeF(8F,20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1272,680);
+            Controls.Add(btnEditmembership);
             Controls.Add(cb_member_Status);
             Controls.Add(lbl_member_Status);
             Controls.Add(cb_member_PT);
@@ -478,5 +496,6 @@
         private DataGridViewTextBoxColumn PT;
         private DataGridViewTextBoxColumn Phone;
         private DataGridViewTextBoxColumn Status;
+        private Button btnEditmembership;
     }
 }
