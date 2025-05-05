@@ -25,9 +25,9 @@ GO
 CREATE TABLE Receptionists(
 	Receptionist_ID int PRIMARY KEY IDENTITY NOT NULL,
 	Receptionist_Name nvarchar(50) NOT NULL,
-	Receptionist_Gen nvarchar(10) NOT NULL,
-	Receptionist_DayOfBirth date NOT NULL,
-	Receptionist_Address nvarchar(150) NOT NULL,
+	Receptionist_Gen nvarchar(10) NOT NULL ,
+	Receptionist_DayOfBirth date NOT NULL ,
+	Receptionist_Address nvarchar(150) NOT NULL ,
 	Receptionist_Phone nvarchar(10) NOT NULL,
 	Receptionist_Pass nvarchar(50) NOT NULL,
 	Role nvarchar(30) NOT NULL
@@ -42,7 +42,6 @@ CREATE TABLE Members(
 	Member_Membership int NOT NULL,
 	Member_PT int NOT NULL,
 	Member_Phone nvarchar(10) NOT NULL,
-	Member_Timing nvarchar(50) NOT NULL,
 	Member_Status nvarchar(20) NOT NULL,
 	FOREIGN KEY (Member_Membership) REFERENCES dbo.Memberships(MemberShip_ID),
     FOREIGN KEY (Member_PT) REFERENCES PTs(PT_ID)
@@ -64,8 +63,6 @@ CREATE TABLE Bills(
 	Bill_Cost float NOT NULL,
 	Bill_PromotionID nvarchar(100) NOT NULL,
 	Bill_Total float NOT NULL,
-	FOREIGN KEY (Bill_Receptionist) REFERENCES dbo.Receptionists(Receptionist_ID),
-	FOREIGN KEY (Bill_Member) REFERENCES dbo.Members(Member_ID)
 )
 GO
 CREATE TABLE CheckIn (

@@ -66,12 +66,12 @@ namespace Gym_Management_System
             try
             {
                 membershipBL.AddMembership(membership);
-                MessageBox.Show("Thêm hội viên thành công!");
+                MessageBox.Show("Thêm gói tập thành công!");
                 load_membership(); // load lại DataGridView
             }
             catch(SqlException ex)
             {
-                MessageBox.Show("Lỗi thêm hội viên: " + ex.Message);
+                MessageBox.Show("Lỗi thêm gói tập: " + ex.Message);
               
             }
             finally
@@ -91,18 +91,18 @@ namespace Gym_Management_System
                 try
                 {
                     membershipBL.DeleteMembership(id);
-                    MessageBox.Show("Xóa hội viên thành công !");
+                    MessageBox.Show("Xóa gói tập thành công !");
                     load_membership();
                 }
                 catch(SqlException ex)
                 {
-                    MessageBox.Show("Lỗi xóa hội viên: " + ex.Message);
+                    MessageBox.Show("Lỗi xóa gói tập: " + ex.Message);
                     
                 }
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn hội viên để xóa !");
+                MessageBox.Show("Vui lòng chọn gói tập để xóa !");
             }
         }
 

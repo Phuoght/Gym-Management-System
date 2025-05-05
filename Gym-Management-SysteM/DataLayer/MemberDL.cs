@@ -16,7 +16,7 @@ namespace DataLayer
         {
             string sql = "SELECT * FROM Members";
             int id, membership,pt;
-            string name, gender, phone, timing, status;
+            string name, gender, phone, status;
             DateTime dob, joinday;
             List<Member> Members = new List<Member>();
             try
@@ -34,9 +34,8 @@ namespace DataLayer
                         membership = (int)reader["Member_Membership"];
                         pt = (int)reader["Member_PT"];
                         phone = reader["Member_Phone"].ToString();
-                        timing = reader["Member_Timing"].ToString();
                         status = reader["Member_Status"].ToString();
-                        Member member = new Member(id,name,gender,dob,joinday,membership,pt,phone,timing,status);
+                        Member member = new Member(id,name,gender,dob,joinday,membership,pt,phone,status);
                         Members.Add(member);
                     }
                 }
@@ -64,7 +63,6 @@ namespace DataLayer
                 new SqlParameter("@mbship", member.Membership),
                 new SqlParameter("@pt", member.PT),
                 new SqlParameter("@phone", member.PhoneNumber),
-                new SqlParameter("@timing", member.Timing),
                 new SqlParameter("@status", member.Status)
             };
 
@@ -109,7 +107,6 @@ namespace DataLayer
         new SqlParameter("@mbship", member.Membership),
         new SqlParameter("@pt", member.PT),
         new SqlParameter("@phone", member.PhoneNumber),
-        new SqlParameter("@timing", member.Timing),
         new SqlParameter("@status", member.Status)
     };
 

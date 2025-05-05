@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLayer;
 using TransferObject;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 
 namespace Gym_Management_System
 {
