@@ -159,7 +159,8 @@ AS
 BEGIN
     SELECT Member_ID, Member_Name, Member_Gen, Member_Membership, Member_PT,
 			Member_Phone, Member_Status 
-	FROM Members WHERE Member_Name LIKE N'%@name%'
+	FROM Members
+	WHERE Member_Name LIKE @name
 END
 
 GO
@@ -388,5 +389,6 @@ BEGIN
 END
 
 GO
+
 
 
