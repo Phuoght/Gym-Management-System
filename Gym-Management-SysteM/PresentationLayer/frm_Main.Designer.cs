@@ -34,7 +34,7 @@
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
-            pictureBox4 = new PictureBox();
+            ptbMembership = new PictureBox();
             ptbReceptionist = new PictureBox();
             btnPT = new Button();
             btnMember = new Button();
@@ -53,7 +53,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ptbMembership).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ptbReceptionist).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ptbCheckin).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ptbEquipment).BeginInit();
@@ -122,16 +122,16 @@
             pictureBox3.TabIndex = 7;
             pictureBox3.TabStop = false;
             // 
-            // pictureBox4
+            // ptbMembership
             // 
-            pictureBox4.Image = Properties.Resources.inventory_management;
-            pictureBox4.Location = new Point(89, 436);
-            pictureBox4.Margin = new Padding(2);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(70, 58);
-            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox4.TabIndex = 9;
-            pictureBox4.TabStop = false;
+            ptbMembership.Image = Properties.Resources.inventory_management;
+            ptbMembership.Location = new Point(89, 436);
+            ptbMembership.Margin = new Padding(2);
+            ptbMembership.Name = "ptbMembership";
+            ptbMembership.Size = new Size(70, 58);
+            ptbMembership.SizeMode = PictureBoxSizeMode.Zoom;
+            ptbMembership.TabIndex = 9;
+            ptbMembership.TabStop = false;
             // 
             // ptbReceptionist
             // 
@@ -353,7 +353,7 @@
             Controls.Add(btnMember);
             Controls.Add(btnPT);
             Controls.Add(ptbReceptionist);
-            Controls.Add(pictureBox4);
+            Controls.Add(ptbMembership);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
@@ -370,7 +370,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ptbMembership).EndInit();
             ((System.ComponentModel.ISupportInitialize)ptbReceptionist).EndInit();
             ((System.ComponentModel.ISupportInitialize)ptbCheckin).EndInit();
             ((System.ComponentModel.ISupportInitialize)ptbEquipment).EndInit();
@@ -387,7 +387,7 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
-        private PictureBox pictureBox4;
+        private PictureBox ptbMembership;
         private PictureBox ptbReceptionist;
         private Button btnPT;
         private Button btnMember;
