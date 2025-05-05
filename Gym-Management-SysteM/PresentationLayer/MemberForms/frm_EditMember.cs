@@ -17,7 +17,7 @@ namespace Gym_Management_System.MemberForms
         private int id,membershipId, ptId;
         private MemberBL memberBL;
 
-        public frm_EditMember(int id,string name,string gender,DateTime dob,DateTime jd,int membership,int pt,string phone,string timing,string status)
+        public frm_EditMember(int id,string name,string gender,DateTime dob,DateTime jd,int membership,int pt,string phone,string status)
         {
             InitializeComponent();
             memberBL = new MemberBL();
@@ -29,7 +29,6 @@ namespace Gym_Management_System.MemberForms
             this.txt_member_PhoneE.Text = phone;
             this.dtp_member_DateOfBirthE.Value = dob;
             this.dtp_menber_JoinDayE.Value = jd;
-            this.cb_member_TimingE.Text = timing;
             this.cb_member_StatusE.Text = status;
 
         }
@@ -62,7 +61,7 @@ namespace Gym_Management_System.MemberForms
         private void btn_member_SaveE_Click(object sender,EventArgs e)
         {
             int membership, pt;
-            string name, gen, phone, timing, status;
+            string name, gen, phone, status;
             DateTime dob, jd;
 
             name = txt_member_NameE.Text;
@@ -72,7 +71,6 @@ namespace Gym_Management_System.MemberForms
             phone = txt_member_PhoneE.Text;
             dob = dtp_member_DateOfBirthE.Value;
             jd = dtp_menber_JoinDayE.Value;
-            timing = cb_member_TimingE.Text;
             status = cb_member_StatusE.Text;
 
             if(string.IsNullOrWhiteSpace(txt_member_NameE.Text) ||
@@ -80,14 +78,13 @@ namespace Gym_Management_System.MemberForms
                 string.IsNullOrWhiteSpace(cb_member_MembershipE.Text) ||
                 string.IsNullOrWhiteSpace(cb_member_PTE.Text) ||
                 string.IsNullOrWhiteSpace(txt_member_PhoneE.Text) ||
-                string.IsNullOrWhiteSpace(cb_member_TimingE.Text) ||
                 string.IsNullOrWhiteSpace(cb_member_StatusE.Text))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin !");
                 return;
             }
 
-            Member member = new Member(id,name,gen,dob,jd,membership,pt,phone,timing,status);
+            Member member = new Member(id,name,gen,dob,jd,membership,pt,phone,status);
             try
             {
                 memberBL.EditMember(member);
@@ -109,7 +106,6 @@ namespace Gym_Management_System.MemberForms
                 cb_member_MembershipE.SelectedIndex = -1;
                 cb_member_PTE.SelectedIndex = -1;
                 txt_member_PhoneE.Clear();
-                cb_member_TimingE.SelectedIndex = -1;
                 cb_member_StatusE.SelectedIndex = -1;
             }
         }

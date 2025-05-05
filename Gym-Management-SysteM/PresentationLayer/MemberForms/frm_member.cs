@@ -69,11 +69,6 @@ namespace Gym_Management_System
             {
                 MembershipBL membershipBL = new MembershipBL();
                 List<Membership> listMembership = membershipBL.GetMemberships();
-                if(listMembership == null || listMembership.Count == 0)
-                {
-                    MessageBox.Show("Không tìm thấy danh sách Membership!");
-                    return;
-                }
 
                 cb_member_Membership.DataSource = listMembership;
                 cb_member_Membership.DisplayMember = "Name";
@@ -88,7 +83,7 @@ namespace Gym_Management_System
 
         private void btn_member_Save_Click(object sender,EventArgs e)
         {
-            string name, gen,  phone, timing, status;
+            string name, gen,  phone, status;
             DateTime dob, jd;
             int membership, pt;
             name = txt_member_Name.Text;
@@ -98,14 +93,12 @@ namespace Gym_Management_System
             membership = Convert.ToInt32(cb_member_Membership.SelectedValue);
             pt = Convert.ToInt32(cb_member_PT.SelectedValue);
             phone = txt_member_Phone.Text;
-            timing = cb_member_Timing.Text;
             status = cb_member_Status.Text;
             if(string.IsNullOrWhiteSpace(txt_member_Name.Text) ||
                 string.IsNullOrWhiteSpace(cb_member_Gen.Text) ||
                 string.IsNullOrWhiteSpace(cb_member_Membership.Text) ||
                 string.IsNullOrWhiteSpace(cb_member_PT.Text) ||
                 string.IsNullOrWhiteSpace(txt_member_Phone.Text) ||
-                string.IsNullOrWhiteSpace(cb_member_Timing.Text) ||
                 string.IsNullOrWhiteSpace(cb_member_Status.Text))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin !");
@@ -117,7 +110,7 @@ namespace Gym_Management_System
                 return;
             }
 
-            Member member = new Member(name,gen,dob,jd,membership,pt,phone,timing,status);
+            Member member = new Member(name,gen,dob,jd,membership,pt,phone,status);
             try
             {
                 memberBL.AddMember(member);
@@ -154,7 +147,6 @@ namespace Gym_Management_System
                 cb_member_Membership.SelectedIndex = -1;
                 cb_member_PT.SelectedIndex = -1;
                 txt_member_Phone.Clear();
-                cb_member_Timing.SelectedIndex = -1;
                 cb_member_Status.SelectedIndex = -1;
             }
         }
@@ -164,20 +156,26 @@ namespace Gym_Management_System
             if(dgvMember.SelectedRows.Count > 0)
             {
                 int id = Convert.ToInt32(dgvMember.SelectedRows[0].Cells["ID"].Value);
+                string Status = (string)dgvMember.SelectedRows[0].Cells["Status"].Value;
+                if(Status == "Hoạt Động")
+                {
+                    MessageBox.Show("Không thể xóa thành viên đang hoạt động!");
+                    return;
+                }
                 try
                 {
                     memberBL.DeleteMember(id);
-                    MessageBox.Show("Xóa hội viên thành công!");
+                    MessageBox.Show("Xóa thành viên thành công!");
                     load_Member(); // load lại DataGridView
                 }
                 catch(SqlException ex)
                 {
-                    MessageBox.Show("Lỗi xóa hội viên: " + ex.Message);
+                    MessageBox.Show("Lỗi xóa thành viên: " + ex.Message);
                 }
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn hội viên để xóa!");
+                MessageBox.Show("Vui lòng chọn thành viên để xóa!");
             }
         }
 
@@ -193,10 +191,9 @@ namespace Gym_Management_System
                 int membershipId = Convert.ToInt32(dgvMember.CurrentRow.Cells["Membership"].Value);
                 int ptId = Convert.ToInt32(dgvMember.CurrentRow.Cells["PT"].Value);
                 string phone = (string)dgvMember.CurrentRow.Cells["Phone"].Value;
-                string timing = (string)dgvMember.CurrentRow.Cells["Timing"].Value;
                 string status = (string)dgvMember.CurrentRow.Cells["Status"].Value;
 
-                frm_EditMember frmEditMember = new frm_EditMember(id,name,gen,dob,jd,membershipId,ptId,phone,timing,status);
+                frm_EditMember frmEditMember = new frm_EditMember(id,name,gen,dob,jd,membershipId,ptId,phone,status);
                 frmEditMember.ShowDialog();
 
                 if(frmEditMember.DialogResult == DialogResult.OK)
@@ -206,7 +203,7 @@ namespace Gym_Management_System
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn hội viên để chỉnh sửa!");
+                MessageBox.Show("Vui lòng chọn thành viên để chỉnh sửa!");
 
             }
         }

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             cb_member_StatusE = new ComboBox();
-            cb_member_TimingE = new ComboBox();
             lbl_member_Status = new Label();
             cb_member_PTE = new ComboBox();
             lbl_member_PT = new Label();
@@ -37,7 +36,6 @@
             lbl_member_membership = new Label();
             lbl_member_ngaythamgia = new Label();
             dtp_menber_JoinDayE = new DateTimePicker();
-            label7 = new Label();
             txt_member_PhoneE = new TextBox();
             lbl_member_sdt = new Label();
             lbl_member_ngaysinh = new Label();
@@ -55,28 +53,17 @@
             cb_member_StatusE.Font = new Font("Segoe UI",12F,FontStyle.Regular,GraphicsUnit.Point,0);
             cb_member_StatusE.FormattingEnabled = true;
             cb_member_StatusE.Items.AddRange(new object[] { "Đang chờ xử lý","Đã hủy" });
-            cb_member_StatusE.Location = new Point(608,301);
+            cb_member_StatusE.Location = new Point(290,299);
             cb_member_StatusE.Margin = new Padding(2);
             cb_member_StatusE.Name = "cb_member_StatusE";
             cb_member_StatusE.Size = new Size(227,36);
             cb_member_StatusE.TabIndex = 67;
             // 
-            // cb_member_TimingE
-            // 
-            cb_member_TimingE.Font = new Font("Segoe UI",12F,FontStyle.Regular,GraphicsUnit.Point,0);
-            cb_member_TimingE.FormattingEnabled = true;
-            cb_member_TimingE.Items.AddRange(new object[] { "6AM - 8AM","8AM - 10AM","10AM - 1PM","1PM - 3PM","3PM - 5PM","5PM - 7PM" });
-            cb_member_TimingE.Location = new Point(290,299);
-            cb_member_TimingE.Margin = new Padding(2);
-            cb_member_TimingE.Name = "cb_member_TimingE";
-            cb_member_TimingE.Size = new Size(227,36);
-            cb_member_TimingE.TabIndex = 66;
-            // 
             // lbl_member_Status
             // 
             lbl_member_Status.AutoSize = true;
             lbl_member_Status.Font = new Font("Segoe UI",14F,FontStyle.Bold);
-            lbl_member_Status.Location = new Point(608,258);
+            lbl_member_Status.Location = new Point(290,256);
             lbl_member_Status.Margin = new Padding(2,0,2,0);
             lbl_member_Status.Name = "lbl_member_Status";
             lbl_member_Status.Size = new Size(129,32);
@@ -87,7 +74,7 @@
             // 
             cb_member_PTE.Font = new Font("Segoe UI",12F,FontStyle.Regular,GraphicsUnit.Point,0);
             cb_member_PTE.FormattingEnabled = true;
-            cb_member_PTE.Location = new Point(937,301);
+            cb_member_PTE.Location = new Point(619,299);
             cb_member_PTE.Margin = new Padding(2);
             cb_member_PTE.Name = "cb_member_PTE";
             cb_member_PTE.Size = new Size(146,36);
@@ -97,7 +84,7 @@
             // 
             lbl_member_PT.AutoSize = true;
             lbl_member_PT.Font = new Font("Segoe UI",14F,FontStyle.Bold);
-            lbl_member_PT.Location = new Point(937,256);
+            lbl_member_PT.Location = new Point(619,254);
             lbl_member_PT.Margin = new Padding(2,0,2,0);
             lbl_member_PT.Name = "lbl_member_PT";
             lbl_member_PT.Size = new Size(43,32);
@@ -148,17 +135,6 @@
             dtp_menber_JoinDayE.Name = "dtp_menber_JoinDayE";
             dtp_menber_JoinDayE.Size = new Size(162,34);
             dtp_menber_JoinDayE.TabIndex = 59;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI",14F,FontStyle.Bold);
-            label7.Location = new Point(290,256);
-            label7.Margin = new Padding(2,0,2,0);
-            label7.Name = "label7";
-            label7.Size = new Size(156,32);
-            label7.TabIndex = 58;
-            label7.Text = "Đo thời gian";
             // 
             // txt_member_PhoneE
             // 
@@ -280,7 +256,6 @@
             Controls.Add(btn_member_SaveE);
             Controls.Add(label1);
             Controls.Add(cb_member_StatusE);
-            Controls.Add(cb_member_TimingE);
             Controls.Add(lbl_member_Status);
             Controls.Add(cb_member_PTE);
             Controls.Add(lbl_member_PT);
@@ -288,7 +263,6 @@
             Controls.Add(lbl_member_membership);
             Controls.Add(lbl_member_ngaythamgia);
             Controls.Add(dtp_menber_JoinDayE);
-            Controls.Add(label7);
             Controls.Add(txt_member_PhoneE);
             Controls.Add(lbl_member_sdt);
             Controls.Add(lbl_member_ngaysinh);
@@ -307,7 +281,6 @@
         #endregion
 
         private ComboBox cb_member_StatusE;
-        private ComboBox cb_member_TimingE;
         private Label lbl_member_Status;
         private ComboBox cb_member_PTE;
         private Label lbl_member_PT;
@@ -315,7 +288,6 @@
         private Label lbl_member_membership;
         private Label lbl_member_ngaythamgia;
         private DateTimePicker dtp_menber_JoinDayE;
-        private Label label7;
         private TextBox txt_member_PhoneE;
         private Label lbl_member_sdt;
         private Label lbl_member_ngaysinh;

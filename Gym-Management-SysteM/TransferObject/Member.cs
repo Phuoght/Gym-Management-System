@@ -18,12 +18,11 @@ namespace TransferObject
         public int Membership { get; set; }
         public int PT { get; set; }
         public string PhoneNumber { get; set; }
-        public string Timing { get; set; }
         public string Status { get; set; }
        
         //Contructor load table Members trong DataLayer
         public Member(int id, string name, string gender, DateTime dob, DateTime joinday,
-            int membership, int PT, string phone, string timing, string status)
+            int membership, int PT, string phone, string status)
         {
             this.ID = id; 
             this.Name = name;
@@ -33,12 +32,11 @@ namespace TransferObject
             this.Membership = membership;
             this.PT = PT;
             this.PhoneNumber = phone;
-            this.Timing = timing;
             this.Status = status;
         }
         //Constructor để thêm Member mới
         public Member(string name,string gender,DateTime dob,DateTime joinday,
-            int membership,int PT,string phone,string timing,string status) {
+            int membership,int PT,string phone,string status) {
             this.Name = name;
             this.Gender = gender;
             this.Dob = dob;
@@ -46,7 +44,6 @@ namespace TransferObject
             this.Membership = membership;
             this.PT = PT;
             this.PhoneNumber = phone;
-            this.Timing = timing;
             this.Status = status;
         }
         //Constructor để tìm kiếm Member cho checkin
