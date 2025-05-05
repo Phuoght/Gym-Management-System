@@ -225,45 +225,7 @@ END
 
 GO
 
-/* PROC FOR Billing */
-
-CREATE PROCEDURE usp_AddBilling
-	@Name NVARCHAR(50),
-    @Duration int,
-	@Goal NVARCHAR(50),
-	@Cost int
-AS
-BEGIN
-    INSERT INTO Billings (Billing_Name, Billing_Duration, Billing_Goal, Billing_Cost)
-    VALUES (@Name, @Duration, @Goal, @Cost)
-END
-
-GO
-
-CREATE PROCEDURE usp_DeleteBilling(@ID int )
-AS
-BEGIN
-    DELETE FROM Billings 
-	WHERE Billing_ID = @ID
-END
-
-GO
-
-CREATE PROCEDURE usp_UpdateBilling(
-	@ID int,
-	@Name NVARCHAR(50),
-    @Duration int,
-	@Goal NVARCHAR(50),
-	@Cost int
-	)
-AS
-BEGIN
-    UPDATE Billings
-	SET Billing_Name = @Name, Billing_Duration = @Duration, Billing_Goal = @Goal, Billing_Cost = @Cost
-	WHERE Billing_ID = @ID
-END
-
-GO
+/* PROC FOR Bills */
 
 CREATE PROCEDURE usp_SaveBill(
 	@receptionist int, 
