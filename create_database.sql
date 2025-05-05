@@ -25,10 +25,10 @@ GO
 CREATE TABLE Receptionists(
 	Receptionist_ID int PRIMARY KEY IDENTITY NOT NULL,
 	Receptionist_Name nvarchar(50) NOT NULL,
-	Receptionist_Gen nvarchar(10) ,
-	Receptionist_DayOfBirth date ,
-	Receptionist_Address nvarchar(150) ,
-	Receptionist_Phone nvarchar(10) ,
+	Receptionist_Gen nvarchar(10) NOT NULL ,
+	Receptionist_DayOfBirth date NOT NULL ,
+	Receptionist_Address nvarchar(150) NOT NULL ,
+	Receptionist_Phone nvarchar(10) NOT NULL,
 	Receptionist_Pass nvarchar(50) NOT NULL,
 	Role nvarchar(30) NOT NULL
 )
