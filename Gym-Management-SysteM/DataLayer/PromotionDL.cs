@@ -105,17 +105,18 @@ namespace DataLayer
         }
         public List<string> GetDiscountStartEnd(string promotionID)
         {
-            string sql = "usp_EditPromotion";
+            string sql = "usp_GetDiscount";
             List<SqlParameter> parameters = new List<SqlParameter>
             {
                 new SqlParameter("@code", promotionID),
             };
             try
             {
+                Connection();
                 using (SqlDataReader reader = MyExcuteReader(sql, CommandType.StoredProcedure, parameters))
                 {
                     List<string> discountStartEnd = new List<string>();
-                    while (reader.Read())
+                    if (reader.Read())
                     {
                         discountStartEnd.Add(reader["Promotion_Discount"].ToString());
                         discountStartEnd.Add(reader["Promotion_StartDate"].ToString());
@@ -127,6 +128,10 @@ namespace DataLayer
             catch (Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                Disconnection();
             }
         }
         public bool GetActivePromotions(DateTime nowDate, DateTime startDate, DateTime endDate)
@@ -140,7 +145,8 @@ namespace DataLayer
             };
             try
             {
-                return (bool)MyExcuteScalar(sql, CommandType.StoredProcedure, parameters);
+                int result = Convert.ToInt32(MyExcuteScalar(sql, CommandType.StoredProcedure, parameters));
+                return result > 0;
             }
             catch (Exception ex)
             {

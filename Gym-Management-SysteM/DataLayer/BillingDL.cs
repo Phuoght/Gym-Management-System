@@ -21,7 +21,7 @@ namespace DataLayer
                 new SqlParameter("@member", billing.member),
                 new SqlParameter("@date", billing.date),
                 new SqlParameter("@cost", billing.cost),
-                new SqlParameter("@promotionID", billing.promotionID),
+                new SqlParameter("@promotion", billing.promotionID),
                 new SqlParameter("@total", billing.total)
             };
             try

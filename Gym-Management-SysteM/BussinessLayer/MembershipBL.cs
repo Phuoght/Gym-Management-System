@@ -60,7 +60,7 @@ namespace BusinessLayer
                 throw new Exception("Lỗi sửa hội viên: " + ex.Message);
             }
         }
-        public double FindPriceMembership(int id)
+        public int FindPriceMembership(int id)
         {
             try
             {

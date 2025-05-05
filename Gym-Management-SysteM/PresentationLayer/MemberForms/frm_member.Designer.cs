@@ -272,6 +272,7 @@
             // 
             // cb_member_Gen
             // 
+            cb_member_Gen.DropDownStyle = ComboBoxStyle.DropDownList;
             cb_member_Gen.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cb_member_Gen.FormattingEnabled = true;
             cb_member_Gen.Items.AddRange(new object[] { "Nam", "Nữ" });
@@ -364,6 +365,7 @@
             // 
             // cb_member_Membership
             // 
+            cb_member_Membership.DropDownStyle = ComboBoxStyle.DropDownList;
             cb_member_Membership.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cb_member_Membership.FormattingEnabled = true;
             cb_member_Membership.Items.AddRange(new object[] { "Nam", "Nữ" });
@@ -386,6 +388,7 @@
             // 
             // cb_member_PT
             // 
+            cb_member_PT.DropDownStyle = ComboBoxStyle.DropDownList;
             cb_member_PT.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cb_member_PT.FormattingEnabled = true;
             cb_member_PT.Location = new Point(1056, 217);
@@ -429,6 +432,7 @@
             // 
             // cb_member_Status
             // 
+            cb_member_Status.DropDownStyle = ComboBoxStyle.DropDownList;
             cb_member_Status.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cb_member_Status.FormattingEnabled = true;
             cb_member_Status.Items.AddRange(new object[] { "Hoạt Động", "Đã hủy" });

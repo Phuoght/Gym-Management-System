@@ -18,15 +18,17 @@ namespace Gym_Management_System
 {
     public partial class frm_member : Form
     {
+        private string nameReceptionist;
         private MemberBL memberBL;
         private ReceptionistBL receptionistBL;
         private MembershipBL membershipBL;
-        public frm_member()
+        public frm_member(string nameReceptionist)
         {
             InitializeComponent();
             memberBL = new MemberBL();
             receptionistBL = new ReceptionistBL();
             membershipBL = new MembershipBL();
+            this.nameReceptionist = nameReceptionist;
         }
 
         private void frm_member_Load(object sender,EventArgs e)
@@ -109,15 +111,20 @@ namespace Gym_Management_System
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin !");
                 return;
             }
+            if (!Regex.IsMatch(phone, @"^\d{10}$"))
+            {
+                MessageBox.Show("Số điện thoại không hợp lệ !");
+                return;
+            }
+
             Member member = new Member(name,gen,dob,jd,membership,pt,phone,timing,status);
             try
             {
-
+                memberBL.AddMember(member);
                 // Xử lý sự kiện khi ấn nút đăng kí hiện bill 
-                string receptionistName, memberName, cost, promotionID, total;
+                string receptionistName, memberName, cost, total;
                 DateTime date;
-                frm_Main frm_Main = new frm_Main();
-                receptionistName = frm_Main.nameReceptionist;
+                receptionistName = this.nameReceptionist;
                 memberName = name;
                 date = DateTime.Now;
                 cost = membershipBL.FindPriceMembership(membership).ToString();
@@ -126,7 +133,6 @@ namespace Gym_Management_System
                 frm_Billing.ShowDialog();
                 if (frm_Billing.DialogResult == DialogResult.OK)
                 {
-                    memberBL.AddMember(member);
                     MessageBox.Show("Đăng ký thành viên thành công!");
                     load_Member(); // load lại DataGridView
                 }

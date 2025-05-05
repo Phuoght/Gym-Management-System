@@ -101,7 +101,7 @@ namespace DataLayer
                 throw ex;
             }
         }
-        public double FindPriceMemberShip(int id)
+        public int FindPriceMemberShip(int id)
         {
             string sql = "usp_FindPriceMemberShip";
             List<SqlParameter> parameters = new List<SqlParameter>
@@ -115,7 +115,7 @@ namespace DataLayer
                 {
                     if (reader.Read())
                     {
-                        return (double)reader["Membership_Cost"];
+                        return (int)reader["Membership_Cost"];
                     }
                     else
                     {

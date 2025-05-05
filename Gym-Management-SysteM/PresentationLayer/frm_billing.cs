@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TransferObject;
+using System.Globalization;
 
 namespace Gym_Management_System
 {
@@ -40,14 +41,14 @@ namespace Gym_Management_System
         {
             string promotionID;
             int receptionist, member;
-            double cost, total;
+            int cost, total;
             DateTime date;
             int discount;
             receptionist = receptionistBL.GetReceptionistID(lbReceptionist.Text);
             member = memberBL.GetMemberId(lbMember.Text, this.phone);
             date = Convert.ToDateTime(lbDate.Text);
-            cost = double.Parse(lbCost.Text);
-            total = double.Parse(lbTotal.Text);
+            cost = int.Parse(lbCost.Text);
+            total = int.Parse(lbTotal.Text);
             if (txtPromotion.Text == "")
             {
                 promotionID = "";
@@ -56,6 +57,11 @@ namespace Gym_Management_System
             {
                 promotionID = txtPromotion.Text;
                 List<string> discountStartEnd = promotionBL.GetDiscountStartEnd(promotionID);
+                if (discountStartEnd.Count == 0)
+                {
+                    MessageBox.Show("Không tồn tại mã khuyến mãi này !");
+                    return;
+                }
                 discount = int.Parse(discountStartEnd[0]);
                 DateTime startDate = DateTime.Parse(discountStartEnd[1]);
                 DateTime endDate = DateTime.Parse(discountStartEnd[2]);
@@ -64,14 +70,20 @@ namespace Gym_Management_System
                     MessageBox.Show("Khuyến mãi không còn hiệu lực !");
                     return;
                 }
-                total = total - (total * discount / 100);
-                lbTotal.Text = total.ToString();
+                else
+                {
+                    total = total - (total * discount / 100);
+                    lbTotal.Text = total.ToString();
+                    MessageBox.Show($"Khuyến mãi đã được áp dụng !");
+                }
+                   
             }
             try
             {
                 Billing billing = new Billing(receptionist, member, date, cost, promotionID, total);
                 if (billingBL.AddBilling(billing) > 0)
                 {
+                    MessageBox.Show($"Tổng số tiền cần thanh toán là: {total:C0}");
                     MessageBox.Show("Xác nhận thanh toán thành công !");
                     this.DialogResult = DialogResult.OK;
                     this.Close();

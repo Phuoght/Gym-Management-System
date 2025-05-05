@@ -115,7 +115,7 @@ namespace Gym_Management_System
 
         private void btnMember_Click(object sender, EventArgs e)
         {
-            openForm(new frm_member());
+            openForm(new frm_member(nameReceptionist));
         }
     }
 }

@@ -330,7 +330,7 @@ END
 
 GO
 
-CREATE PROCEDURE usp_FindReceptionisID(
+CREATE PROCEDURE usp_FindReceptionistID(
 	@receptionistName nvarchar(100)
 	)
 AS
@@ -406,10 +406,10 @@ CREATE PROCEDURE usp_GetActivePromotions(
 	)
 AS
 BEGIN
-	SELECT *
-    FROM Promotions
-	WHERE @nowDate >= @startDate
-		AND @nowDate <= @endDate
+	IF @nowDate BETWEEN @startDate AND @endDate
+        SELECT 1
+    ELSE
+        SELECT 0
 END
 
 GO
