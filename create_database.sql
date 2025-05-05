@@ -42,9 +42,7 @@ CREATE TABLE Members(
 	Member_Membership int NOT NULL,
 	Member_PT int NOT NULL,
 	Member_Phone nvarchar(10) NOT NULL,
-	Member_Status nvarchar(20) NOT NULL,
-	FOREIGN KEY (Member_Membership) REFERENCES dbo.Memberships(MemberShip_ID),
-    FOREIGN KEY (Member_PT) REFERENCES PTs(PT_ID)
+	Member_Status nvarchar(20) NOT NULL
 )
 GO
 CREATE TABLE Promotions (
@@ -62,14 +60,13 @@ CREATE TABLE Bills(
 	Bill_Date date NOT NULL,
 	Bill_Cost float NOT NULL,
 	Bill_PromotionID nvarchar(100) NOT NULL,
-	Bill_Total float NOT NULL,
+	Bill_Total float NOT NULL
 )
 GO
 CREATE TABLE CheckIn (
     CheckIN_ID INT PRIMARY KEY IDENTITY,
     CheckIN_MemberID INT,
-    CheckIN_Time DATETIME,
-    FOREIGN KEY (CheckIN_MemberID) REFERENCES Members(Member_ID)
+    CheckIN_Time DATETIME
 )
 GO
 CREATE TABLE Equipments (
