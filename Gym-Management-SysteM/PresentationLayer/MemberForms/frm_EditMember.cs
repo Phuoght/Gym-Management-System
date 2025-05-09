@@ -14,7 +14,7 @@ namespace Gym_Management_System.MemberForms
 {
     public partial class frm_EditMember : Form
     {
-        private int id,membershipId, ptId;
+        private int id, membershipId, ptId;
         private MemberBL memberBL;
 
         public frm_EditMember(int id,string name,string gender,DateTime dob,DateTime jd,int membership,int pt,string phone,string status)
@@ -22,8 +22,8 @@ namespace Gym_Management_System.MemberForms
             InitializeComponent();
             memberBL = new MemberBL();
             this.id = id;
-            this.membershipId = membership; 
-            this.ptId = pt; 
+            this.membershipId = membership;
+            this.ptId = pt;
             this.txt_member_NameE.Text = name;
             this.cb_member_GenE.Text = gender;
             this.txt_member_PhoneE.Text = phone;

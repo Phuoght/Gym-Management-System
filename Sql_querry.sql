@@ -133,7 +133,21 @@ BEGIN
 	UPDATE Members
 	SET Member_Name = @Name, Member_Gen = @Gen, Member_DayOfBirth = @dob, Member_Date = @jd, Member_Membership = @mbship,
 	Member_PT = @pt, Member_Phone = @phone, Member_Status = @status
+	WHERE Member_ID = @ID
 END
+GO
+
+CREATE PROCEDURE usp_UpdateMember_Membership(
+    @memberId INT,
+    @newMembershipId INT,
+    @newJoinDate DATE)
+AS
+BEGIN
+    UPDATE Members
+    SET Member_Membership = @newMembershipId, Member_Date = @newJoinDate
+    WHERE Member_ID = @memberId;
+END;
+
 GO
 
 CREATE PROCEDURE usp_FindMemberID(

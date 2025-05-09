@@ -56,9 +56,21 @@ namespace BusinessLayer
         {
             try
             {
-                memberDL.EditM(member);
+                memberDL.EditMember(member);
             }
             catch (SqlException ex)
+            {
+                throw new Exception("Lỗi sửa hội viên: " + ex.Message);
+            }
+        }
+
+        public void EditMemberMembership(int memberID,int membershipID,DateTime joinDay)
+        {
+            try
+            {
+                memberDL.EditMember_Membership(memberID,membershipID,joinDay);
+            }
+            catch(SqlException ex)
             {
                 throw new Exception("Lỗi sửa hội viên: " + ex.Message);
             }
@@ -74,5 +86,10 @@ namespace BusinessLayer
                 throw new Exception("Lỗi lấy thông tin hội viên: " + ex.Message);
             }
         }
+        public Member GetMemberById(int id)
+        {
+            return GetMember().FirstOrDefault(m => m.ID == id);
+        }
+
     }
 }

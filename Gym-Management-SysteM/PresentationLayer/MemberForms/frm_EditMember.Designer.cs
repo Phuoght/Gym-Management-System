@@ -52,7 +52,7 @@
             // 
             cb_member_StatusE.Font = new Font("Segoe UI",12F,FontStyle.Regular,GraphicsUnit.Point,0);
             cb_member_StatusE.FormattingEnabled = true;
-            cb_member_StatusE.Items.AddRange(new object[] { "Đang chờ xử lý","Đã hủy" });
+            cb_member_StatusE.Items.AddRange(new object[] { "Hoạt Động","Đã hủy" });
             cb_member_StatusE.Location = new Point(290,299);
             cb_member_StatusE.Margin = new Padding(2);
             cb_member_StatusE.Name = "cb_member_StatusE";
@@ -93,9 +93,9 @@
             // 
             // cb_member_MembershipE
             // 
+            cb_member_MembershipE.Enabled = false;
             cb_member_MembershipE.Font = new Font("Segoe UI",12F,FontStyle.Regular,GraphicsUnit.Point,0);
             cb_member_MembershipE.FormattingEnabled = true;
-            cb_member_MembershipE.Items.AddRange(new object[] { "Nam","Nữ" });
             cb_member_MembershipE.Location = new Point(937,200);
             cb_member_MembershipE.Margin = new Padding(2);
             cb_member_MembershipE.Name = "cb_member_MembershipE";
@@ -128,6 +128,7 @@
             // 
             dtp_menber_JoinDayE.CalendarMonthBackground = Color.White;
             dtp_menber_JoinDayE.Cursor = Cursors.Hand;
+            dtp_menber_JoinDayE.Enabled = false;
             dtp_menber_JoinDayE.Font = new Font("Segoe UI",12F,FontStyle.Regular,GraphicsUnit.Point,0);
             dtp_menber_JoinDayE.Format = DateTimePickerFormat.Short;
             dtp_menber_JoinDayE.Location = new Point(713,202);

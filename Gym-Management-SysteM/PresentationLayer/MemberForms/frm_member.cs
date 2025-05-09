@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using BusinessLayer;
 using TransferObject;
 using Gym_Management_System.MemberForms;
+using DataLayer;
 
 
 namespace Gym_Management_System
@@ -33,9 +34,11 @@ namespace Gym_Management_System
 
         private void frm_member_Load(object sender,EventArgs e)
         {
+            AddExpirationDateColumn();
             GetPTs();
             Getmemberships();
             load_Member();
+            cb_member_Status.SelectedIndex = 0; // Chọn giá trị đầu tiên trong ComboBox
         }
 
         private void load_Member()
@@ -43,13 +46,66 @@ namespace Gym_Management_System
             try
             {
                 dgvMember.AutoGenerateColumns = false;
-                dgvMember.DataSource = memberBL.GetMember();
-                // Đặt màu chữ
+
+                List<Member> members = memberBL.GetMember();
+                List<Membership> memberships = membershipBL.GetMemberships();
+
+                // Tạo danh sách mới để gán vào DataGridView
+
+                List<object> memberViewList = new List<object>();
+
+                foreach(Member m in members)
+                {
+                    // Tìm gói tập tương ứng
+                    Membership membership = null;
+                    foreach(Membership ms in memberships)
+                    {
+                        if(ms.ID == m.Membership)
+                        {
+                            membership = ms;
+                            break;
+                        }
+                    }
+
+                    int duration = 0;
+                    if(membership != null && membership.Duration != null)
+                    {
+                        int temp;
+                        if(int.TryParse(membership.Duration,out temp))
+                        {
+                            duration = temp;
+                        }
+                    }
+
+                    // Tính ngày hết hạn
+                    DateTime expiration = m.JD.AddMonths(duration);
+
+                    // Tạo đối tượng chứa thông tin hội viên
+                    var memberInfo = new
+                    {
+                        ID = m.ID,
+                        Name = m.Name,
+                        Gender = m.Gender,
+                        Dob = m.Dob,
+                        Joinday = m.JD,
+                        Membership = m.Membership,
+                        PT = m.PT,
+                        PhoneNumber = m.Phone,
+                        Status = m.Status,
+                        ExpirationDate = expiration.ToShortDateString()
+                    };
+
+                    memberViewList.Add(memberInfo);
+                }
+
+                dgvMember.DataSource = memberViewList;
+
+
                 dgvMember.DefaultCellStyle.ForeColor = Color.Black;
             }
-            catch(Exception)
+            catch(Exception ex)
             {
-                throw;
+                MessageBox.Show("Lỗi khi tải danh sách hội viên: " + ex.Message);
             }
         }
 
@@ -83,7 +139,7 @@ namespace Gym_Management_System
 
         private void btn_member_Save_Click(object sender,EventArgs e)
         {
-            string name, gen,  phone, status;
+            string name, gen, phone, status;
             DateTime dob, jd;
             int membership, pt;
             name = txt_member_Name.Text;
@@ -104,7 +160,7 @@ namespace Gym_Management_System
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin !");
                 return;
             }
-            if (!Regex.IsMatch(phone, @"^\d{10}$"))
+            if(!Regex.IsMatch(phone,@"^\d{10}$"))
             {
                 MessageBox.Show("Số điện thoại không hợp lệ !");
                 return;
@@ -122,9 +178,9 @@ namespace Gym_Management_System
                 date = DateTime.Now;
                 cost = membershipBL.FindPriceMembership(membership).ToString();
                 total = cost;
-                frm_billing frm_Billing = new frm_billing(receptionistName, memberName, date, cost, total, phone);
+                frm_billing frm_Billing = new frm_billing(receptionistName,memberName,date,cost,total,phone);
                 frm_Billing.ShowDialog();
-                if (frm_Billing.DialogResult == DialogResult.OK)
+                if(frm_Billing.DialogResult == DialogResult.OK)
                 {
                     MessageBox.Show("Đăng ký thành viên thành công!");
                     load_Member(); // load lại DataGridView
@@ -183,15 +239,15 @@ namespace Gym_Management_System
         {
             if(dgvMember.CurrentRow != null && !dgvMember.CurrentRow.IsNewRow)
             {
-                int id = Convert.ToInt32(dgvMember.CurrentRow.Cells["ID"].Value);
-                string name = (string)dgvMember.CurrentRow.Cells["NameMember"].Value;
-                string gen = (string)dgvMember.CurrentRow.Cells["Gender"].Value;
-                DateTime dob = (DateTime)dgvMember.CurrentRow.Cells["DOB"].Value;
-                DateTime jd = (DateTime)dgvMember.CurrentRow.Cells["JD"].Value;
-                int membershipId = Convert.ToInt32(dgvMember.CurrentRow.Cells["Membership"].Value);
-                int ptId = Convert.ToInt32(dgvMember.CurrentRow.Cells["PT"].Value);
-                string phone = (string)dgvMember.CurrentRow.Cells["Phone"].Value;
-                string status = (string)dgvMember.CurrentRow.Cells["Status"].Value;
+                int id = Convert.ToInt32(dgvMember.CurrentRow.Cells[0].Value);
+                string name = (string)dgvMember.CurrentRow.Cells[1].Value;
+                string gen = (string)dgvMember.CurrentRow.Cells[2].Value;
+                DateTime dob = (DateTime)dgvMember.CurrentRow.Cells[3].Value;
+                DateTime jd = (DateTime)dgvMember.CurrentRow.Cells[4].Value;
+                int membershipId = Convert.ToInt32(dgvMember.CurrentRow.Cells[5].Value);
+                int ptId = Convert.ToInt32(dgvMember.CurrentRow.Cells[6].Value);
+                string phone = (string)dgvMember.CurrentRow.Cells[7].Value;
+                string status = (string)dgvMember.CurrentRow.Cells[8].Value;
 
                 frm_EditMember frmEditMember = new frm_EditMember(id,name,gen,dob,jd,membershipId,ptId,phone,status);
                 frmEditMember.ShowDialog();
@@ -204,6 +260,35 @@ namespace Gym_Management_System
             else
             {
                 MessageBox.Show("Vui lòng chọn thành viên để chỉnh sửa!");
+
+            }
+        }
+        private void AddExpirationDateColumn()
+        {
+            if(!dgvMember.Columns.Contains("ExpirationDate"))
+            {
+                DataGridViewTextBoxColumn colExpiration = new DataGridViewTextBoxColumn();
+                colExpiration.HeaderText = "Ngày hết hạn";
+                colExpiration.Name = "ExpirationDate";
+                colExpiration.DataPropertyName = "ExpirationDate"; // để binding dữ liệu
+                colExpiration.ReadOnly = true;
+                dgvMember.Columns.Add(colExpiration);
+            }
+        }
+
+        private void btnEditmembership_Click(object sender,EventArgs e)
+        {
+            int id = Convert.ToInt32(dgvMember.CurrentRow.Cells[0].Value);
+            int membershipId = Convert.ToInt32(dgvMember.CurrentRow.Cells[5].Value);
+            frm_updateMembership updateMembership = new frm_updateMembership(id,membershipId,this.nameReceptionist);
+            updateMembership.ShowDialog();
+            if(updateMembership.DialogResult == DialogResult.OK)
+            {
+                load_Member();
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật không thành công");
 
             }
         }

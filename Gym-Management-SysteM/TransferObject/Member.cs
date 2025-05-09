@@ -14,10 +14,10 @@ namespace TransferObject
         public string Name { get; set; }
         public string Gender { get; set; }
         public DateTime Dob { get; set; }
-        public DateTime JoinDate { get; set; }
+        public DateTime JD { get; set; }
         public int Membership { get; set; }
         public int PT { get; set; }
-        public string PhoneNumber { get; set; }
+        public string Phone { get; set; }
         public string Status { get; set; }
        
         //Contructor load table Members trong DataLayer
@@ -28,10 +28,10 @@ namespace TransferObject
             this.Name = name;
             this.Gender = gender;
             this.Dob = dob;
-            this.JoinDate = joinday;
+            this.JD = joinday;
             this.Membership = membership;
             this.PT = PT;
-            this.PhoneNumber = phone;
+            this.Phone = phone;
             this.Status = status;
         }
         //Constructor để thêm Member mới
@@ -40,10 +40,10 @@ namespace TransferObject
             this.Name = name;
             this.Gender = gender;
             this.Dob = dob;
-            this.JoinDate = joinday;
+            this.JD = joinday;
             this.Membership = membership;
             this.PT = PT;
-            this.PhoneNumber = phone;
+            this.Phone = phone;
             this.Status = status;
         }
         //Constructor để tìm kiếm Member cho checkin
@@ -55,7 +55,7 @@ namespace TransferObject
             this.Gender = gender;
             this.Membership = membership;
             this.PT = PT;
-            this.PhoneNumber = phone;
+            this.Phone = phone;
             this.Status = status;
         }
     }

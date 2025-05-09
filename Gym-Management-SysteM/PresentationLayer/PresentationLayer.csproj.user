@@ -31,6 +31,9 @@
     <Compile Update="MemberForms\frm_EditMember.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="MemberForms\frm_updateMembership.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="MembershipForms\frm_EditMembership.cs">
       <SubType>Form</SubType>
     </Compile>

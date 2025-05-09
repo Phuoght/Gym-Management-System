@@ -15,7 +15,7 @@ namespace DataLayer
         public List<Member> GetMembers()
         {
             string sql = "SELECT * FROM Members";
-            int id, membership,pt;
+            int id, membership, pt;
             string name, gender, phone, status;
             DateTime dob, joinday;
             List<Member> Members = new List<Member>();
@@ -59,17 +59,17 @@ namespace DataLayer
                 new SqlParameter("@Name", member.Name),
                 new SqlParameter("@Gen", member.Gender),
                 new SqlParameter("@dob", member.Dob),
-                new SqlParameter("@jd", member.JoinDate),
+                new SqlParameter("@jd", member.JD),
                 new SqlParameter("@mbship", member.Membership),
                 new SqlParameter("@pt", member.PT),
-                new SqlParameter("@phone", member.PhoneNumber),
+                new SqlParameter("@phone", member.Phone),
                 new SqlParameter("@status", member.Status)
             };
 
             try
-            { 
+            {
                 return MyExcuteNonQuerry(sql,CommandType.StoredProcedure,parameters);
-                
+
             }
             catch(SqlException ex)
             {
@@ -94,21 +94,21 @@ namespace DataLayer
             }
         }
 
-        public int EditM(Member member)
+        public int EditMember(Member member)
         {
             string sql = "usp_UpdateMember";
             List<SqlParameter> parameters = new List<SqlParameter>
-    {
-        new SqlParameter("@ID", member.ID),
-        new SqlParameter("@Name", member.Name),
-        new SqlParameter("@Gen", member.Gender),
-        new SqlParameter("@dob", member.Dob),
-        new SqlParameter("@jd", member.JoinDate),
-        new SqlParameter("@mbship", member.Membership),
-        new SqlParameter("@pt", member.PT),
-        new SqlParameter("@phone", member.PhoneNumber),
-        new SqlParameter("@status", member.Status)
-    };
+            {
+                new SqlParameter("@ID", member.ID),
+                new SqlParameter("@Name", member.Name),
+                new SqlParameter("@Gen", member.Gender),
+                new SqlParameter("@dob", member.Dob),
+                new SqlParameter("@jd", member.JD),
+                new SqlParameter("@mbship", member.Membership),
+                new SqlParameter("@pt", member.PT),
+                new SqlParameter("@phone", member.Phone),
+                new SqlParameter("@status", member.Status)
+            };
 
             try
             {
@@ -119,7 +119,26 @@ namespace DataLayer
                 throw;
             }
         }
-        public int GetMemberID(string name, string phone)
+
+        public int EditMember_Membership(int memberID, int membershipID, DateTime joinDay)
+        {
+            string sql = "usp_UpdateMember_Membership";
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@MemberID", memberID),
+                new SqlParameter("@newMembershipId", membershipID),
+                new SqlParameter("@newJoinDate ", joinDay)
+            };
+            try
+            {
+                return MyExcuteNonQuerry(sql,CommandType.StoredProcedure,parameters);
+            }
+            catch(SqlException ex)
+            {
+                throw;
+            }
+        }
+        public int GetMemberID(string name,string phone)
         {
             string sql = "usp_FindMemberID";
             List<SqlParameter> parameters = new List<SqlParameter>
@@ -130,9 +149,9 @@ namespace DataLayer
             try
             {
                 Connection();
-                using (SqlDataReader reader = MyExcuteReader(sql, CommandType.StoredProcedure, parameters))
+                using(SqlDataReader reader = MyExcuteReader(sql,CommandType.StoredProcedure,parameters))
                 {
-                    if (reader.Read())
+                    if(reader.Read())
                     {
                         return (int)reader["Member_ID"];
                     }
@@ -142,7 +161,7 @@ namespace DataLayer
                     }
                 }
             }
-            catch (SqlException ex)
+            catch(SqlException ex)
             {
                 throw ex;
             }
