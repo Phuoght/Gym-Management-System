@@ -18,7 +18,7 @@ CREATE TABLE MemberShips(
 	MemberShip_ID int PRIMARY KEY IDENTITY NOT NULL,
 	MemberShip_Name nvarchar(50) NOT NULL,
 	MemberShip_Duration int NOT NULL,
-	MemberShip_Goal nvarchar(50) NOT NULL,
+	MemberShip_Describe nvarchar(50) NOT NULL,
 	MemberShip_Cost int NOT NULL
 )
 GO
@@ -64,9 +64,9 @@ CREATE TABLE Bills(
 )
 GO
 CREATE TABLE CheckIn (
-    CheckIN_ID INT PRIMARY KEY IDENTITY,
-    CheckIN_MemberID INT,
-    CheckIN_Time DATETIME
+    CheckIN_ID INT PRIMARY KEY IDENTITY NOT NULL,
+    CheckIN_MemberID INT NOT NULL,
+    CheckIN_Time DATETIME NOT NULL
 )
 GO
 CREATE TABLE Equipments (

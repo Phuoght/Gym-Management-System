@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLayer;
 using TransferObject;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Gym_Management_System
 {
@@ -26,47 +27,18 @@ namespace Gym_Management_System
         {
             string name = txtMemberName.Text.Trim();
 
-            if (string.IsNullOrEmpty(name))
-            {
-                MessageBox.Show("Vui lòng điền tên bạn muốn tìm kiếm");
-                return;
-            }
-
             try
             {
                 dgvCheckin.AutoGenerateColumns = false;
-                if (checkinBL.SearchCheckin(name).Count == 0)
-                {
-                    MessageBox.Show("Không tìm thấy tên thành viên !");
-                    return;
-                }
-                else
-                {
-                    dgvCheckin.DataSource = checkinBL.SearchCheckin(name);
-                    dgvCheckin.DefaultCellStyle.ForeColor = Color.Black;
-                }
+                List<Member>data = checkinBL.SearchCheckin(name);
+
+                dgvCheckin.DataSource = checkinBL.SearchCheckin(name);
+                dgvCheckin.DefaultCellStyle.ForeColor = Color.Black;
+                dgvCheckin.Columns["checkin"].Visible = data.Count > 0;
             }
             catch (Exception)
             {
                 throw;
-            }
-            finally
-            {
-                txtMemberName.Clear();
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            searchMember();
-        }
-
-        private void frm_checkin_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                searchMember();
-                e.SuppressKeyPress = true;
             }
         }
 
@@ -74,6 +46,7 @@ namespace Gym_Management_System
         {
             if (dgvCheckin.Columns[e.ColumnIndex].Name == "checkin" && e.RowIndex >= 0)
             {
+
                 bool isChecked = (bool)dgvCheckin.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue;
 
                 if (isChecked)
@@ -91,6 +64,34 @@ namespace Gym_Management_System
                     }
                 }
             }
+        }
+
+        private void txtMemberName_TextChanged(object sender, EventArgs e)
+        {
+            if (txtMemberName.Text == "")
+            {
+                dgvCheckin.DataSource = null;
+                dgvCheckin.Columns["checkin"].Visible = false;
+            }
+            else
+            {
+                searchMember();
+            }
+
+        }
+
+        private void frm_checkin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Space)
+            {
+                searchMember();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void frm_checkin_Load(object sender, EventArgs e)
+        {
+            dgvCheckin.Columns["checkin"].Visible = false;
         }
     }
 }

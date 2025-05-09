@@ -25,6 +25,9 @@
     <Compile Update="frm_coach.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="frm_loading.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="MemberForms\frm_EditMember.cs">
       <SubType>Form</SubType>
     </Compile>

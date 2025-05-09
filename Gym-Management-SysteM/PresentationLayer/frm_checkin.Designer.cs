@@ -31,7 +31,6 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             label1 = new Label();
-            button1 = new Button();
             label2 = new Label();
             txtMemberName = new TextBox();
             label3 = new Label();
@@ -51,24 +50,11 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Black", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(202, 91);
+            label1.Location = new Point(344, 98);
             label1.Name = "label1";
             label1.Size = new Size(254, 45);
             label1.TabIndex = 0;
             label1.Text = "Tên thành viên";
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.Red;
-            button1.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.Yellow;
-            button1.Location = new Point(975, 91);
-            button1.Name = "button1";
-            button1.Size = new Size(181, 52);
-            button1.TabIndex = 1;
-            button1.Text = "Tìm kiếm";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
             // 
             // label2
             // 
@@ -84,10 +70,11 @@
             // txtMemberName
             // 
             txtMemberName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtMemberName.Location = new Point(499, 98);
+            txtMemberName.Location = new Point(662, 98);
             txtMemberName.Name = "txtMemberName";
-            txtMemberName.Size = new Size(428, 39);
+            txtMemberName.Size = new Size(465, 39);
             txtMemberName.TabIndex = 4;
+            txtMemberName.TextChanged += txtMemberName_TextChanged;
             // 
             // label3
             // 
@@ -203,11 +190,11 @@
             Controls.Add(label3);
             Controls.Add(txtMemberName);
             Controls.Add(label2);
-            Controls.Add(button1);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frm_checkin";
             Text = "Check-in";
+            Load += frm_checkin_Load;
             KeyDown += frm_checkin_KeyDown;
             ((System.ComponentModel.ISupportInitialize)dgvCheckin).EndInit();
             ResumeLayout(false);
@@ -217,7 +204,6 @@
         #endregion
 
         private Label label1;
-        private Button button1;
         private Label label2;
         private TextBox txtMemberName;
         private Label label3;

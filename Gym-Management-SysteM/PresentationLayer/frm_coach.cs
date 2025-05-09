@@ -23,7 +23,7 @@ namespace Gym_Management_System
             try
             {
                 dgvPT.AutoGenerateColumns = false;
-                dgvPT.DataSource = new ptBL().GetPTs();
+                dgvPT.DataSource = ptBL.GetPTs();
                 // Đặt màu chữ
                 dgvPT.DefaultCellStyle.ForeColor = Color.Black;
             }
