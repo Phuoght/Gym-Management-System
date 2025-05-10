@@ -19,23 +19,26 @@ namespace Gym_Management_System
         {
             InitializeComponent();
             revenueBL = new RevenueBL();
+            dgvReport.DataError += (s, e) => { e.Cancel = true; };
         }
         private void GetReceptionists()
         {
             ReceptionistBL receptionistBL = new ReceptionistBL();
             List<Receptionist> listReceptionist = receptionistBL.GetReceptionists();
+            listReceptionist.Insert(0, new Receptionist(0, "", DateTime.MinValue, "", "", "", "", "" ));
             receptionist.DataSource = listReceptionist;
-            receptionist.DisplayMember = "Name";// Thuộc tính hiển thị
-            receptionist.ValueMember = "ID";// Giá trị thực (dùng để lưu hoặc xử lý)
+            receptionist.DisplayMember = "Name";
+            receptionist.ValueMember = "ID";
         }
 
         private void GetMembers()
         {
             MemberBL memberBL = new MemberBL();
             List<Member> listMembers = memberBL.GetMember();
+            listMembers.Insert(0, new Member(0, "", "", DateTime.MinValue, DateTime.MinValue, -1, -1, "", ""));
             member.DataSource = listMembers;
-            member.DisplayMember = "Name";// Thuộc tính hiển thị
-            member.ValueMember = "ID";// Giá trị thực (dùng để lưu hoặc xử lý)
+            member.DisplayMember = "Name";
+            member.ValueMember = "ID";
 
         }
 

@@ -187,7 +187,7 @@
             // receptionist
             // 
             receptionist.DataPropertyName = "receptionist";
-            receptionist.HeaderText = "Mã Nhân Viên";
+            receptionist.HeaderText = "Nhân Viên";
             receptionist.MinimumWidth = 200;
             receptionist.Name = "receptionist";
             receptionist.ReadOnly = true;
@@ -198,7 +198,7 @@
             // member
             // 
             member.DataPropertyName = "member";
-            member.HeaderText = "Mã Thành Viên";
+            member.HeaderText = "Thành Viên";
             member.MinimumWidth = 8;
             member.Name = "member";
             member.ReadOnly = true;
