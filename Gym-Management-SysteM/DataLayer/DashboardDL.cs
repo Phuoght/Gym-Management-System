@@ -88,7 +88,8 @@ namespace DataLayer
             string sql = "SELECT SUM(Bill_Total) FROM Bills";
             try
             {
-                return (double)MyExcuteScalar(sql, CommandType.Text);
+                object result = MyExcuteScalar(sql, CommandType.Text);
+                return result != DBNull.Value ? Convert.ToDouble(result) : 0;
             }
             catch (SqlException ex)
             {

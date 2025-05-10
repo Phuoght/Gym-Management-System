@@ -1,6 +1,8 @@
 ﻿
 USE Gym_db
 GO
+INSERT INTO Receptionists (Receptionist_Name, Receptionist_Gen, Receptionist_DayOfBirth, Receptionist_Address, Receptionist_Phone, Receptionist_Pass, Role)
+VALUES ('admin', 'Nam', '02-11-2004', '123', '0231231232', '123', 'admin')
 /* PROC FOR PT */
 CREATE PROCEDURE usp_AddPT
     @Name NVARCHAR(50),
@@ -51,12 +53,12 @@ GO
 CREATE PROCEDURE usp_AddMembership
     @Name NVARCHAR(50),
     @Duration int,
-	@Goal NVARCHAR(50),
+	@Describe NVARCHAR(50),
 	@Cost int
 AS
 BEGIN
     INSERT INTO Memberships (MemberShip_Name, MemberShip_Duration, MemberShip_Describe, MemberShip_Cost)
-    VALUES (@Name, @Duration, @Goal, @Cost)
+    VALUES (@Name, @Duration, @Describe, @Cost)
 END
 GO
 CREATE PROCEDURE usp_DeleteMembership(@ID int )
@@ -70,13 +72,13 @@ CREATE PROCEDURE usp_UpdateMembership(
 	@ID int,
 	@Name NVARCHAR(50),
     @Duration int,
-	@Goal NVARCHAR(50),
+	@Describe NVARCHAR(50),
 	@Cost int
 	)
 AS
 BEGIN
     UPDATE MemberShips
-	SET MemberShip_Name = @Name, MemberShip_Duration = @Duration, MemberShip_Describe = @Goal, MemberShip_Cost = @Cost
+	SET MemberShip_Name = @Name, MemberShip_Duration = @Duration, MemberShip_Describe = @Describe, MemberShip_Cost = @Cost
 	WHERE MemberShip_ID = @ID
 END
 GO

@@ -26,7 +26,7 @@ namespace DataLayer
                         id = (int)reader["Membership_ID"];
                         name = reader["Membership_Name"].ToString();
                         duration =reader["Membership_Duration"].ToString();
-                        goal = reader["Membership_Goal"].ToString();
+                        goal = reader["Membership_Describe"].ToString();
                         cost = reader["Membership_Cost"].ToString();
                         Membership membership = new Membership(id,name,duration,goal,cost);
                         Memberships.Add(membership);
@@ -51,7 +51,7 @@ namespace DataLayer
             {
                 new SqlParameter("@Name", membership.Name),
                 new SqlParameter("@Duration", membership.Duration),
-                new SqlParameter("@Goal", membership.Goal),
+                new SqlParameter("@Describe", membership.Goal),
                 new SqlParameter("@Cost", membership.Cost)
             };
             try
@@ -88,7 +88,7 @@ namespace DataLayer
                 new SqlParameter("@ID", membership.ID),
                 new SqlParameter("@Name", membership.Name),
                 new SqlParameter("@Duration", membership.Duration),
-                new SqlParameter("@Goal", membership.Goal),
+                new SqlParameter("@Describe", membership.Goal),
                 new SqlParameter("@Cost", membership.Cost)
 
             };
