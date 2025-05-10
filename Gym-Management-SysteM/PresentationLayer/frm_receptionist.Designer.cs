@@ -52,7 +52,7 @@
             txtName_letan = new TextBox();
             label1 = new Label();
             txtPass_letan = new TextBox();
-
+            Role = new DataGridViewTextBoxColumn();
             ID = new DataGridViewTextBoxColumn();
             Name = new DataGridViewTextBoxColumn();
             Gen = new DataGridViewTextBoxColumn();
@@ -60,7 +60,6 @@
             Phone = new DataGridViewTextBoxColumn();
             PassWord = new DataGridViewTextBoxColumn();
             Address = new DataGridViewTextBoxColumn();
-            Role = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvLetan).BeginInit();
             SuspendLayout();
             // 
@@ -86,13 +85,13 @@
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dgvLetan.DefaultCellStyle = dataGridViewCellStyle3;
-            dgvLetan.Location = new Point(-1, 369);
+            dgvLetan.Location = new Point(20, 376);
             dgvLetan.Margin = new Padding(2);
             dgvLetan.MultiSelect = false;
             dgvLetan.Name = "dgvLetan";
             dgvLetan.RowHeadersWidth = 62;
-            dgvLetan.Size = new Size(1492, 257);
-            dgvLetan.TabIndex = 38;
+            dgvLetan.Size = new Size(1496, 386);
+            dgvLetan.TabIndex = 40;
             // 
             // label8
             // 
@@ -135,7 +134,6 @@
             btnEdit_letan.Text = "Chỉnh Sửa";
             btnEdit_letan.UseVisualStyleBackColor = false;
             btnEdit_letan.Click += btnEdit_letan_Click;
-
             // 
             // label6
             // 
@@ -288,20 +286,17 @@
             txtPass_letan.Location = new Point(323, 217);
             txtPass_letan.Margin = new Padding(2);
             txtPass_letan.Name = "txtPass_letan";
+            txtPass_letan.PasswordChar = '*';
             txtPass_letan.Size = new Size(235, 39);
             txtPass_letan.TabIndex = 39;
             // 
-            // dgvLetan
+            // Role
             // 
-            dgvLetan.BackgroundColor = Color.IndianRed;
-
-            dgvLetan.Location = new Point(20, 376);
-            dgvLetan.Margin = new Padding(2);
-            dgvLetan.MultiSelect = false;
-            dgvLetan.Name = "dgvLetan";
-            dgvLetan.RowHeadersWidth = 62;
-            dgvLetan.Size = new Size(1496, 386);
-            dgvLetan.TabIndex = 40;
+            Role.DataPropertyName = "Role";
+            Role.HeaderText = "Vai Trò";
+            Role.MinimumWidth = 8;
+            Role.Name = "Role";
+            Role.Width = 160;
             // 
             // ID
             // 
@@ -313,37 +308,9 @@
             // 
             // Name
             // 
-            Name.DataPropertyName = "name";
-            Name.HeaderText = "Họ Tên";
-            Name.MinimumWidth = 200;
-            Name.Name = "Name";
-            Name.Width = 250;
-            // 
-            // DOB
-            // 
-            DOB.DataPropertyName = "Dob";
-            DOB.HeaderText = "Ngày Sinh";
-            DOB.MinimumWidth = 130;
-            DOB.Name = "DOB";
-            DOB.Width = 180;
-            // 
-            // Phone
-            // 
-            Phone.DataPropertyName = "phoneNumber";
-            Phone.HeaderText = "Số Điện Thoại";
-            Phone.MinimumWidth = 100;
-            Phone.Name = "Phone";
-            Phone.Width = 200;
-            // 
-            // Address
-            // 
-            Address.DataPropertyName = "Address";
-            Address.HeaderText = "Địa Chỉ";
-            Address.MinimumWidth = 200;
-            Address.Name = "Address";
-            Address.Width = 250;
             Name.DataPropertyName = "Name";
             Name.HeaderText = "Họ Tên";
+            Name.MinimumWidth = 200;
             Name.Name = "Name";
             Name.Width = 250;
             // 
@@ -354,24 +321,6 @@
             Gen.MinimumWidth = 100;
             Gen.Name = "Gen";
             Gen.Width = 150;
-            // 
-            // PassWord
-            // 
-            PassWord.DataPropertyName = "Password";
-            PassWord.HeaderText = "Mật Khẩu";
-            PassWord.MinimumWidth = 100;
-            PassWord.Name = "PassWord";
-            PassWord.Width = 170;
-            // 
-            // Role
-            // 
-            Role.DataPropertyName = "Role";
-            Role.HeaderText = "Vai Trò";
-            Role.MinimumWidth = 8;
-            Role.Name = "Role";
-            Role.Width = 160;
-            // 
-            // frm_receptionists
             // 
             // DOB
             // 
@@ -391,11 +340,12 @@
             Phone.Name = "Phone";
             Phone.Width = 200;
             // 
-            // Password
+            // PassWord
             // 
+            PassWord.DataPropertyName = "Password";
             PassWord.HeaderText = "Mật khẩu";
             PassWord.MinimumWidth = 6;
-            PassWord.Name = "Password";
+            PassWord.Name = "PassWord";
             PassWord.Width = 250;
             // 
             // Address
@@ -458,13 +408,13 @@
         private Label label1;
         private TextBox txtPass_letan;
         private DataGridView dgvLetan;
+        private DataGridViewTextBoxColumn Role;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Name;
+        private DataGridViewTextBoxColumn Gen;
         private DataGridViewTextBoxColumn DOB;
         private DataGridViewTextBoxColumn Phone;
-        private DataGridViewTextBoxColumn Address;
-        private DataGridViewTextBoxColumn Gen;
         private DataGridViewTextBoxColumn PassWord;
-        private DataGridViewTextBoxColumn Role;
+        private DataGridViewTextBoxColumn Address;
     }
 }

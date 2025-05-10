@@ -93,6 +93,19 @@ END
 
 GO
 
+CREATE PROCEDURE usp_UpdateExpiredMemberships
+AS
+BEGIN
+	--DECLARE @newDate DATE = CAST('2025-10-10' AS DATE);
+    UPDATE Members
+    SET Member_Status = N'Đã hủy'
+	FROM Members,MemberShips
+    WHERE Member_ID = MemberShip_ID 
+		AND DATEADD(MONTH, Membership_Duration, Member_Date) < GETDATE() --@newDate
+		AND Member_Status != N'Đã hủy'
+END
+GO
+
 
 /* PROC FOR MEMBER */
 CREATE PROCEDURE usp_AddMember(
@@ -164,6 +177,7 @@ END
 
 GO
 
+
 /* PROC FOR CHECKIN */
 
 CREATE PROCEDURE usp_SearchCheckin(
@@ -187,6 +201,37 @@ AS
 BEGIN
     INSERT INTO CheckIn (CheckIN_MemberID, CheckIN_Time)
 	VALUES (@id, @time)
+END
+
+GO
+
+CREATE PROCEDURE usp_IsActiveMembership(
+	@dateNow date,
+	@dateMembership date
+	)
+AS
+BEGIN
+    if (@dateMembership < @dateNow)
+	BEGIN
+		SELECT 0
+	END
+	ELSE
+	BEGIN
+		SELECT 1
+	END
+END
+
+GO
+
+CREATE PROCEDURE usp_GetTimeMembership(
+	@id int
+	)
+AS
+BEGIN
+    SELECT MemberShip_Duration, Member_Date
+	FROM MemberShips, Members
+	WHERE Member_ID = Member_Membership
+		AND MemberShip_ID = @id
 END
 
 GO

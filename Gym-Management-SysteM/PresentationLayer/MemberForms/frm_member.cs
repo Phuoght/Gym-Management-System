@@ -32,8 +32,27 @@ namespace Gym_Management_System
             this.nameReceptionist = nameReceptionist;
         }
 
+        private void GetMemberShipsForDGV()
+        {
+            MembershipBL membershipBL = new MembershipBL();
+            List<Membership> listMemberships = membershipBL.GetMemberships();
+            Membership.DataSource = listMemberships;
+            Membership.DisplayMember = "Name";
+            Membership.ValueMember = "ID";
+        }
+        private void GetPTsForDGV()
+        {
+            ptBL PtBL = new ptBL();
+            List<PT> listPTs = PtBL.GetPTs();
+            PT.DataSource = listPTs;
+            PT.DisplayMember = "Name";
+            PT.ValueMember = "ID";
+
+        }
+
         private void frm_member_Load(object sender,EventArgs e)
         {
+            memberBL.UpdateExpiredMemberships();
             AddExpirationDateColumn();
             GetPTs();
             Getmemberships();
@@ -97,6 +116,8 @@ namespace Gym_Management_System
 
                     memberViewList.Add(memberInfo);
                 }
+                GetMemberShipsForDGV();
+                GetPTsForDGV();
 
                 dgvMember.DataSource = memberViewList;
 

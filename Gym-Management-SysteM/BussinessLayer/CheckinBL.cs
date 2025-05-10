@@ -37,5 +37,27 @@ namespace BusinessLayer
                 throw ex;
             }
         }
+        public (int Duration, DateTime StartDate) GetTimeMemberShip(int id)
+        {
+            try
+            {
+                return checkinDL.GetTimeMemberShip(id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public bool IsActiveMembership(DateTime dateNow, DateTime dateMembership)
+        {
+            try
+            {
+                return checkinDL.IsActiveMembership(dateNow, dateMembership);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

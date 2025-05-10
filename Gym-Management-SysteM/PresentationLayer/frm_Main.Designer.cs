@@ -51,6 +51,8 @@
             ptbPromotion = new PictureBox();
             btnRevenue = new Button();
             ptbRevenue = new PictureBox();
+            btnDashboard = new Button();
+            ptbDashboard = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -60,6 +62,7 @@
             ((System.ComponentModel.ISupportInitialize)ptbEquipment).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ptbPromotion).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ptbRevenue).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ptbDashboard).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -104,7 +107,7 @@
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.coach;
-            pictureBox2.Location = new Point(88, 195);
+            pictureBox2.Location = new Point(88, 266);
             pictureBox2.Margin = new Padding(2);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(70, 58);
@@ -115,7 +118,7 @@
             // pictureBox3
             // 
             pictureBox3.Image = Properties.Resources.sportman;
-            pictureBox3.Location = new Point(88, 278);
+            pictureBox3.Location = new Point(88, 349);
             pictureBox3.Margin = new Padding(2);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(70, 58);
@@ -126,7 +129,7 @@
             // ptbMembership
             // 
             ptbMembership.Image = Properties.Resources.inventory_management;
-            ptbMembership.Location = new Point(89, 436);
+            ptbMembership.Location = new Point(89, 507);
             ptbMembership.Margin = new Padding(2);
             ptbMembership.Name = "ptbMembership";
             ptbMembership.Size = new Size(70, 58);
@@ -137,7 +140,7 @@
             // ptbReceptionist
             // 
             ptbReceptionist.Image = Properties.Resources.receptionist_desk;
-            ptbReceptionist.Location = new Point(89, 523);
+            ptbReceptionist.Location = new Point(89, 594);
             ptbReceptionist.Margin = new Padding(2);
             ptbReceptionist.Name = "ptbReceptionist";
             ptbReceptionist.Size = new Size(70, 58);
@@ -151,7 +154,7 @@
             btnPT.Cursor = Cursors.Hand;
             btnPT.Font = new Font("Segoe UI", 14F);
             btnPT.ForeColor = Color.Yellow;
-            btnPT.Location = new Point(162, 198);
+            btnPT.Location = new Point(162, 269);
             btnPT.Margin = new Padding(2);
             btnPT.Name = "btnPT";
             btnPT.Size = new Size(230, 55);
@@ -166,7 +169,7 @@
             btnMember.Cursor = Cursors.Hand;
             btnMember.Font = new Font("Segoe UI", 14F);
             btnMember.ForeColor = Color.Yellow;
-            btnMember.Location = new Point(162, 279);
+            btnMember.Location = new Point(162, 350);
             btnMember.Margin = new Padding(2);
             btnMember.Name = "btnMember";
             btnMember.Size = new Size(230, 55);
@@ -181,7 +184,7 @@
             btnMemberShip.Cursor = Cursors.Hand;
             btnMemberShip.Font = new Font("Segoe UI", 14F);
             btnMemberShip.ForeColor = Color.Yellow;
-            btnMemberShip.Location = new Point(163, 438);
+            btnMemberShip.Location = new Point(163, 509);
             btnMemberShip.Margin = new Padding(2);
             btnMemberShip.Name = "btnMemberShip";
             btnMemberShip.Size = new Size(230, 55);
@@ -196,7 +199,7 @@
             btnReceptionist.Cursor = Cursors.Hand;
             btnReceptionist.Font = new Font("Segoe UI", 14F);
             btnReceptionist.ForeColor = Color.Yellow;
-            btnReceptionist.Location = new Point(163, 525);
+            btnReceptionist.Location = new Point(163, 596);
             btnReceptionist.Margin = new Padding(2);
             btnReceptionist.Name = "btnReceptionist";
             btnReceptionist.Size = new Size(230, 55);
@@ -235,7 +238,7 @@
             btnCheckin.Cursor = Cursors.Hand;
             btnCheckin.Font = new Font("Segoe UI", 14F);
             btnCheckin.ForeColor = Color.Yellow;
-            btnCheckin.Location = new Point(162, 359);
+            btnCheckin.Location = new Point(162, 430);
             btnCheckin.Margin = new Padding(2);
             btnCheckin.Name = "btnCheckin";
             btnCheckin.Size = new Size(230, 55);
@@ -247,7 +250,7 @@
             // ptbCheckin
             // 
             ptbCheckin.Image = Properties.Resources.calendar;
-            ptbCheckin.Location = new Point(88, 357);
+            ptbCheckin.Location = new Point(88, 428);
             ptbCheckin.Margin = new Padding(2);
             ptbCheckin.Name = "ptbCheckin";
             ptbCheckin.Size = new Size(70, 58);
@@ -261,7 +264,7 @@
             btnEquipment.Cursor = Cursors.Hand;
             btnEquipment.Font = new Font("Segoe UI", 14F);
             btnEquipment.ForeColor = Color.Yellow;
-            btnEquipment.Location = new Point(163, 611);
+            btnEquipment.Location = new Point(163, 682);
             btnEquipment.Margin = new Padding(2);
             btnEquipment.Name = "btnEquipment";
             btnEquipment.Size = new Size(230, 55);
@@ -273,7 +276,7 @@
             // ptbEquipment
             // 
             ptbEquipment.Image = Properties.Resources.kettlebell;
-            ptbEquipment.Location = new Point(89, 608);
+            ptbEquipment.Location = new Point(89, 679);
             ptbEquipment.Margin = new Padding(2);
             ptbEquipment.Name = "ptbEquipment";
             ptbEquipment.Size = new Size(70, 58);
@@ -287,7 +290,7 @@
             btnPromotion.Cursor = Cursors.Hand;
             btnPromotion.Font = new Font("Segoe UI", 14F);
             btnPromotion.ForeColor = Color.Yellow;
-            btnPromotion.Location = new Point(163, 681);
+            btnPromotion.Location = new Point(163, 752);
             btnPromotion.Margin = new Padding(2);
             btnPromotion.Name = "btnPromotion";
             btnPromotion.Size = new Size(230, 55);
@@ -299,7 +302,7 @@
             // ptbPromotion
             // 
             ptbPromotion.Image = Properties.Resources.promo_code;
-            ptbPromotion.Location = new Point(90, 681);
+            ptbPromotion.Location = new Point(90, 752);
             ptbPromotion.Margin = new Padding(2);
             ptbPromotion.Name = "ptbPromotion";
             ptbPromotion.Size = new Size(70, 58);
@@ -313,7 +316,7 @@
             btnRevenue.Cursor = Cursors.Hand;
             btnRevenue.Font = new Font("Segoe UI", 14F);
             btnRevenue.ForeColor = Color.Yellow;
-            btnRevenue.Location = new Point(163, 754);
+            btnRevenue.Location = new Point(163, 825);
             btnRevenue.Margin = new Padding(2);
             btnRevenue.Name = "btnRevenue";
             btnRevenue.Size = new Size(230, 55);
@@ -325,7 +328,7 @@
             // ptbRevenue
             // 
             ptbRevenue.Image = Properties.Resources.money;
-            ptbRevenue.Location = new Point(90, 754);
+            ptbRevenue.Location = new Point(90, 825);
             ptbRevenue.Margin = new Padding(2);
             ptbRevenue.Name = "ptbRevenue";
             ptbRevenue.Size = new Size(70, 58);
@@ -333,12 +336,40 @@
             ptbRevenue.TabIndex = 27;
             ptbRevenue.TabStop = false;
             // 
+            // btnDashboard
+            // 
+            btnDashboard.BackColor = Color.Crimson;
+            btnDashboard.Cursor = Cursors.Hand;
+            btnDashboard.Font = new Font("Segoe UI", 14F);
+            btnDashboard.ForeColor = Color.Yellow;
+            btnDashboard.Location = new Point(163, 197);
+            btnDashboard.Margin = new Padding(2);
+            btnDashboard.Name = "btnDashboard";
+            btnDashboard.Size = new Size(230, 55);
+            btnDashboard.TabIndex = 30;
+            btnDashboard.Text = "Tổng quan";
+            btnDashboard.UseVisualStyleBackColor = false;
+            btnDashboard.Click += btnDashboard_Click;
+            // 
+            // ptbDashboard
+            // 
+            ptbDashboard.Image = Properties.Resources.dashboard;
+            ptbDashboard.Location = new Point(89, 194);
+            ptbDashboard.Margin = new Padding(2);
+            ptbDashboard.Name = "ptbDashboard";
+            ptbDashboard.Size = new Size(70, 58);
+            ptbDashboard.SizeMode = PictureBoxSizeMode.Zoom;
+            ptbDashboard.TabIndex = 29;
+            ptbDashboard.TabStop = false;
+            // 
             // frm_Main
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(241, 241, 250);
             ClientSize = new Size(1924, 1050);
+            Controls.Add(btnDashboard);
+            Controls.Add(ptbDashboard);
             Controls.Add(btnRevenue);
             Controls.Add(ptbRevenue);
             Controls.Add(btnPromotion);
@@ -378,6 +409,7 @@
             ((System.ComponentModel.ISupportInitialize)ptbEquipment).EndInit();
             ((System.ComponentModel.ISupportInitialize)ptbPromotion).EndInit();
             ((System.ComponentModel.ISupportInitialize)ptbRevenue).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ptbDashboard).EndInit();
             ResumeLayout(false);
         }
 
@@ -405,5 +437,7 @@
         private PictureBox ptbPromotion;
         private Button btnRevenue;
         private PictureBox ptbRevenue;
+        private Button btnDashboard;
+        private PictureBox ptbDashboard;
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLayer;
+using DataLayer;
 using TransferObject;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -22,16 +23,35 @@ namespace Gym_Management_System
             checkinBL = new CheckinBL();
             this.KeyPreview = true;
         }
+        private void GetMemberShips()
+        {
+            MembershipBL membershipBL = new MembershipBL();
+            List<Membership> listMemberships = membershipBL.GetMemberships();
+            membership.DataSource = listMemberships;
+            membership.DisplayMember = "Name";
+            membership.ValueMember = "ID";
+        }
+
+        private void GetPTs()
+        {
+            ptBL PtBL = new ptBL();
+            List<PT> listPTs = PtBL.GetPTs();
+            pt.DataSource = listPTs;
+            pt.DisplayMember = "Name";
+            pt.ValueMember = "ID";
+
+        }
 
         private void searchMember()
         {
-            string name = txtMemberName.Text.Trim();
+            string name = txtMemberName.Text;
 
             try
             {
                 dgvCheckin.AutoGenerateColumns = false;
                 List<Member>data = checkinBL.SearchCheckin(name);
-
+                GetMemberShips();
+                GetPTs();
                 dgvCheckin.DataSource = checkinBL.SearchCheckin(name);
                 dgvCheckin.DefaultCellStyle.ForeColor = Color.Black;
                 dgvCheckin.Columns["checkin"].Visible = data.Count > 0;
@@ -46,23 +66,44 @@ namespace Gym_Management_System
         {
             if (dgvCheckin.Columns[e.ColumnIndex].Name == "checkin" && e.RowIndex >= 0)
             {
+                int id = (int)dgvCheckin.CurrentRow.Cells["ID"].Value;
 
-                bool isChecked = (bool)dgvCheckin.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue;
+                var (duration, startDate) = checkinBL.GetTimeMemberShip(id);
 
-                if (isChecked)
+                DateTime dateMembership = Convert.ToDateTime(startDate.AddMonths(duration));
+                DateTime dateNow = DateTime.Now;
+                //DateTime dateNow = new DateTime(2025, 10, 10);
+                bool isActiveMemberships = checkinBL.IsActiveMembership(dateNow, dateMembership);
+
+                if (isActiveMemberships)
                 {
-                    int memberId = (int)(dgvCheckin.Rows[e.RowIndex].Cells["ID"].Value);
-                    Checkin checkin = new Checkin(memberId, DateTime.Now);
-                    if (checkinBL.SaveCheckin(checkin) > 0)
+                    bool isChecked = (bool)dgvCheckin.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue;
+
+                    if (isChecked)
                     {
-                        MessageBox.Show("Check-in thành công !");
-                        dgvCheckin.DataSource = null;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Check-in không thành công !");
+                        int memberId = (int)(dgvCheckin.Rows[e.RowIndex].Cells["ID"].Value);
+                        Checkin checkin = new Checkin(memberId, DateTime.Now);
+                        if (checkinBL.SaveCheckin(checkin) > 0)
+                        {
+                            MessageBox.Show("Check-in thành công !");
+                            txtMemberName.Text = "";
+                            dgvCheckin.DataSource = null;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Check-in không thành công !");
+                            
+                        }
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Gói tập đã hết hạn !");
+                    dgvCheckin.CurrentRow.Cells["checkin"].Value = false;
+                    dgvCheckin.RefreshEdit();
+                    return;
+                }
+                
             }
         }
 

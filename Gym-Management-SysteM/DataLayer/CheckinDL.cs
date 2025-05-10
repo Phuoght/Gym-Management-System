@@ -70,6 +70,57 @@ namespace DataLayer
                 throw ex;
             }
         }
-        
+        public (int Duration, DateTime StartDate) GetTimeMemberShip(int id)
+        {
+            string sql = "usp_GetTimeMembership";
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@id", id),
+            };
+            try
+            {
+                Connection();
+                using (SqlDataReader reader = MyExcuteReader(sql, CommandType.StoredProcedure, parameters))
+                {
+                    if (reader.Read())
+                    {
+                        return ((int)reader["MemberShip_Duration"], (DateTime)reader["Member_Date"]);
+                    }
+                    else
+                    {
+                        return (-1, DateTime.MinValue);
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                Disconnection();
+            }
+        }
+        public bool IsActiveMembership(DateTime dateNow, DateTime dateMembership)
+        {
+            string sql = "usp_IsActiveMembership";
+            List<SqlParameter> parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@dateNow", dateNow),
+                new SqlParameter("@dateMembership", dateMembership)
+            };
+            try
+            {
+                int result = (int)MyExcuteScalar(sql, CommandType.StoredProcedure, parameters);
+                if (result == 1)
+                    return true;
+                else
+                    return false;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

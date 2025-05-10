@@ -149,9 +149,9 @@ namespace DataLayer
             try
             {
                 Connection();
-                using(SqlDataReader reader = MyExcuteReader(sql,CommandType.StoredProcedure,parameters))
+                using (SqlDataReader reader = MyExcuteReader(sql, CommandType.StoredProcedure, parameters))
                 {
-                    if(reader.Read())
+                    if (reader.Read())
                     {
                         return (int)reader["Member_ID"];
                     }
@@ -161,7 +161,23 @@ namespace DataLayer
                     }
                 }
             }
-            catch(SqlException ex)
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                Disconnection();
+            }
+        }
+        public int UpdateExpiredMemberships()
+        {
+            string sql = "usp_UpdateExpiredMemberships";
+            try
+            {
+                return MyExcuteNonQuerry(sql, CommandType.Text);
+            }
+            catch (SqlException ex)
             {
                 throw ex;
             }

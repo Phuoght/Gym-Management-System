@@ -38,8 +38,8 @@
             ID = new DataGridViewTextBoxColumn();
             memberName = new DataGridViewTextBoxColumn();
             Gen = new DataGridViewTextBoxColumn();
-            membership = new DataGridViewTextBoxColumn();
-            pt = new DataGridViewTextBoxColumn();
+            membership = new DataGridViewComboBoxColumn();
+            pt = new DataGridViewComboBoxColumn();
             Phone = new DataGridViewTextBoxColumn();
             status = new DataGridViewTextBoxColumn();
             checkin = new DataGridViewCheckBoxColumn();
@@ -148,6 +148,9 @@
             membership.HeaderText = "Gói";
             membership.MinimumWidth = 8;
             membership.Name = "membership";
+            membership.ReadOnly = true;
+            membership.Resizable = DataGridViewTriState.True;
+            membership.SortMode = DataGridViewColumnSortMode.Automatic;
             membership.Width = 150;
             // 
             // pt
@@ -156,11 +159,14 @@
             pt.HeaderText = "PT";
             pt.MinimumWidth = 8;
             pt.Name = "pt";
+            pt.ReadOnly = true;
+            pt.Resizable = DataGridViewTriState.True;
+            pt.SortMode = DataGridViewColumnSortMode.Automatic;
             pt.Width = 150;
             // 
             // Phone
             // 
-            Phone.DataPropertyName = "PhoneNumber";
+            Phone.DataPropertyName = "Phone";
             Phone.HeaderText = "Số Điện Thoại";
             Phone.MinimumWidth = 100;
             Phone.Name = "Phone";
@@ -211,8 +217,8 @@
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn memberName;
         private DataGridViewTextBoxColumn Gen;
-        private DataGridViewTextBoxColumn membership;
-        private DataGridViewTextBoxColumn pt;
+        private DataGridViewComboBoxColumn membership;
+        private DataGridViewComboBoxColumn pt;
         private DataGridViewTextBoxColumn Phone;
         private DataGridViewTextBoxColumn status;
         private DataGridViewCheckBoxColumn checkin;

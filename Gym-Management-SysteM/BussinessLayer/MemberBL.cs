@@ -90,6 +90,16 @@ namespace BusinessLayer
         {
             return GetMember().FirstOrDefault(m => m.ID == id);
         }
-
+        public int UpdateExpiredMemberships()
+        {
+            try
+            {
+                return memberDL.UpdateExpiredMemberships();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

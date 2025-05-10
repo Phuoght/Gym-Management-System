@@ -190,6 +190,7 @@
             receptionist.HeaderText = "Mã Nhân Viên";
             receptionist.MinimumWidth = 200;
             receptionist.Name = "receptionist";
+            receptionist.ReadOnly = true;
             receptionist.Resizable = DataGridViewTriState.True;
             receptionist.SortMode = DataGridViewColumnSortMode.Automatic;
             receptionist.Width = 200;
@@ -200,6 +201,7 @@
             member.HeaderText = "Mã Thành Viên";
             member.MinimumWidth = 8;
             member.Name = "member";
+            member.ReadOnly = true;
             member.Resizable = DataGridViewTriState.True;
             member.SortMode = DataGridViewColumnSortMode.Automatic;
             member.Width = 220;

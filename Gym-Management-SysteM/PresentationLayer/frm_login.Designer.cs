@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_login));
             label1 = new Label();
             label2 = new Label();
             pictureBox1 = new PictureBox();
@@ -98,7 +99,6 @@
             txtUserName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtUserName.Location = new Point(324, 264);
             txtUserName.Name = "txtUserName";
-            txtUserName.PlaceholderText = "Tên tài khoản";
             txtUserName.Size = new Size(336, 39);
             txtUserName.TabIndex = 5;
             // 
@@ -141,6 +141,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             ForeColor = SystemColors.ButtonFace;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "frm_login";
