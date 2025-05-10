@@ -3,6 +3,7 @@ USE Gym_db
 GO
 INSERT INTO Receptionists (Receptionist_Name, Receptionist_Gen, Receptionist_DayOfBirth, Receptionist_Address, Receptionist_Phone, Receptionist_Pass, Role)
 VALUES ('admin', 'Nam', '02-11-2004', '123', '0231231232', '123', 'admin')
+GO
 /* PROC FOR PT */
 CREATE PROCEDURE usp_AddPT
     @Name NVARCHAR(50),

@@ -64,7 +64,12 @@ namespace DataLayer
             string sql = "SELECT SUM(Equipment_Amount) FROM Equipments";
             try
             {
-                return (int)MyExcuteScalar(sql, CommandType.Text);
+                object result = MyExcuteScalar(sql, CommandType.Text);
+                if (result == DBNull.Value || result == null)
+                {
+                    return 0;
+                }
+                return Convert.ToInt32(result);
             }
             catch (SqlException ex)
             {
