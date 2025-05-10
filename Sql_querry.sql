@@ -55,7 +55,7 @@ CREATE PROCEDURE usp_AddMembership
 	@Cost int
 AS
 BEGIN
-    INSERT INTO Memberships (MemberShip_Name, MemberShip_Duration, MemberShip_Goal, MemberShip_Cost)
+    INSERT INTO Memberships (MemberShip_Name, MemberShip_Duration, MemberShip_Describe, MemberShip_Cost)
     VALUES (@Name, @Duration, @Goal, @Cost)
 END
 GO
@@ -76,7 +76,7 @@ CREATE PROCEDURE usp_UpdateMembership(
 AS
 BEGIN
     UPDATE MemberShips
-	SET MemberShip_Name = @Name, MemberShip_Duration = @Duration, MemberShip_Goal = @Goal, MemberShip_Cost = @Cost
+	SET MemberShip_Name = @Name, MemberShip_Duration = @Duration, MemberShip_Describe = @Goal, MemberShip_Cost = @Cost
 	WHERE MemberShip_ID = @ID
 END
 GO

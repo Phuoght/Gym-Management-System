@@ -116,7 +116,7 @@ namespace DataLayer
             }
             catch(SqlException ex)
             {
-                throw;
+                throw ex;
             }
         }
 
@@ -135,7 +135,7 @@ namespace DataLayer
             }
             catch(SqlException ex)
             {
-                throw;
+                throw ex;
             }
         }
         public int GetMemberID(string name,string phone)
