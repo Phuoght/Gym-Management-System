@@ -61,7 +61,7 @@ namespace DataLayer
         }
         public int GetQuantityEquipments()
         {
-            string sql = "SELECT COUNT(*) FROM Equipments";
+            string sql = "SELECT SUM(Equipment_Amount) FROM Equipments";
             try
             {
                 return (int)MyExcuteScalar(sql, CommandType.Text);

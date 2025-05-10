@@ -56,7 +56,14 @@ namespace Gym_Management_System
                 role = login.userRole;
                 nameReceptionist = login.name;
                 this.Show();
-                openForm(new frm_dashboard());
+                if (role == "admin")
+                {
+                    openForm(new frm_dashboard());
+                }
+                else
+                {
+                    openForm(new frm_coach());
+                }
                 UpdateUI();
             }
             else
