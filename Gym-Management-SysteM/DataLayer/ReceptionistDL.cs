@@ -75,7 +75,7 @@ namespace DataLayer
         }
         public int DeleteReceptionist(int id)
         {
-            string sql = "usp_DeleteReceptionists";
+            string sql = "usp_DeleteReceptionist";
             List<SqlParameter> parameters = new List<SqlParameter>
             {
                 new SqlParameter("@ID", id)
