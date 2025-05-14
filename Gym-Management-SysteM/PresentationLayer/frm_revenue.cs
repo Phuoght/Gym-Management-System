@@ -58,12 +58,16 @@ namespace Gym_Management_System
                 if (billings.Count == 0)
                 {
                     MessageBox.Show("Không có dữ liệu trong khoảng thời gian này !");
+                    dgvReport.DataSource = null;
+                    lbTotalRevenue.Text = "Tổng Doanh Thu: " + 0.ToString("C0", System.Globalization.CultureInfo.GetCultureInfo("vi-VN"));
+
                     return;
                 }
                 GetMembers();
                 GetReceptionists();
-                dgvReport.DataSource = billings;
                 dgvReport.AutoGenerateColumns = false;
+                dgvReport.DataSource = billings;
+                
 
                 
 
